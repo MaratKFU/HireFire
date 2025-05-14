@@ -6,6 +6,8 @@ public class AppDbContext : DbContext
 {
     public DbSet<JobSeeker> JobSeekers { get; set; }
     public DbSet<Employer> Employers { get; set; }
+    public DbSet<Resume> Resumes{ get; set; }
+    public DbSet<Vacancy> Vacancies{ get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<JobSeeker>(entity =>
@@ -100,6 +102,77 @@ public class AppDbContext : DbContext
             entity.Property(e => e.Lastname)
                   .HasColumnName("lastname")
                   .HasMaxLength(100);
+        });
+        modelBuilder.Entity<Resume>(entity =>
+        {
+            entity.ToTable("resumes");
+
+            entity.Property(e => e.JobseekerId)
+                  .HasColumnName("jobseeker_id")
+                  .HasColumnType("integer");
+
+            entity.Property(e => e.Profession)
+                  .HasColumnName("profession")
+                  .HasMaxLength(100)
+                  .IsRequired();
+
+            entity.Property(e => e.Education)
+                  .HasColumnName("education")
+                  .HasMaxLength(100)
+                  .IsRequired();
+
+            entity.Property(e => e.SoftSkills)
+                  .HasColumnName("soft_skills")
+                  .HasColumnType("text");
+
+            entity.Property(e => e.City)
+                  .HasColumnName("city")
+                  .HasMaxLength(50);
+
+            entity.Property(e => e.Description)
+                  .HasColumnName("description");
+
+            entity.Property(e => e.Salary)
+                  .HasColumnName("salary")
+                  .HasColumnType("numeric");
+
+            entity.Property(e => e.Experience)
+                  .HasColumnName("experience")
+                  .HasColumnType("integer");
+        });
+
+        modelBuilder.Entity<Vacancy>(entity =>
+        {
+            entity.ToTable("vacancies");
+
+            entity.Property(e => e.EmployerId)
+                  .HasColumnName("employer_id")
+                  .HasColumnType("integer");
+
+            entity.Property(e => e.Profession)
+                  .HasColumnName("profession")
+                  .HasMaxLength(100)
+                  .IsRequired();
+
+            entity.Property(e => e.Salary)
+                  .HasColumnName("salary")
+                  .HasColumnType("numeric");
+
+            entity.Property(e => e.Experience)
+                  .HasColumnName("experience")
+                  .HasColumnType("integer");
+
+            entity.Property(e => e.City)
+                  .HasColumnName("city")
+                  .HasMaxLength(50);
+            
+            entity.Property(e => e.CompanyName)
+                  .HasColumnName("education")
+                  .HasMaxLength(100)
+                  .IsRequired();
+
+            entity.Property(e => e.Description)
+                  .HasColumnName("description");
         });
     }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

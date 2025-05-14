@@ -38,7 +38,9 @@ namespace HireFire
             Back_Button = new RoundedButton1();
             Finish_Button = new RoundedButton1();
             roundedRectangle1 = new RoundedRectangle();
+            pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)ProfilePictureBox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // ProfilePictureBox
@@ -139,11 +141,25 @@ namespace HireFire
             roundedRectangle1.TabIndex = 64;
             roundedRectangle1.Text = "roundedRectangle1";
             // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.White;
+            pictureBox1.Image = Properties.Resources.Main_Icon;
+            pictureBox1.Location = new Point(449, 86);
+            pictureBox1.MaximumSize = new Size(70, 70);
+            pictureBox1.MinimumSize = new Size(70, 70);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(70, 70);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 73;
+            pictureBox1.TabStop = false;
+            // 
             // EmployerRegister2_Page
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(229, 229, 229);
+            Controls.Add(pictureBox1);
             Controls.Add(ProfilePictureBox);
             Controls.Add(AddPhoto_Button);
             Controls.Add(label5);
@@ -156,6 +172,7 @@ namespace HireFire
             Size = new Size(960, 540);
             Load += EmployerRegister2_Page_Load;
             ((System.ComponentModel.ISupportInitialize)ProfilePictureBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -170,5 +187,6 @@ namespace HireFire
         private RoundedButton1 Back_Button;
         private RoundedButton1 Finish_Button;
         private RoundedRectangle roundedRectangle1;
+        private PictureBox pictureBox1;
     }
 }

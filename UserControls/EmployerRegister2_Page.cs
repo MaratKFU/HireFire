@@ -58,7 +58,7 @@ namespace HireFire
                         MessageBox.Show("Размер изображения не должен превышать 5 МБ");
                         return;
                     }
-
+                    
                     _account.PhotoData = memoryStream.ToArray();
                 }
 

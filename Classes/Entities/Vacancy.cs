@@ -11,15 +11,15 @@ namespace HireFire.Classes.Entities
 {
     public class Vacancy
     {
-        public uint employer_id;
-        [Key] // Указывает, что это первичный ключ
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)] // Автоинкремент
-        public uint vacancy_id;
-        public uint experience;
-        public string profession;
-        public decimal salary;
-        public string city;
-        public string company_name;
-        public string company_description;
+        [Column("id")]
+        [Key]
+        public int Id { get; set; }
+        public int EmployerId { get; set; }
+        public int Experience { get; set; }
+        public string Profession { get; set; }
+        public decimal Salary { get; set; }
+        public string City { get; set; }
+        public string CompanyName { get; set; }
+        public string Description { get; set; }
     }
 }

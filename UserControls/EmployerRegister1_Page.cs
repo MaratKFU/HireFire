@@ -38,6 +38,16 @@ namespace HireFire
             bool isPasswordValid = PasswordTextBox.ForeColor == Color.Black && !string.IsNullOrEmpty(PasswordTextBox.Text);
             bool isPasswordMatch = PasswordTextBox.Text == RepeatPasswordTextBox.Text;
 
+            var _context = new AppDbContext();
+            var jobSeekerAlreadyExists = _context.JobSeekers.FirstOrDefault(e => e.Login == LoginTextBox.Text) != null;
+            var employerAlreadyExists = _context.Employers.FirstOrDefault(e => e.Login == LoginTextBox.Text) != null;
+
+            if (jobSeekerAlreadyExists || employerAlreadyExists)
+            {
+                MessageBox.Show("Пользователь с таким логином уже существует!");
+                return;
+            }
+
             if (!isMailValid || !isLoginValid || !isPasswordValid)
             {
                 MessageBox.Show("Заполните все обязательные поля!");

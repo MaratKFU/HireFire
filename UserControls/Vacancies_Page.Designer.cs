@@ -30,12 +30,12 @@
         {
             SuspendLayout();
             // 
-            // CreateVacancy_Page
+            // Vacancies_Page
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(229, 229, 229);
-            Name = "CreateVacancy_Page";
+            Name = "Vacancies_Page";
             Size = new Size(960, 540);
             ResumeLayout(false);
         }
