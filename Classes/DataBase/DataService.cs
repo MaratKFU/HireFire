@@ -19,7 +19,9 @@ namespace HireFire.Classes.DataBase
 
         public JobSeeker GetJobSeeker(int id)
         {
-            return _context.JobSeekers.Find(id);
+            return _context.JobSeekers
+                    .Include(js => js.Resumes)
+                    .FirstOrDefault(js => js.Id == id);
         }
 
         // Аналогичные методы для Employer
@@ -32,12 +34,26 @@ namespace HireFire.Classes.DataBase
 
             _context.SaveChanges();
         }
-
         public Employer GetEmployer(int id)
         {
-            return _context.Employers.Find(id);
+            return _context.Employers
+                    .Include(js => js.Vacancies)
+                    .FirstOrDefault(js => js.Id == id);
         }
 
+        public void SaveResume(Resume resume)
+        {
+            if (resume.Id == 0)
+                _context.Resumes.Add(resume);
+            else
+                _context.Entry(resume).State = EntityState.Modified;
+
+            _context.SaveChanges();
+        }
+        public Resume GetResume(int id)
+        {
+            return _context.Resumes.Find(id);
+        }
         public void Dispose() => _context?.Dispose();
     }
 }

@@ -63,16 +63,6 @@ namespace HireFire.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Icon1 {
-            get {
-                object obj = ResourceManager.GetObject("Icon1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Main_Icon {
             get {
                 object obj = ResourceManager.GetObject("Main_Icon", resourceCulture);
@@ -83,9 +73,9 @@ namespace HireFire.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Messages_Icon {
+        internal static System.Drawing.Bitmap Messages_Icon_Active {
             get {
-                object obj = ResourceManager.GetObject("Messages_Icon", resourceCulture);
+                object obj = ResourceManager.GetObject("Messages_Icon_Active", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +83,49 @@ namespace HireFire.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Profile_Icon {
+        internal static System.Drawing.Bitmap Messages_Icon_Passive {
             get {
-                object obj = ResourceManager.GetObject("Profile_Icon", resourceCulture);
+                object obj = ResourceManager.GetObject("Messages_Icon_Passive", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Profile_Icon_Active {
+            get {
+                object obj = ResourceManager.GetObject("Profile_Icon_Active", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Profile_Icon_Passive {
+            get {
+                object obj = ResourceManager.GetObject("Profile_Icon_Passive", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Search_Icon_Active {
+            get {
+                object obj = ResourceManager.GetObject("Search_Icon_Active", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Search_Icon_Passive {
+            get {
+                object obj = ResourceManager.GetObject("Search_Icon_Passive", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -28,8 +28,7 @@ public class RoundedPictureBox : PictureBox
     protected override void OnPaint(PaintEventArgs e)
     {
         // Не вызываем base.OnPaint()!
-
-        if (Image == null)
+        if (CornerRadius == 0 || Image == null)
         {
             base.OnPaint(e);
             return;

@@ -2,6 +2,7 @@
 using HireFire.Classes.DataBase;
 using HireFire.Classes.Entities;
 using HireFire.UserControls;
+using Microsoft.EntityFrameworkCore;
 using System.Security.Principal;
 
 namespace HireFire
@@ -40,32 +41,39 @@ namespace HireFire
                 using (var context = new AppDbContext())
                 {
                     var authService = new AuthService(context);
+                    var dataService = new DataService();
 
-                    if (authService.AuthenticateEmployer(login, password) != null)
+                    var employer = authService.AuthenticateEmployer(login, password);
+                    if (employer != null)
                     {
                         if (!_isEmployer)
                         {
                             MessageBox.Show("Вы не являетесь соискателем!");
                             return;
                         }
+                        
                         Controls.Clear();
-                        var employer_register_control = new Dialogs_Page();
+                        var employer_register_control = new Vacancies_Page(dataService.GetEmployer(employer.Id));
                         employer_register_control.Dock = DockStyle.Fill;
                         Controls.Add(employer_register_control);
+                        
                         return;
                     }
 
-                    if (authService.AuthenticateJobSeeker(login, password) != null)
+                    var jobSeeker = authService.AuthenticateJobSeeker(login, password);
+                    if (jobSeeker != null)
                     {
                         if (_isEmployer)
                         {
                             MessageBox.Show("Вы не являетесь работодателем!");
                             return;
                         }
+                        
                         Controls.Clear();
-                        var employer_register_control = new Dialogs_Page();
+                        var employer_register_control = new Resumes_Page(dataService.GetJobSeeker(jobSeeker.Id));
                         employer_register_control.Dock = DockStyle.Fill;
                         Controls.Add(employer_register_control);
+
                         return;
                     }
 

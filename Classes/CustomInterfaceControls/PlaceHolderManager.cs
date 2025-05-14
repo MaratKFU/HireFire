@@ -2,7 +2,7 @@
 {
     public static class PlaceholderManager
     {
-        public static void AddPlaceholder(this TextBox tb, string placeholderText, bool IsPassword = false)
+        /*public static void AddPlaceholder(this TextBox tb, string placeholderText, bool IsPassword = false)
         {
             tb.ForeColor = Color.FromArgb(161, 148, 148);
 
@@ -33,8 +33,8 @@
                 }
             };
 
-        }
-        public static void AddPlaceholder(this ComboBox cb, string placeholderText)
+        }*/
+        /*public static void AddPlaceholder(this ComboBox cb, string placeholderText)
         {
             cb.ForeColor = Color.FromArgb(161, 148, 148);
 
@@ -57,6 +57,6 @@
                 }
             };
 
-        }
+        }*/
     }
 }

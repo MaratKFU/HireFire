@@ -129,7 +129,6 @@ namespace HireFire
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources.Main_Icon;
             pictureBox1.Location = new Point(134, 19);
             pictureBox1.MaximumSize = new Size(1000, 1000);
             pictureBox1.Name = "pictureBox1";

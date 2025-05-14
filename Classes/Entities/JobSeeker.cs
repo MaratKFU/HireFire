@@ -10,12 +10,10 @@ namespace HireFire.Classes.Entities
 {
     public class JobSeeker : User
     {
-        //[Key] // Указывает, что это первичный ключ
-        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)] // Автоинкремент
-        //public int jobseeker_id { get; set; }
-        //public List<Resume> Resumes { get; set; } = new();
+        public virtual ICollection<Resume> Resumes { get; set; }
         public JobSeeker()
         {
+            Resumes = [];
             Gender = "M";
         }
     }

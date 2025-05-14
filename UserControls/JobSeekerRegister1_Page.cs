@@ -3,6 +3,8 @@ using HireFire.Classes.CustomInterfaceControls;
 using HireFire.Classes.Entities;
 using System.ComponentModel.DataAnnotations;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualBasic.Logging;
 
 namespace HireFire
 {
@@ -30,11 +32,21 @@ namespace HireFire
 
         private void Next_Button_Click(object sender, EventArgs e)
         {
+
             bool isMailValid = MailTextBox.ForeColor == Color.Black && !string.IsNullOrEmpty(MailTextBox.Text);
-            bool isLoginValid = LoginTextBox.ForeColor == Color.Black && !string.IsNullOrEmpty(LoginTextBox.Text);
+            bool isLoginValid = (LoginTextBox.ForeColor == Color.Black && !string.IsNullOrEmpty(LoginTextBox.Text));
             bool isPasswordValid = PasswordTextBox.ForeColor == Color.Black && !string.IsNullOrEmpty(PasswordTextBox.Text);
             bool isPasswordMatch = PasswordTextBox.Text == RepeatPasswordTextBox.Text;
 
+            var _context = new AppDbContext();
+            var jobSeekerAlreadyExists = _context.JobSeekers.FirstOrDefault(e => e.Login == LoginTextBox.Text) != null;
+            var employerAlreadyExists = _context.Employers.FirstOrDefault(e => e.Login == LoginTextBox.Text) != null;
+            
+            if (jobSeekerAlreadyExists || employerAlreadyExists)
+            {
+                MessageBox.Show("Пользователь с таким логином уже существует!");
+                return;
+            }
             if (!isMailValid || !isLoginValid || !isPasswordValid)
             {
                 MessageBox.Show("Заполните все обязательные поля!");

@@ -1,24 +1,75 @@
-﻿/*public static class ControlExtensions
+﻿using System.Text;
+
+public static class ControlExtensions
 {
-    /// <summary>
-    /// Обрабатывает клики мыши вне указанного контрола.
-    /// </summary>
-    /// <param name="control">Контрол, для которого отслеживаются клики снаружи.</param>
-    /// <param name="onClickOutside">Действие при клике вне контрола.</param>
-    public static void HandleClickOutside(this Control control, Action onClickOutside)
+    public static void AddPlaceholder(this TextBox tb, string placeholderText, bool IsPassword = false)
     {
-        if (control.Parent == null)
-            throw new InvalidOperationException("Контрол должен быть добавлен в родительский контейнер (например, Form).");
+        tb.ForeColor = Color.FromArgb(161, 148, 148);
 
-        // Подписываемся на клик по родительской форме/контейнеру
-        control.Parent.Click += (sender, e) =>
+        tb.Text = placeholderText;
+
+        tb.Enter += (s, e) =>
         {
-            Point clickPos = control.Parent.PointToClient(Control.MousePosition);
-
-            if (!control.Bounds.Contains(clickPos))
+            if (tb.Text == placeholderText && tb.ForeColor == Color.FromArgb(161, 148, 148))
             {
-                onClickOutside.Invoke();
+                tb.Text = string.Empty;
+                tb.ForeColor = Color.Black;
+                if (IsPassword)
+                {
+                    tb.PasswordChar = '•';
+                }
+            }
+        };
+        tb.Leave += (s, e) =>
+        {
+            if (tb.Text == "")
+            {
+                tb.ForeColor = Color.FromArgb(161, 148, 148);
+                tb.Text = placeholderText;
+                if (IsPassword)
+                {
+                    tb.PasswordChar = '\0';
+                }
             }
         };
     }
-}*/
+
+    public static string WrapText(this string text, Font font, int maxWidth)
+    {
+        if (string.IsNullOrEmpty(text)) return text;
+
+        var words = text.Split(' ');
+        var result = new StringBuilder();
+        var currentLine = new StringBuilder();
+
+        using (var graphics = Graphics.FromHwnd(IntPtr.Zero))
+        {
+            foreach (var word in words)
+            {
+                var testLine = currentLine.Length > 0
+                    ? currentLine + " " + word
+                    : word;
+
+                var size = graphics.MeasureString(testLine, font);
+
+                if (size.Width > maxWidth)
+                {
+                    result.AppendLine(currentLine.ToString());
+                    currentLine.Clear();
+                    currentLine.Append(word);
+                }
+                else
+                {
+                    currentLine.Append(currentLine.Length > 0 ? " " + word : word);
+                }
+            }
+            result.Append(currentLine);
+        }
+        return result.ToString();
+    }
+    public static void SetWrappedText(this Label label, string text)
+    {
+        var maxWidth = label.Width - 5;
+        label.Text = text.WrapText(label.Font, maxWidth);
+    }
+}

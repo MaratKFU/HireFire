@@ -11,11 +11,16 @@ using HireFire.Classes.Entities;
 
 namespace HireFire.UserControls
 {
-    public partial class SearchVacancies_Page: UserControl
+    public partial class SearchVacancies_Page : UserControl
     {
         public SearchVacancies_Page()
         {
             InitializeComponent();
+        }
+
+        private void SearchVacancies_Page_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
