@@ -31,13 +31,13 @@ namespace HireFire
         private void InitializeComponent()
         {
             pictureBox1 = new PictureBox();
-            Back_Button = new RoundedButton1();
-            Finish_Button = new RoundedButton1();
+            Back_Button = new SimpleRoundedButton();
+            Finish_Button = new SimpleRoundedButton();
             roundedRectangle1 = new RoundedRectangle();
             label1 = new Label();
             label2 = new Label();
             label5 = new Label();
-            AddPhoto_Button = new RoundedButton1();
+            AddPhoto_Button = new SimpleRoundedButton();
             ProfilePictureBox = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ProfilePictureBox).BeginInit();
@@ -179,13 +179,13 @@ namespace HireFire
 
         #endregion
         private PictureBox pictureBox1;
-        private RoundedButton1 Back_Button;
-        private RoundedButton1 Finish_Button;
+        private SimpleRoundedButton Back_Button;
+        private SimpleRoundedButton Finish_Button;
         private RoundedRectangle roundedRectangle1;
         private Label label1;
         private Label label2;
         private Label label5;
-        private RoundedButton1 AddPhoto_Button;
+        private SimpleRoundedButton AddPhoto_Button;
         private PictureBox ProfilePictureBox;
     }
 }

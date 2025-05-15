@@ -3,7 +3,7 @@ using System.Drawing.Drawing2D;
 
 
 namespace HireFire.Classes.CustomInterfaceControls;
-public class RoundedRectangle : Control
+public class RoundedRectangle : Panel
 {
     protected Graphics graph;
     protected Rectangle rect;
@@ -43,6 +43,7 @@ public class RoundedRectangle : Control
         Size = new Size(236, 63);
         BackColor = Color.FromArgb(242, 85, 26);
         ForeColor = Color.White;
+        rectPath = Drawer.RoundedRectangle(rect, rounding);
     }
 
     protected override void OnPaint(PaintEventArgs e)

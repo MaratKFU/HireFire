@@ -10,7 +10,7 @@ public struct Coordinates(float X, float Y)
     }
 }
 
-public class RoundedButton2: RoundedRectangleWithOutline
+public class OutlinedRoundedButton: RoundedRectangleWithOutline
 {
     protected Coordinates textOffset = new Coordinates(20, 20);
     [Description("Отступ текста (X)")]
@@ -56,7 +56,7 @@ public class RoundedButton2: RoundedRectangleWithOutline
         set {mousePressed = value; Refresh();}
     }
 
-    public RoundedButton2()
+    public OutlinedRoundedButton()
     {
         BackColor = Color.FromArgb(255, 255, 255);
         ForeColor = Color.White;

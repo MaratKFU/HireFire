@@ -11,6 +11,8 @@ namespace HireFire
         JobSeeker _account;
         public JobSeekerRegister2_Page(JobSeeker account)
         {
+            DoubleBuffered = true;
+
             InitializeComponent();
             _account = account;
         }

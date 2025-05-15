@@ -1,6 +1,8 @@
-﻿using System.Text;
-
-public static class ControlExtensions
+﻿using HireFire.Classes.DataBase;
+using System.Text;
+using System.Windows.Forms;
+namespace HireFire.Classes.CustomInterfaceControls;
+public static class ControlExtentions
 {
     public static void AddPlaceholder(this TextBox tb, string placeholderText, bool IsPassword = false)
     {

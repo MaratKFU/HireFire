@@ -8,6 +8,7 @@ namespace HireFire.Classes.Entities
         public virtual ICollection<Vacancy> Vacancies { get; set; }
         public Employer()
         {
+            DialogsIds = [];
             Vacancies = [];
             Gender = "M";
         }

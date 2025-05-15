@@ -20,6 +20,7 @@ public class RoundedPictureBox : PictureBox
 
     public RoundedPictureBox()
     {
+
         this.DoubleBuffered = true;
         this.SizeMode = PictureBoxSizeMode.Zoom;
         this.BackColor = Color.Transparent;

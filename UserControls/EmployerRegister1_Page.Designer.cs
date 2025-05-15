@@ -39,8 +39,8 @@ namespace HireFire
             PasswordTextBox = new TextBox();
             roundedRectangleWithOutline5 = new RoundedRectangleWithOutline();
             RepeatPasswordTextBox = new TextBox();
-            Next_Button = new RoundedButton1();
-            Previous_Button = new RoundedButton1();
+            Next_Button = new SimpleRoundedButton();
+            Previous_Button = new SimpleRoundedButton();
             label1 = new Label();
             Icon = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)Icon).BeginInit();
@@ -245,8 +245,8 @@ namespace HireFire
         private TextBox PasswordTextBox;
         private RoundedRectangleWithOutline roundedRectangleWithOutline5;
         private TextBox RepeatPasswordTextBox;
-        private RoundedButton1 Next_Button;
-        private RoundedButton1 Previous_Button;
+        private SimpleRoundedButton Next_Button;
+        private SimpleRoundedButton Previous_Button;
         private Label label1;
         private PictureBox Icon;
     }
