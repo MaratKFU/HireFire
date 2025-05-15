@@ -32,8 +32,8 @@ namespace HireFire
         {
             pictureBox1 = new PictureBox();
             label1 = new Label();
-            Back_Button = new RoundedButton1();
-            Enter_Button = new RoundedButton1();
+            Back_Button = new SimpleRoundedButton();
+            Enter_Button = new SimpleRoundedButton();
             PasswordTextBox = new TextBox();
             LoginTextBox = new TextBox();
             roundedRectangleWithOutline4 = new RoundedRectangleWithOutline();
@@ -181,8 +181,8 @@ namespace HireFire
 
         private PictureBox pictureBox1;
         private Label label1;
-        private RoundedButton1 Back_Button;
-        private RoundedButton1 Enter_Button;
+        private SimpleRoundedButton Back_Button;
+        private SimpleRoundedButton Enter_Button;
         private TextBox PasswordTextBox;
         private TextBox LoginTextBox;
         private RoundedRectangleWithOutline roundedRectangleWithOutline4;

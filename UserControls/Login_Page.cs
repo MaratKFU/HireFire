@@ -12,6 +12,8 @@ namespace HireFire
         private readonly bool _isEmployer;
         public Login_Page(bool IsEmployer)
         {
+            DoubleBuffered = true;
+
             InitializeComponent();
             _isEmployer = IsEmployer;
             LoginTextBox.AddPlaceholder("Введите логин");

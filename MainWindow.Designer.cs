@@ -30,6 +30,7 @@ namespace HireFire
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             Greetings01 = new Label();
             Greetings02 = new Label();
             Greetings11 = new Label();
@@ -39,7 +40,7 @@ namespace HireFire
             Greetings32 = new Label();
             Greetings31 = new Label();
             pictureBox1 = new PictureBox();
-            Acception1 = new RoundedButton1();
+            Acception1 = new SimpleRoundedButton();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -129,6 +130,7 @@ namespace HireFire
             // 
             // pictureBox1
             // 
+            pictureBox1.Image = Properties.Resources.Main_Icon;
             pictureBox1.Location = new Point(134, 19);
             pictureBox1.MaximumSize = new Size(1000, 1000);
             pictureBox1.Name = "pictureBox1";
@@ -156,7 +158,7 @@ namespace HireFire
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(229, 229, 229);
-            ClientSize = new Size(942, 493);
+            ClientSize = new Size(942, 513);
             Controls.Add(pictureBox1);
             Controls.Add(Acception1);
             Controls.Add(Greetings32);
@@ -167,8 +169,9 @@ namespace HireFire
             Controls.Add(Greetings11);
             Controls.Add(Greetings02);
             Controls.Add(Greetings01);
-            MaximumSize = new Size(960, 540);
-            MinimumSize = new Size(960, 540);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximumSize = new Size(960, 560);
+            MinimumSize = new Size(960, 560);
             Name = "MainWindow";
             Text = "HireFire";
             Load += MainWindow_Load;
@@ -188,6 +191,6 @@ namespace HireFire
         private Label Greetings32;
         private Label Greetings31;
         private PictureBox pictureBox1;
-        private RoundedButton1 Acception1;
+        private SimpleRoundedButton Acception1;
     }
 }

@@ -31,8 +31,8 @@ namespace HireFire
         /// </summary>
         private void InitializeComponent()
         {
-            Btn_SexFemale = new RoundedButton2();
-            Btn_SexMale = new RoundedButton2();
+            Btn_SexFemale = new OutlinedRoundedButton();
+            Btn_SexMale = new OutlinedRoundedButton();
             label3 = new Label();
             label2 = new Label();
             LastnameTextBox = new TextBox();
@@ -41,8 +41,8 @@ namespace HireFire
             roundedRectangleWithOutline1 = new RoundedRectangleWithOutline();
             pictureBox1 = new PictureBox();
             label1 = new Label();
-            Previous_Button = new RoundedButton1();
-            Next_Button = new RoundedButton1();
+            Previous_Button = new SimpleRoundedButton();
+            Next_Button = new SimpleRoundedButton();
             CityTextBox = new TextBox();
             roundedRectangleWithOutline3 = new RoundedRectangleWithOutline();
             SurnameTextBox = new TextBox();
@@ -342,8 +342,8 @@ namespace HireFire
 
         #endregion
 
-        private RoundedButton2 Btn_SexFemale;
-        private RoundedButton2 Btn_SexMale;
+        private OutlinedRoundedButton Btn_SexFemale;
+        private OutlinedRoundedButton Btn_SexMale;
         private Label label3;
         private Label label2;
         private TextBox LastnameTextBox;
@@ -352,8 +352,8 @@ namespace HireFire
         private RoundedRectangleWithOutline roundedRectangleWithOutline1;
         private PictureBox pictureBox1;
         private Label label1;
-        private RoundedButton1 Previous_Button;
-        private RoundedButton1 Next_Button;
+        private SimpleRoundedButton Previous_Button;
+        private SimpleRoundedButton Next_Button;
         private TextBox CityTextBox;
         private RoundedRectangleWithOutline roundedRectangleWithOutline3;
         private TextBox SurnameTextBox;

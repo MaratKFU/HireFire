@@ -29,10 +29,9 @@
         private void InitializeComponent()
         {
             roundedPictureBox5 = new RoundedPictureBox();
-            CreateButton = new HireFire.Classes.CustomInterfaceControls.RoundedButton1();
+            CreateButton = new HireFire.Classes.CustomInterfaceControls.SimpleRoundedButton();
             DescriptionTextBox = new TextBox();
             roundedRectangleWithOutline7 = new HireFire.Classes.CustomInterfaceControls.RoundedRectangleWithOutline();
-            CityTextBox = new TextBox();
             roundedRectangleWithOutline6 = new HireFire.Classes.CustomInterfaceControls.RoundedRectangleWithOutline();
             ExperienceTextBox = new TextBox();
             roundedRectangleWithOutline5 = new HireFire.Classes.CustomInterfaceControls.RoundedRectangleWithOutline();
@@ -40,21 +39,24 @@
             roundedRectangleWithOutline4 = new HireFire.Classes.CustomInterfaceControls.RoundedRectangleWithOutline();
             SalaryTextBox = new TextBox();
             roundedRectangleWithOutline3 = new HireFire.Classes.CustomInterfaceControls.RoundedRectangleWithOutline();
-            ProfessionTextBox = new TextBox();
             roundedRectangleWithOutline2 = new HireFire.Classes.CustomInterfaceControls.RoundedRectangleWithOutline();
             label1 = new Label();
             roundedRectangle3 = new HireFire.Classes.CustomInterfaceControls.RoundedRectangle();
             EducationTextBox = new TextBox();
             roundedRectangleWithOutline1 = new HireFire.Classes.CustomInterfaceControls.RoundedRectangleWithOutline();
-            roundedPictureBox2 = new RoundedPictureBox();
-            roundedPictureBox4 = new RoundedPictureBox();
+            SearchPictureBox = new RoundedPictureBox();
+            DialogsPictureBox = new RoundedPictureBox();
             roundedPictureBox3 = new RoundedPictureBox();
-            roundedRectangle2 = new HireFire.Classes.CustomInterfaceControls.RoundedRectangle();
-            roundedRectangle4 = new HireFire.Classes.CustomInterfaceControls.RoundedRectangle();
+            SearchPanel = new HireFire.Classes.CustomInterfaceControls.RoundedRectangle();
+            DialogsPanel = new HireFire.Classes.CustomInterfaceControls.RoundedRectangle();
             roundedRectangle5 = new HireFire.Classes.CustomInterfaceControls.RoundedRectangle();
+            BackButton = new HireFire.Classes.CustomInterfaceControls.SimpleRoundedButton();
+            ProfessionsComboBox = new ComboBox();
+            CitiesComboBox = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)roundedPictureBox5).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)roundedPictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)roundedPictureBox4).BeginInit();
+            roundedRectangleWithOutline6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)SearchPictureBox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)DialogsPictureBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)roundedPictureBox3).BeginInit();
             SuspendLayout();
             // 
@@ -111,19 +113,10 @@
             roundedRectangleWithOutline7.TabIndex = 87;
             roundedRectangleWithOutline7.Text = "roundedRectangleWithOutline7";
             // 
-            // CityTextBox
-            // 
-            CityTextBox.BackColor = Color.FromArgb(229, 229, 229);
-            CityTextBox.BorderStyle = BorderStyle.None;
-            CityTextBox.Font = new Font("Segoe UI", 7F, FontStyle.Bold);
-            CityTextBox.Location = new Point(596, 201);
-            CityTextBox.Name = "CityTextBox";
-            CityTextBox.Size = new Size(112, 16);
-            CityTextBox.TabIndex = 86;
-            // 
             // roundedRectangleWithOutline6
             // 
             roundedRectangleWithOutline6.BackColor = Color.FromArgb(229, 229, 229);
+            roundedRectangleWithOutline6.Controls.Add(CitiesComboBox);
             roundedRectangleWithOutline6.CornerColor = Color.White;
             roundedRectangleWithOutline6.ForeColor = Color.FromArgb(161, 148, 148);
             roundedRectangleWithOutline6.Location = new Point(589, 194);
@@ -207,16 +200,6 @@
             roundedRectangleWithOutline3.TabIndex = 79;
             roundedRectangleWithOutline3.Text = "roundedRectangleWithOutline3";
             // 
-            // ProfessionTextBox
-            // 
-            ProfessionTextBox.BackColor = Color.FromArgb(229, 229, 229);
-            ProfessionTextBox.BorderStyle = BorderStyle.None;
-            ProfessionTextBox.Font = new Font("Segoe UI", 7F, FontStyle.Bold);
-            ProfessionTextBox.Location = new Point(333, 151);
-            ProfessionTextBox.Name = "ProfessionTextBox";
-            ProfessionTextBox.Size = new Size(375, 16);
-            ProfessionTextBox.TabIndex = 78;
-            // 
             // roundedRectangleWithOutline2
             // 
             roundedRectangleWithOutline2.BackColor = Color.FromArgb(229, 229, 229);
@@ -227,7 +210,7 @@
             roundedRectangleWithOutline2.OutlineColor = Color.Black;
             roundedRectangleWithOutline2.OutlineWidth = 1;
             roundedRectangleWithOutline2.Rounding = 15;
-            roundedRectangleWithOutline2.Size = new Size(390, 30);
+            roundedRectangleWithOutline2.Size = new Size(390, 35);
             roundedRectangleWithOutline2.TabIndex = 77;
             roundedRectangleWithOutline2.Text = "roundedRectangleWithOutline2";
             // 
@@ -278,37 +261,39 @@
             roundedRectangleWithOutline1.TabIndex = 90;
             roundedRectangleWithOutline1.Text = "roundedRectangleWithOutline1";
             // 
-            // roundedPictureBox2
+            // SearchPictureBox
             // 
-            roundedPictureBox2.BackColor = Color.FromArgb(161, 148, 148);
-            roundedPictureBox2.BorderColor = Color.FromArgb(0, 0, 0, 0);
-            roundedPictureBox2.BorderWidth = 200F;
-            roundedPictureBox2.CornerRadius = 100;
-            roundedPictureBox2.Image = Properties.Resources.Search_Icon_Active;
-            roundedPictureBox2.Location = new Point(14, 159);
-            roundedPictureBox2.Name = "roundedPictureBox2";
-            roundedPictureBox2.Size = new Size(50, 50);
-            roundedPictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            roundedPictureBox2.TabIndex = 97;
-            roundedPictureBox2.TabStop = false;
+            SearchPictureBox.BackColor = Color.White;
+            SearchPictureBox.BorderColor = Color.FromArgb(0, 0, 0, 0);
+            SearchPictureBox.BorderWidth = 200F;
+            SearchPictureBox.CornerRadius = 100;
+            SearchPictureBox.Image = Properties.Resources.Search_Icon_Passive;
+            SearchPictureBox.Location = new Point(14, 159);
+            SearchPictureBox.Name = "SearchPictureBox";
+            SearchPictureBox.Size = new Size(50, 50);
+            SearchPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            SearchPictureBox.TabIndex = 97;
+            SearchPictureBox.TabStop = false;
+            SearchPictureBox.Click += SearchButton_Click;
             // 
-            // roundedPictureBox4
+            // DialogsPictureBox
             // 
-            roundedPictureBox4.BackColor = Color.White;
-            roundedPictureBox4.BorderColor = Color.FromArgb(0, 0, 0, 0);
-            roundedPictureBox4.BorderWidth = 200F;
-            roundedPictureBox4.CornerRadius = 100;
-            roundedPictureBox4.Image = Properties.Resources.Messages_Icon_Passive;
-            roundedPictureBox4.Location = new Point(14, 259);
-            roundedPictureBox4.Name = "roundedPictureBox4";
-            roundedPictureBox4.Size = new Size(50, 50);
-            roundedPictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
-            roundedPictureBox4.TabIndex = 94;
-            roundedPictureBox4.TabStop = false;
+            DialogsPictureBox.BackColor = Color.White;
+            DialogsPictureBox.BorderColor = Color.FromArgb(0, 0, 0, 0);
+            DialogsPictureBox.BorderWidth = 200F;
+            DialogsPictureBox.CornerRadius = 100;
+            DialogsPictureBox.Image = Properties.Resources.Messages_Icon_Passive;
+            DialogsPictureBox.Location = new Point(14, 259);
+            DialogsPictureBox.Name = "DialogsPictureBox";
+            DialogsPictureBox.Size = new Size(50, 50);
+            DialogsPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            DialogsPictureBox.TabIndex = 94;
+            DialogsPictureBox.TabStop = false;
+            DialogsPictureBox.Click += DialogsButton_Click;
             // 
             // roundedPictureBox3
             // 
-            roundedPictureBox3.BackColor = Color.White;
+            roundedPictureBox3.BackColor = Color.FromArgb(161, 148, 148);
             roundedPictureBox3.BorderColor = Color.FromArgb(0, 0, 0, 0);
             roundedPictureBox3.BorderWidth = 200F;
             roundedPictureBox3.CornerRadius = 100;
@@ -320,33 +305,35 @@
             roundedPictureBox3.TabIndex = 93;
             roundedPictureBox3.TabStop = false;
             // 
-            // roundedRectangle2
+            // SearchPanel
             // 
-            roundedRectangle2.BackColor = Color.FromArgb(161, 148, 148);
-            roundedRectangle2.CornerColor = Color.FromArgb(229, 229, 229);
-            roundedRectangle2.ForeColor = Color.White;
-            roundedRectangle2.Location = new Point(-20, 150);
-            roundedRectangle2.Name = "roundedRectangle2";
-            roundedRectangle2.Rounding = 50;
-            roundedRectangle2.Size = new Size(100, 67);
-            roundedRectangle2.TabIndex = 92;
-            roundedRectangle2.Text = "roundedRectangle2";
+            SearchPanel.BackColor = Color.White;
+            SearchPanel.CornerColor = Color.FromArgb(229, 229, 229);
+            SearchPanel.ForeColor = Color.White;
+            SearchPanel.Location = new Point(-20, 150);
+            SearchPanel.Name = "SearchPanel";
+            SearchPanel.Rounding = 50;
+            SearchPanel.Size = new Size(100, 67);
+            SearchPanel.TabIndex = 92;
+            SearchPanel.Text = "roundedRectangle2";
+            SearchPanel.Click += SearchButton_Click;
             // 
-            // roundedRectangle4
+            // DialogsPanel
             // 
-            roundedRectangle4.BackColor = Color.White;
-            roundedRectangle4.CornerColor = Color.FromArgb(229, 229, 229);
-            roundedRectangle4.ForeColor = Color.White;
-            roundedRectangle4.Location = new Point(-20, 250);
-            roundedRectangle4.Name = "roundedRectangle4";
-            roundedRectangle4.Rounding = 50;
-            roundedRectangle4.Size = new Size(100, 67);
-            roundedRectangle4.TabIndex = 95;
-            roundedRectangle4.Text = "roundedRectangle4";
+            DialogsPanel.BackColor = Color.White;
+            DialogsPanel.CornerColor = Color.FromArgb(229, 229, 229);
+            DialogsPanel.ForeColor = Color.White;
+            DialogsPanel.Location = new Point(-20, 250);
+            DialogsPanel.Name = "DialogsPanel";
+            DialogsPanel.Rounding = 50;
+            DialogsPanel.Size = new Size(100, 67);
+            DialogsPanel.TabIndex = 95;
+            DialogsPanel.Text = "roundedRectangle4";
+            DialogsPanel.Click += DialogsButton_Click;
             // 
             // roundedRectangle5
             // 
-            roundedRectangle5.BackColor = Color.White;
+            roundedRectangle5.BackColor = Color.FromArgb(161, 148, 148);
             roundedRectangle5.CornerColor = Color.FromArgb(229, 229, 229);
             roundedRectangle5.ForeColor = Color.White;
             roundedRectangle5.Location = new Point(-20, 350);
@@ -356,23 +343,61 @@
             roundedRectangle5.TabIndex = 96;
             roundedRectangle5.Text = "roundedRectangle5";
             // 
+            // BackButton
+            // 
+            BackButton.BackColor = Color.FromArgb(255, 234, 226);
+            BackButton.CornerColor = Color.White;
+            BackButton.Font = new Font("Montserrat", 10F, FontStyle.Bold);
+            BackButton.ForeColor = Color.FromArgb(242, 85, 26);
+            BackButton.Location = new Point(326, 441);
+            BackButton.Name = "BackButton";
+            BackButton.Rounding = 30;
+            BackButton.Size = new Size(116, 38);
+            BackButton.TabIndex = 98;
+            BackButton.Text = "Отмена";
+            BackButton.Click += BackButton_Click;
+            // 
+            // ProfessionsComboBox
+            // 
+            ProfessionsComboBox.BackColor = Color.FromArgb(229, 229, 229);
+            ProfessionsComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            ProfessionsComboBox.FlatStyle = FlatStyle.Flat;
+            ProfessionsComboBox.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            ProfessionsComboBox.FormattingEnabled = true;
+            ProfessionsComboBox.Location = new Point(333, 148);
+            ProfessionsComboBox.Name = "ProfessionsComboBox";
+            ProfessionsComboBox.Size = new Size(375, 28);
+            ProfessionsComboBox.TabIndex = 99;
+            // 
+            // CitiesComboBox
+            // 
+            CitiesComboBox.BackColor = Color.FromArgb(229, 229, 229);
+            CitiesComboBox.FlatStyle = FlatStyle.Flat;
+            CitiesComboBox.Font = new Font("Montserrat", 6F, FontStyle.Bold);
+            CitiesComboBox.FormattingEnabled = true;
+            CitiesComboBox.Location = new Point(3, 3);
+            CitiesComboBox.Name = "CitiesComboBox";
+            CitiesComboBox.Size = new Size(118, 24);
+            CitiesComboBox.TabIndex = 0;
+            // 
             // CreateResume_Page
             // 
             AutoScaleDimensions = new SizeF(10F, 24F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(229, 229, 229);
-            Controls.Add(roundedPictureBox2);
-            Controls.Add(roundedPictureBox4);
+            Controls.Add(ProfessionsComboBox);
+            Controls.Add(BackButton);
+            Controls.Add(SearchPictureBox);
+            Controls.Add(DialogsPictureBox);
             Controls.Add(roundedPictureBox3);
-            Controls.Add(roundedRectangle2);
-            Controls.Add(roundedRectangle4);
+            Controls.Add(SearchPanel);
+            Controls.Add(DialogsPanel);
             Controls.Add(roundedRectangle5);
             Controls.Add(EducationTextBox);
             Controls.Add(roundedRectangleWithOutline1);
             Controls.Add(CreateButton);
             Controls.Add(DescriptionTextBox);
             Controls.Add(roundedRectangleWithOutline7);
-            Controls.Add(CityTextBox);
             Controls.Add(roundedRectangleWithOutline6);
             Controls.Add(ExperienceTextBox);
             Controls.Add(roundedRectangleWithOutline5);
@@ -380,7 +405,6 @@
             Controls.Add(roundedRectangleWithOutline4);
             Controls.Add(SalaryTextBox);
             Controls.Add(roundedRectangleWithOutline3);
-            Controls.Add(ProfessionTextBox);
             Controls.Add(roundedRectangleWithOutline2);
             Controls.Add(label1);
             Controls.Add(roundedRectangle3);
@@ -389,10 +413,10 @@
             Margin = new Padding(4);
             Name = "CreateResume_Page";
             Size = new Size(960, 540);
-            Load += CreateResume_Page_Load;
             ((System.ComponentModel.ISupportInitialize)roundedPictureBox5).EndInit();
-            ((System.ComponentModel.ISupportInitialize)roundedPictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)roundedPictureBox4).EndInit();
+            roundedRectangleWithOutline6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)SearchPictureBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)DialogsPictureBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)roundedPictureBox3).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -401,10 +425,9 @@
         #endregion
 
         private RoundedPictureBox roundedPictureBox5;
-        private Classes.CustomInterfaceControls.RoundedButton1 CreateButton;
+        private Classes.CustomInterfaceControls.SimpleRoundedButton CreateButton;
         private TextBox DescriptionTextBox;
         private Classes.CustomInterfaceControls.RoundedRectangleWithOutline roundedRectangleWithOutline7;
-        private TextBox CityTextBox;
         private Classes.CustomInterfaceControls.RoundedRectangleWithOutline roundedRectangleWithOutline6;
         private TextBox ExperienceTextBox;
         private Classes.CustomInterfaceControls.RoundedRectangleWithOutline roundedRectangleWithOutline5;
@@ -412,17 +435,19 @@
         private Classes.CustomInterfaceControls.RoundedRectangleWithOutline roundedRectangleWithOutline4;
         private TextBox SalaryTextBox;
         private Classes.CustomInterfaceControls.RoundedRectangleWithOutline roundedRectangleWithOutline3;
-        private TextBox ProfessionTextBox;
         private Classes.CustomInterfaceControls.RoundedRectangleWithOutline roundedRectangleWithOutline2;
         private Label label1;
         private Classes.CustomInterfaceControls.RoundedRectangle roundedRectangle3;
         private TextBox EducationTextBox;
         private Classes.CustomInterfaceControls.RoundedRectangleWithOutline roundedRectangleWithOutline1;
-        private RoundedPictureBox roundedPictureBox2;
-        private RoundedPictureBox roundedPictureBox4;
+        private RoundedPictureBox SearchPictureBox;
+        private RoundedPictureBox DialogsPictureBox;
         private RoundedPictureBox roundedPictureBox3;
-        private Classes.CustomInterfaceControls.RoundedRectangle roundedRectangle2;
-        private Classes.CustomInterfaceControls.RoundedRectangle roundedRectangle4;
+        private Classes.CustomInterfaceControls.RoundedRectangle SearchPanel;
+        private Classes.CustomInterfaceControls.RoundedRectangle DialogsPanel;
         private Classes.CustomInterfaceControls.RoundedRectangle roundedRectangle5;
+        private Classes.CustomInterfaceControls.SimpleRoundedButton BackButton;
+        private ComboBox ProfessionsComboBox;
+        private ComboBox CitiesComboBox;
     }
 }

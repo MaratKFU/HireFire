@@ -32,8 +32,8 @@ namespace HireFire
         {
             pictureBox1 = new PictureBox();
             label1 = new Label();
-            Previous_Button = new RoundedButton1();
-            Next_Button = new RoundedButton1();
+            Previous_Button = new SimpleRoundedButton();
+            Next_Button = new SimpleRoundedButton();
             CityTextBox = new TextBox();
             roundedRectangleWithOutline3 = new RoundedRectangleWithOutline();
             SurnameTextBox = new TextBox();
@@ -45,8 +45,8 @@ namespace HireFire
             roundedRectangleWithOutline6 = new RoundedRectangleWithOutline();
             label2 = new Label();
             label3 = new Label();
-            Btn_SexMale = new RoundedButton2();
-            Btn_SexFemale = new RoundedButton2();
+            Btn_SexMale = new OutlinedRoundedButton();
+            Btn_SexFemale = new OutlinedRoundedButton();
             BirthDatePicker = new DateTimePicker();
             DateLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -338,8 +338,8 @@ namespace HireFire
 
         private PictureBox pictureBox1;
         private Label label1;
-        private RoundedButton1 Previous_Button;
-        private RoundedButton1 Next_Button;
+        private SimpleRoundedButton Previous_Button;
+        private SimpleRoundedButton Next_Button;
         private TextBox CityTextBox;
         private RoundedRectangleWithOutline roundedRectangleWithOutline3;
         private TextBox SurnameTextBox;
@@ -351,8 +351,8 @@ namespace HireFire
         private RoundedRectangleWithOutline roundedRectangleWithOutline6;
         private Label label2;
         private Label label3;
-        private RoundedButton2 Btn_SexMale;
-        private RoundedButton2 Btn_SexFemale;
+        private OutlinedRoundedButton Btn_SexMale;
+        private OutlinedRoundedButton Btn_SexFemale;
         private DateTimePicker BirthDatePicker;
         private Label DateLabel;
     }

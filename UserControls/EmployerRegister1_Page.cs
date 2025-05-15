@@ -11,6 +11,8 @@ namespace HireFire
         Employer _account;
         public EmployerRegister1_Page(Employer account)
         {
+            DoubleBuffered = true;
+
             InitializeComponent();
             _account = account;
 

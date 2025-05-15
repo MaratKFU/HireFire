@@ -4,9 +4,11 @@ namespace HireFire
 {
     public partial class LoginRegister_Page : UserControl
     {
-        
+
         public LoginRegister_Page()
         {
+            DoubleBuffered = true;
+
             InitializeComponent();
         }
 
@@ -37,13 +39,13 @@ namespace HireFire
             }
             enter_control.Dock = DockStyle.Fill;
             Controls.Add(enter_control);
-            
+
         }
 
         private void Btn_register_Click(object sender, EventArgs e)
         {
             Controls.Clear();
-            
+
             if (Btn_employer.MousePressed)
             {
                 var employer_register_control = new EmployerRegister0_Page(new Employer());

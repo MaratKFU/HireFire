@@ -31,26 +31,28 @@
             roundedPictureBox5 = new RoundedPictureBox();
             roundedRectangle3 = new HireFire.Classes.CustomInterfaceControls.RoundedRectangle();
             label1 = new Label();
-            ProfessionTextBox = new TextBox();
-            roundedRectangleWithOutline2 = new HireFire.Classes.CustomInterfaceControls.RoundedRectangleWithOutline();
             SalaryTextBox = new TextBox();
             roundedRectangleWithOutline3 = new HireFire.Classes.CustomInterfaceControls.RoundedRectangleWithOutline();
             CompanyTextBox = new TextBox();
             roundedRectangleWithOutline4 = new HireFire.Classes.CustomInterfaceControls.RoundedRectangleWithOutline();
             ExperienceTextBox = new TextBox();
             roundedRectangleWithOutline5 = new HireFire.Classes.CustomInterfaceControls.RoundedRectangleWithOutline();
-            CityTextBox = new TextBox();
             roundedRectangleWithOutline6 = new HireFire.Classes.CustomInterfaceControls.RoundedRectangleWithOutline();
             DescriptionTextBox = new TextBox();
             roundedRectangleWithOutline7 = new HireFire.Classes.CustomInterfaceControls.RoundedRectangleWithOutline();
-            CreateButton = new HireFire.Classes.CustomInterfaceControls.RoundedButton1();
+            CreateButton = new HireFire.Classes.CustomInterfaceControls.SimpleRoundedButton();
             SearchPictureBox = new RoundedPictureBox();
             DialogsPictureBox = new RoundedPictureBox();
             ProfilePictureBox = new RoundedPictureBox();
             SearchPanel = new HireFire.Classes.CustomInterfaceControls.RoundedRectangle();
             DialogsPanel = new HireFire.Classes.CustomInterfaceControls.RoundedRectangle();
             ProfilePanel = new HireFire.Classes.CustomInterfaceControls.RoundedRectangle();
+            BackButton = new HireFire.Classes.CustomInterfaceControls.SimpleRoundedButton();
+            ProfessionsComboBox = new ComboBox();
+            roundedRectangleWithOutline2 = new HireFire.Classes.CustomInterfaceControls.RoundedRectangleWithOutline();
+            CitiesComboBox = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)roundedPictureBox5).BeginInit();
+            roundedRectangleWithOutline6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)SearchPictureBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)DialogsPictureBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ProfilePictureBox).BeginInit();
@@ -92,30 +94,6 @@
             label1.Size = new Size(375, 39);
             label1.TabIndex = 59;
             label1.Text = "Создание новой вакансии";
-            // 
-            // ProfessionTextBox
-            // 
-            ProfessionTextBox.BackColor = Color.FromArgb(229, 229, 229);
-            ProfessionTextBox.BorderStyle = BorderStyle.None;
-            ProfessionTextBox.Font = new Font("Segoe UI", 7F, FontStyle.Bold);
-            ProfessionTextBox.Location = new Point(332, 149);
-            ProfessionTextBox.Name = "ProfessionTextBox";
-            ProfessionTextBox.Size = new Size(375, 16);
-            ProfessionTextBox.TabIndex = 61;
-            // 
-            // roundedRectangleWithOutline2
-            // 
-            roundedRectangleWithOutline2.BackColor = Color.FromArgb(229, 229, 229);
-            roundedRectangleWithOutline2.CornerColor = Color.White;
-            roundedRectangleWithOutline2.ForeColor = Color.FromArgb(161, 148, 148);
-            roundedRectangleWithOutline2.Location = new Point(325, 142);
-            roundedRectangleWithOutline2.Name = "roundedRectangleWithOutline2";
-            roundedRectangleWithOutline2.OutlineColor = Color.Black;
-            roundedRectangleWithOutline2.OutlineWidth = 1;
-            roundedRectangleWithOutline2.Rounding = 15;
-            roundedRectangleWithOutline2.Size = new Size(390, 30);
-            roundedRectangleWithOutline2.TabIndex = 60;
-            roundedRectangleWithOutline2.Text = "roundedRectangleWithOutline2";
             // 
             // SalaryTextBox
             // 
@@ -189,19 +167,10 @@
             roundedRectangleWithOutline5.TabIndex = 68;
             roundedRectangleWithOutline5.Text = "roundedRectangleWithOutline5";
             // 
-            // CityTextBox
-            // 
-            CityTextBox.BackColor = Color.FromArgb(229, 229, 229);
-            CityTextBox.BorderStyle = BorderStyle.None;
-            CityTextBox.Font = new Font("Segoe UI", 7F, FontStyle.Bold);
-            CityTextBox.Location = new Point(595, 199);
-            CityTextBox.Name = "CityTextBox";
-            CityTextBox.Size = new Size(112, 16);
-            CityTextBox.TabIndex = 71;
-            // 
             // roundedRectangleWithOutline6
             // 
             roundedRectangleWithOutline6.BackColor = Color.FromArgb(229, 229, 229);
+            roundedRectangleWithOutline6.Controls.Add(CitiesComboBox);
             roundedRectangleWithOutline6.CornerColor = Color.White;
             roundedRectangleWithOutline6.ForeColor = Color.FromArgb(161, 148, 148);
             roundedRectangleWithOutline6.Location = new Point(588, 192);
@@ -250,14 +219,15 @@
             CreateButton.Size = new Size(125, 38);
             CreateButton.TabIndex = 74;
             CreateButton.Text = "Создать";
+            CreateButton.Click += CreateButton_Click;
             // 
             // SearchPictureBox
             // 
-            SearchPictureBox.BackColor = Color.FromArgb(161, 148, 148);
+            SearchPictureBox.BackColor = Color.White;
             SearchPictureBox.BorderColor = Color.FromArgb(0, 0, 0, 0);
             SearchPictureBox.BorderWidth = 200F;
             SearchPictureBox.CornerRadius = 100;
-            SearchPictureBox.Image = Properties.Resources.Search_Icon_Active;
+            SearchPictureBox.Image = Properties.Resources.Search_Icon_Passive;
             SearchPictureBox.Location = new Point(14, 159);
             SearchPictureBox.Name = "SearchPictureBox";
             SearchPictureBox.Size = new Size(50, 50);
@@ -279,10 +249,11 @@
             DialogsPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             DialogsPictureBox.TabIndex = 88;
             DialogsPictureBox.TabStop = false;
+            DialogsPictureBox.Click += DialogsButton_Click;
             // 
             // ProfilePictureBox
             // 
-            ProfilePictureBox.BackColor = Color.White;
+            ProfilePictureBox.BackColor = Color.FromArgb(161, 148, 148);
             ProfilePictureBox.BorderColor = Color.FromArgb(0, 0, 0, 0);
             ProfilePictureBox.BorderWidth = 200F;
             ProfilePictureBox.CornerRadius = 100;
@@ -296,7 +267,7 @@
             // 
             // SearchPanel
             // 
-            SearchPanel.BackColor = Color.FromArgb(161, 148, 148);
+            SearchPanel.BackColor = Color.White;
             SearchPanel.CornerColor = Color.FromArgb(229, 229, 229);
             SearchPanel.ForeColor = Color.White;
             SearchPanel.Location = new Point(-20, 150);
@@ -318,10 +289,11 @@
             DialogsPanel.Size = new Size(100, 67);
             DialogsPanel.TabIndex = 89;
             DialogsPanel.Text = "roundedRectangle4";
+            DialogsPanel.Click += DialogsButton_Click;
             // 
             // ProfilePanel
             // 
-            ProfilePanel.BackColor = Color.White;
+            ProfilePanel.BackColor = Color.FromArgb(161, 148, 148);
             ProfilePanel.CornerColor = Color.FromArgb(229, 229, 229);
             ProfilePanel.ForeColor = Color.White;
             ProfilePanel.Location = new Point(-20, 350);
@@ -331,11 +303,65 @@
             ProfilePanel.TabIndex = 90;
             ProfilePanel.Text = "roundedRectangle5";
             // 
+            // BackButton
+            // 
+            BackButton.BackColor = Color.FromArgb(255, 234, 226);
+            BackButton.CornerColor = Color.White;
+            BackButton.Font = new Font("Montserrat", 10F, FontStyle.Bold);
+            BackButton.ForeColor = Color.FromArgb(242, 85, 26);
+            BackButton.Location = new Point(325, 424);
+            BackButton.Name = "BackButton";
+            BackButton.Rounding = 30;
+            BackButton.Size = new Size(116, 38);
+            BackButton.TabIndex = 99;
+            BackButton.Text = "Отмена";
+            BackButton.Click += BackButton_Click;
+            // 
+            // ProfessionsComboBox
+            // 
+            ProfessionsComboBox.BackColor = Color.FromArgb(229, 229, 229);
+            ProfessionsComboBox.DrawMode = DrawMode.OwnerDrawVariable;
+            ProfessionsComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            ProfessionsComboBox.FlatStyle = FlatStyle.Flat;
+            ProfessionsComboBox.Font = new Font("Segoe UI", 9F);
+            ProfessionsComboBox.FormattingEnabled = true;
+            ProfessionsComboBox.Location = new Point(332, 145);
+            ProfessionsComboBox.Name = "ProfessionsComboBox";
+            ProfessionsComboBox.Size = new Size(375, 28);
+            ProfessionsComboBox.TabIndex = 100;
+            // 
+            // roundedRectangleWithOutline2
+            // 
+            roundedRectangleWithOutline2.BackColor = Color.FromArgb(229, 229, 229);
+            roundedRectangleWithOutline2.CornerColor = Color.White;
+            roundedRectangleWithOutline2.ForeColor = Color.FromArgb(161, 148, 148);
+            roundedRectangleWithOutline2.Location = new Point(325, 142);
+            roundedRectangleWithOutline2.Name = "roundedRectangleWithOutline2";
+            roundedRectangleWithOutline2.OutlineColor = Color.Black;
+            roundedRectangleWithOutline2.OutlineWidth = 1;
+            roundedRectangleWithOutline2.Rounding = 15;
+            roundedRectangleWithOutline2.Size = new Size(390, 35);
+            roundedRectangleWithOutline2.TabIndex = 60;
+            roundedRectangleWithOutline2.Text = "roundedRectangleWithOutline2";
+            // 
+            // CitiesComboBox
+            // 
+            CitiesComboBox.BackColor = Color.FromArgb(229, 229, 229);
+            CitiesComboBox.FlatStyle = FlatStyle.Flat;
+            CitiesComboBox.Font = new Font("Montserrat", 6F, FontStyle.Bold);
+            CitiesComboBox.FormattingEnabled = true;
+            CitiesComboBox.Location = new Point(4, 3);
+            CitiesComboBox.Name = "CitiesComboBox";
+            CitiesComboBox.Size = new Size(118, 24);
+            CitiesComboBox.TabIndex = 1;
+            // 
             // CreateVacancy_Page
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(229, 229, 229);
+            Controls.Add(ProfessionsComboBox);
+            Controls.Add(BackButton);
             Controls.Add(SearchPictureBox);
             Controls.Add(DialogsPictureBox);
             Controls.Add(ProfilePictureBox);
@@ -345,7 +371,6 @@
             Controls.Add(CreateButton);
             Controls.Add(DescriptionTextBox);
             Controls.Add(roundedRectangleWithOutline7);
-            Controls.Add(CityTextBox);
             Controls.Add(roundedRectangleWithOutline6);
             Controls.Add(ExperienceTextBox);
             Controls.Add(roundedRectangleWithOutline5);
@@ -353,15 +378,14 @@
             Controls.Add(roundedRectangleWithOutline4);
             Controls.Add(SalaryTextBox);
             Controls.Add(roundedRectangleWithOutline3);
-            Controls.Add(ProfessionTextBox);
             Controls.Add(roundedRectangleWithOutline2);
             Controls.Add(label1);
             Controls.Add(roundedRectangle3);
             Controls.Add(roundedPictureBox5);
             Name = "CreateVacancy_Page";
             Size = new Size(960, 540);
-            Load += CreateVacancy_Page_Load;
             ((System.ComponentModel.ISupportInitialize)roundedPictureBox5).EndInit();
+            roundedRectangleWithOutline6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)SearchPictureBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)DialogsPictureBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)ProfilePictureBox).EndInit();
@@ -374,24 +398,25 @@
         private RoundedPictureBox roundedPictureBox5;
         private Classes.CustomInterfaceControls.RoundedRectangle roundedRectangle3;
         private Label label1;
-        private TextBox ProfessionTextBox;
-        private Classes.CustomInterfaceControls.RoundedRectangleWithOutline roundedRectangleWithOutline2;
         private TextBox SalaryTextBox;
         private Classes.CustomInterfaceControls.RoundedRectangleWithOutline roundedRectangleWithOutline3;
         private TextBox CompanyTextBox;
         private Classes.CustomInterfaceControls.RoundedRectangleWithOutline roundedRectangleWithOutline4;
         private TextBox ExperienceTextBox;
         private Classes.CustomInterfaceControls.RoundedRectangleWithOutline roundedRectangleWithOutline5;
-        private TextBox CityTextBox;
         private Classes.CustomInterfaceControls.RoundedRectangleWithOutline roundedRectangleWithOutline6;
         private TextBox DescriptionTextBox;
         private Classes.CustomInterfaceControls.RoundedRectangleWithOutline roundedRectangleWithOutline7;
-        private Classes.CustomInterfaceControls.RoundedButton1 CreateButton;
+        private Classes.CustomInterfaceControls.SimpleRoundedButton CreateButton;
         private RoundedPictureBox SearchPictureBox;
         private RoundedPictureBox DialogsPictureBox;
         private RoundedPictureBox ProfilePictureBox;
         private Classes.CustomInterfaceControls.RoundedRectangle SearchPanel;
         private Classes.CustomInterfaceControls.RoundedRectangle DialogsPanel;
         private Classes.CustomInterfaceControls.RoundedRectangle ProfilePanel;
+        private Classes.CustomInterfaceControls.SimpleRoundedButton BackButton;
+        private ComboBox ProfessionsComboBox;
+        private Classes.CustomInterfaceControls.RoundedRectangleWithOutline roundedRectangleWithOutline2;
+        private ComboBox CitiesComboBox;
     }
 }

@@ -8,6 +8,9 @@ public class AppDbContext : DbContext
     public DbSet<Employer> Employers { get; set; }
     public DbSet<Resume> Resumes{ get; set; }
     public DbSet<Vacancy> Vacancies{ get; set; }
+    public DbSet<MyDialog> Dialogs{ get; set; }
+    public DbSet<UserMessage> Messages { get; set; }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<JobSeeker>(entity =>
@@ -55,6 +58,9 @@ public class AppDbContext : DbContext
             entity.Property(e => e.Lastname)
                   .HasColumnName("lastname")
                   .HasMaxLength(100);
+
+            entity.Property(e => e.DialogsIds)
+                  .HasColumnName("dialogs_ids");
         });
 
         modelBuilder.Entity<Employer>(entity =>
@@ -102,6 +108,9 @@ public class AppDbContext : DbContext
             entity.Property(e => e.Lastname)
                   .HasColumnName("lastname")
                   .HasMaxLength(100);
+
+            entity.Property(e => e.DialogsIds)
+                  .HasColumnName("dialogs_ids");
         });
         modelBuilder.Entity<Resume>(entity =>
         {
@@ -167,12 +176,52 @@ public class AppDbContext : DbContext
                   .HasMaxLength(50);
             
             entity.Property(e => e.CompanyName)
-                  .HasColumnName("education")
+                  .HasColumnName("company_name")
                   .HasMaxLength(100)
                   .IsRequired();
 
             entity.Property(e => e.Description)
                   .HasColumnName("description");
+        });
+        modelBuilder.Entity<MyDialog>(entity =>
+        {
+            entity.ToTable("dialogs");
+
+            entity.Property(e => e.JobSeekerId)
+                  .HasColumnName("jobseeker_id")
+                  .HasColumnType("integer");
+
+            entity.Property(e => e.EmployerId)
+                  .HasColumnName("employer_id")
+                  .HasColumnType("integer");
+            
+            entity.Property(e => e.MessagesIds)
+                  .HasColumnName("messages_ids")
+                  .HasColumnType("integer[]");
+
+            entity.Property(e => e.JobSeekerInit)
+                  .HasColumnName("jobseeker_init")
+                  .HasMaxLength(50);
+
+            entity.Property(e => e.EmployerInit)
+                  .HasColumnName("employer_init")
+                  .HasMaxLength(50);
+
+        });
+        modelBuilder.Entity<UserMessage>(entity =>
+        {
+            entity.ToTable("messages");
+
+            entity.Property(e => e.MessageText)
+                  .HasColumnName("message_text")
+                  .HasColumnType("text");
+
+            entity.Property(e => e.DispatchTime)
+                  .HasColumnName("dispatch_time");
+
+            entity.Property(e => e.Sender)
+                  .HasColumnName("sender")
+                  .HasMaxLength(1);
         });
     }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

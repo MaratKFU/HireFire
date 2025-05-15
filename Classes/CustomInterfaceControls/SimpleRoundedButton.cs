@@ -1,11 +1,11 @@
 ﻿namespace HireFire.Classes.CustomInterfaceControls;
-class RoundedButton1: RoundedRectangle
+class SimpleRoundedButton: RoundedRectangle
 {
     private StringFormat SF = new StringFormat();
     private bool MouseEntered = false;
     private bool MousePressed = false;
     
-    public RoundedButton1()
+    public SimpleRoundedButton()
     {
         SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.SupportsTransparentBackColor | ControlStyles.UserPaint, true);
         DoubleBuffered = true;

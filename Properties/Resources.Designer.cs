@@ -113,9 +113,9 @@ namespace HireFire.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Search_Icon_Active {
+        internal static System.Drawing.Bitmap Search_Icon_Passive {
             get {
-                object obj = ResourceManager.GetObject("Search_Icon_Active", resourceCulture);
+                object obj = ResourceManager.GetObject("Search_Icon_Passive", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,9 +123,9 @@ namespace HireFire.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Search_Icon_Passive {
+        internal static System.Drawing.Bitmap Seatch_Icon_Active {
             get {
-                object obj = ResourceManager.GetObject("Search_Icon_Passive", resourceCulture);
+                object obj = ResourceManager.GetObject("Seatch_Icon_Active", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

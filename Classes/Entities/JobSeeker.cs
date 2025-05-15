@@ -13,6 +13,7 @@ namespace HireFire.Classes.Entities
         public virtual ICollection<Resume> Resumes { get; set; }
         public JobSeeker()
         {
+            DialogsIds = [];
             Resumes = [];
             Gender = "M";
         }

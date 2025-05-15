@@ -28,12 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Resumes_Page));
             roundedPictureBox5 = new RoundedPictureBox();
             CityLabel = new Label();
             ProfilePictureBox = new RoundedPictureBox();
-            NextResumeButton = new HireFire.Classes.CustomInterfaceControls.RoundedButton1();
-            EditButton = new HireFire.Classes.CustomInterfaceControls.RoundedButton1();
+            NextResumeButton = new HireFire.Classes.CustomInterfaceControls.SimpleRoundedButton();
+            EditButton = new HireFire.Classes.CustomInterfaceControls.SimpleRoundedButton();
             roundedRectangleWithOutline1 = new HireFire.Classes.CustomInterfaceControls.RoundedRectangleWithOutline();
             label2 = new Label();
             ExperienceLabel = new Label();
@@ -42,7 +41,7 @@
             ProfessionLabel = new Label();
             roundedRectangle3 = new HireFire.Classes.CustomInterfaceControls.RoundedRectangle();
             FullNameLabel = new Label();
-            CreateResumeButton = new HireFire.Classes.CustomInterfaceControls.RoundedButton1();
+            CreateResumeButton = new HireFire.Classes.CustomInterfaceControls.SimpleRoundedButton();
             SalaryLabel = new Label();
             DescriptionLabel = new Label();
             roundedPictureBox4 = new RoundedPictureBox();
@@ -50,12 +49,12 @@
             roundedRectangle2 = new HireFire.Classes.CustomInterfaceControls.RoundedRectangle();
             roundedRectangle1 = new HireFire.Classes.CustomInterfaceControls.RoundedRectangle();
             roundedRectangle4 = new HireFire.Classes.CustomInterfaceControls.RoundedRectangle();
-            roundedPictureBox1 = new RoundedPictureBox();
+            roundedPictureBox2 = new RoundedPictureBox();
             ((System.ComponentModel.ISupportInitialize)roundedPictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ProfilePictureBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)roundedPictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)roundedPictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)roundedPictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)roundedPictureBox2).BeginInit();
             SuspendLayout();
             // 
             // roundedPictureBox5
@@ -90,7 +89,7 @@
             ProfilePictureBox.BorderColor = Color.White;
             ProfilePictureBox.BorderWidth = 200F;
             ProfilePictureBox.CornerRadius = 40;
-            ProfilePictureBox.Image = (Image)resources.GetObject("ProfilePictureBox.Image");
+            ProfilePictureBox.Image = Properties.Resources.Profile_Icon_Passive;
             ProfilePictureBox.Location = new Point(193, 25);
             ProfilePictureBox.Name = "ProfilePictureBox";
             ProfilePictureBox.Size = new Size(185, 185);
@@ -271,10 +270,11 @@
             roundedPictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
             roundedPictureBox4.TabIndex = 76;
             roundedPictureBox4.TabStop = false;
+            roundedPictureBox4.Click += DialogsButton_Click;
             // 
             // roundedPictureBox3
             // 
-            roundedPictureBox3.BackColor = Color.White;
+            roundedPictureBox3.BackColor = Color.FromArgb(161, 148, 148);
             roundedPictureBox3.BorderColor = Color.FromArgb(0, 0, 0, 0);
             roundedPictureBox3.BorderWidth = 200F;
             roundedPictureBox3.CornerRadius = 100;
@@ -288,7 +288,7 @@
             // 
             // roundedRectangle2
             // 
-            roundedRectangle2.BackColor = Color.FromArgb(161, 148, 148);
+            roundedRectangle2.BackColor = Color.White;
             roundedRectangle2.CornerColor = Color.FromArgb(229, 229, 229);
             roundedRectangle2.ForeColor = Color.White;
             roundedRectangle2.Location = new Point(-20, 150);
@@ -297,6 +297,7 @@
             roundedRectangle2.Size = new Size(100, 67);
             roundedRectangle2.TabIndex = 74;
             roundedRectangle2.Text = "roundedRectangle2";
+            roundedRectangle2.Click += SearchButton_Click;
             // 
             // roundedRectangle1
             // 
@@ -309,10 +310,11 @@
             roundedRectangle1.Size = new Size(100, 67);
             roundedRectangle1.TabIndex = 77;
             roundedRectangle1.Text = "roundedRectangle1";
+            roundedRectangle1.Click += DialogsButton_Click;
             // 
             // roundedRectangle4
             // 
-            roundedRectangle4.BackColor = Color.White;
+            roundedRectangle4.BackColor = Color.FromArgb(161, 148, 148);
             roundedRectangle4.CornerColor = Color.FromArgb(229, 229, 229);
             roundedRectangle4.ForeColor = Color.White;
             roundedRectangle4.Location = new Point(-20, 350);
@@ -322,25 +324,27 @@
             roundedRectangle4.TabIndex = 78;
             roundedRectangle4.Text = "roundedRectangle4";
             // 
-            // roundedPictureBox1
+            // roundedPictureBox2
             // 
-            roundedPictureBox1.BackColor = Color.FromArgb(161, 148, 148);
-            roundedPictureBox1.BorderColor = Color.FromArgb(0, 0, 0, 0);
-            roundedPictureBox1.BorderWidth = 200F;
-            roundedPictureBox1.CornerRadius = 100;
-            roundedPictureBox1.Location = new Point(14, 159);
-            roundedPictureBox1.Name = "roundedPictureBox1";
-            roundedPictureBox1.Size = new Size(50, 50);
-            roundedPictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            roundedPictureBox1.TabIndex = 79;
-            roundedPictureBox1.TabStop = false;
+            roundedPictureBox2.BackColor = Color.White;
+            roundedPictureBox2.BorderColor = Color.FromArgb(0, 0, 0, 0);
+            roundedPictureBox2.BorderWidth = 200F;
+            roundedPictureBox2.CornerRadius = 0;
+            roundedPictureBox2.Image = Properties.Resources.Search_Icon_Passive;
+            roundedPictureBox2.Location = new Point(14, 159);
+            roundedPictureBox2.Name = "roundedPictureBox2";
+            roundedPictureBox2.Size = new Size(50, 50);
+            roundedPictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            roundedPictureBox2.TabIndex = 80;
+            roundedPictureBox2.TabStop = false;
+            roundedPictureBox2.Click += SearchButton_Click;
             // 
             // Resumes_Page
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(229, 229, 229);
-            Controls.Add(roundedPictureBox1);
+            Controls.Add(roundedPictureBox2);
             Controls.Add(roundedPictureBox4);
             Controls.Add(roundedPictureBox3);
             Controls.Add(roundedRectangle2);
@@ -368,7 +372,7 @@
             ((System.ComponentModel.ISupportInitialize)ProfilePictureBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)roundedPictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)roundedPictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)roundedPictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)roundedPictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -377,8 +381,8 @@
         private RoundedPictureBox roundedPictureBox5;
         private Label CityLabel;
         private RoundedPictureBox ProfilePictureBox;
-        private Classes.CustomInterfaceControls.RoundedButton1 NextResumeButton;
-        private Classes.CustomInterfaceControls.RoundedButton1 EditButton;
+        private Classes.CustomInterfaceControls.SimpleRoundedButton NextResumeButton;
+        private Classes.CustomInterfaceControls.SimpleRoundedButton EditButton;
         private Classes.CustomInterfaceControls.RoundedRectangleWithOutline roundedRectangleWithOutline1;
         private Label label2;
         private Label ExperienceLabel;
@@ -387,7 +391,7 @@
         private Label ProfessionLabel;
         private Classes.CustomInterfaceControls.RoundedRectangle roundedRectangle3;
         private Label FullNameLabel;
-        private Classes.CustomInterfaceControls.RoundedButton1 CreateResumeButton;
+        private Classes.CustomInterfaceControls.SimpleRoundedButton CreateResumeButton;
         private Label SalaryLabel;
         private Label DescriptionLabel;
         private RoundedPictureBox roundedPictureBox4;
@@ -395,6 +399,6 @@
         private Classes.CustomInterfaceControls.RoundedRectangle roundedRectangle2;
         private Classes.CustomInterfaceControls.RoundedRectangle roundedRectangle1;
         private Classes.CustomInterfaceControls.RoundedRectangle roundedRectangle4;
-        private RoundedPictureBox roundedPictureBox1;
+        private RoundedPictureBox roundedPictureBox2;
     }
 }

@@ -33,10 +33,10 @@ namespace HireFire
             Stand = new RoundedRectangle();
             EnterLabel = new Label();
             Logo = new PictureBox();
-            Btn_Enter = new RoundedButton1();
-            Btn_employee = new RoundedButton2();
-            Btn_employer = new RoundedButton2();
-            Btn_register = new RoundedButton1();
+            Btn_Enter = new SimpleRoundedButton();
+            Btn_employee = new OutlinedRoundedButton();
+            Btn_employer = new OutlinedRoundedButton();
+            Btn_register = new SimpleRoundedButton();
             ((System.ComponentModel.ISupportInitialize)Logo).BeginInit();
             SuspendLayout();
             // 
@@ -177,9 +177,9 @@ namespace HireFire
         private RoundedRectangle Stand;
         private Label EnterLabel;
         private PictureBox Logo;
-        private RoundedButton1 Btn_Enter;
-        private RoundedButton2 Btn_employee;
-        private RoundedButton2 Btn_employer;
-        private RoundedButton1 Btn_register;
+        private SimpleRoundedButton Btn_Enter;
+        private OutlinedRoundedButton Btn_employee;
+        private OutlinedRoundedButton Btn_employer;
+        private SimpleRoundedButton Btn_register;
     }
 }

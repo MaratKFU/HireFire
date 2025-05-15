@@ -34,5 +34,12 @@ namespace HireFire.Classes.Entities
         public string Login { get; set; }
         [Column("password_hash")]
         public string PasswordHash { get; set; }
+        [Column("dialogs_ids")]
+        public List<int> DialogsIds { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Surname} {Name[0]}.{Lastname[0]}.";
+        }
     }
 }
