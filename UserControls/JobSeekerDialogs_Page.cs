@@ -64,7 +64,7 @@ namespace HireFire.UserControls
                 );
                 ChatPanel.Controls.Add(messageControl);
 
-                UserMessage userMessage = new();
+                var userMessage = new UserMessage();
                 userMessage.MessageText = finalText;
                 userMessage.Sender = "J";
                 userMessage.DispatchTime = DateTime.UtcNow;
@@ -77,8 +77,9 @@ namespace HireFire.UserControls
                     selectedDialog.MessagesIds.Add(messageId);
                     dataService.SaveDialog(selectedDialog);
                 }
+                TextToSend.Text = "";
+                ChatPanel.ScrollControlIntoView(messageControl);
             }
-            TextToSend.Text = "";
         }
         private void LoadValues()
         {
@@ -108,7 +109,13 @@ namespace HireFire.UserControls
                     time: currMessage.DispatchTime,
                     alignment: HorizontalAlignment.Center
                 );
+
                 ChatPanel.Controls.Add(messageControl);
+
+                if (i == ((MyDialog)DialogsList.SelectedItem).MessagesIds.Count - 1)
+                {
+                    ChatPanel.ScrollControlIntoView(messageControl);
+                }
             }
         }
         private void DialogsList_SelectedIndexChanged(object sender, EventArgs e)

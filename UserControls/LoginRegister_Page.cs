@@ -29,14 +29,12 @@ namespace HireFire
 
             Controls.Clear();
             Login_Page enter_control;
+            
             if (Btn_employer.MousePressed)
-            {
                 enter_control = new Login_Page(true);
-            }
             else
-            {
                 enter_control = new Login_Page(false);
-            }
+
             enter_control.Dock = DockStyle.Fill;
             Controls.Add(enter_control);
 

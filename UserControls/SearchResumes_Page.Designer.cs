@@ -379,7 +379,7 @@
             SearchButton.Size = new Size(100, 35);
             SearchButton.TabIndex = 85;
             SearchButton.Text = "Искать";
-            SearchButton.Click += SaveButton_Click;
+            SearchButton.Click += SearchButton_Click;
             // 
             // CityCriterion
             // 

@@ -17,6 +17,41 @@ namespace HireFire.UserControls
             ProfessionsComboBox.DataSource = Resourses.Lists.Professions;
             CitiesComboBox.DataSource = Resourses.Lists.Cities;
 
+            SetPlaceholderValues();
+        }
+
+
+
+        //Бизнес логика
+        private bool IsResumeDataValid()
+        {
+            bool isProfessionValid = ProfessionsComboBox.Text != "";
+            bool isSalaryValid = (SalaryTextBox.ForeColor == Color.Black && !string.IsNullOrEmpty(SalaryTextBox.Text) && decimal.TryParse(SalaryTextBox.Text, out var salary)) && salary < 1000000;
+            bool isExperienceValid = ExperienceTextBox.ForeColor == Color.Black && !string.IsNullOrEmpty(ExperienceTextBox.Text) && int.TryParse(ExperienceTextBox.Text, out var experience);
+            bool isCompanyValid = CompanyTextBox.ForeColor == Color.Black && !string.IsNullOrEmpty(CompanyTextBox.Text);
+            bool isDescriptionValid = DescriptionTextBox.ForeColor == Color.Black && !string.IsNullOrEmpty(DescriptionTextBox.Text);
+
+            return isProfessionValid &&
+                   isSalaryValid &&
+                   isExperienceValid &&
+                   isCompanyValid &&
+                   isDescriptionValid;
+        }
+        private void LoadData(ref Vacancy vacancy)
+        {
+            vacancy.EmployerId = employer.Id;
+            vacancy.Profession = ProfessionsComboBox.Text;
+            vacancy.Salary = decimal.Parse(SalaryTextBox.Text);
+            vacancy.Experience = int.Parse(ExperienceTextBox.Text);
+            vacancy.City = CitiesComboBox.Text;
+            vacancy.CompanyName = CompanyTextBox.Text;
+            vacancy.Description = DescriptionTextBox.Text;
+        }
+
+
+        //Интерфейс
+        private void SetPlaceholderValues()
+        {
             SalaryTextBox.AddPlaceholder("Зарплата (в рублях)");
             ExperienceTextBox.AddPlaceholder("Мин. стаж");
             CompanyTextBox.AddPlaceholder("Навание компании");
@@ -43,30 +78,6 @@ namespace HireFire.UserControls
                 employer_control.Dock = DockStyle.Fill;
                 Controls.Add(employer_control);
             }
-        }
-        private bool IsResumeDataValid()
-        {
-            bool isProfessionValid = ProfessionsComboBox.Text != "";
-            bool isSalaryValid = (SalaryTextBox.ForeColor == Color.Black && !string.IsNullOrEmpty(SalaryTextBox.Text) && decimal.TryParse(SalaryTextBox.Text, out var salary)) && salary < 1000000;
-            bool isExperienceValid = ExperienceTextBox.ForeColor == Color.Black && !string.IsNullOrEmpty(ExperienceTextBox.Text) && int.TryParse(ExperienceTextBox.Text, out var experience);
-            bool isCompanyValid = CompanyTextBox.ForeColor == Color.Black && !string.IsNullOrEmpty(CompanyTextBox.Text);
-            bool isDescriptionValid = DescriptionTextBox.ForeColor == Color.Black && !string.IsNullOrEmpty(DescriptionTextBox.Text);
-
-            return isProfessionValid &&
-                   isSalaryValid &&
-                   isExperienceValid &&
-                   isCompanyValid &&
-                   isDescriptionValid;
-        }
-        private void LoadData(ref Vacancy vacancy)
-        {
-            vacancy.EmployerId = employer.Id;
-            vacancy.Profession = ProfessionsComboBox.Text;
-            vacancy.Salary = decimal.Parse(SalaryTextBox.Text);
-            vacancy.Experience = int.Parse(ExperienceTextBox.Text);
-            vacancy.City = CitiesComboBox.Text;
-            vacancy.CompanyName = CompanyTextBox.Text;
-            vacancy.Description = DescriptionTextBox.Text;
         }
         private void SearchButton_Click(object sender, EventArgs e)
         {

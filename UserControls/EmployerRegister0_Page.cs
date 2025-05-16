@@ -13,30 +13,18 @@ namespace HireFire
             InitializeComponent();
             _account = account;
 
-            SurnameTextBox.AddPlaceholder("Фамилию");
-            NameTextBox.AddPlaceholder("Имя");
-            LastnameTextBox.AddPlaceholder("Отчество");
-            CityTextBox.AddPlaceholder("Город");
+            SetPlaceholderValues();
         }
-        private void Btn_SexMale_Press(object sender, EventArgs e)
+        //Бизнес логика
+        private void SetAccountValues()
         {
-            Btn_SexFemale.AnotherBtnClicked();
-            _account.Gender = "M";
+            _account.Name = NameTextBox.Text;
+            _account.Surname = SurnameTextBox.Text;
+            _account.Lastname = LastnameTextBox.Text;
+            _account.City = CityTextBox.Text;
+            _account.BirthDate = DateTime.Parse(BirthDatePicker.Text);
         }
-
-        private void Btn_SexFemale_Press(object sender, EventArgs e)
-        {
-            Btn_SexMale.AnotherBtnClicked();
-            _account.Gender = "F";
-        }
-        private void Previous_Button_Click(object sender, EventArgs e)
-        {
-            Controls.Clear();
-            var login_register_control = new LoginRegister_Page();
-            login_register_control.Dock = DockStyle.Fill;
-            Controls.Add(login_register_control);
-        }
-        private void Next_Button_Click(object sender, EventArgs e)
+        private bool DataValidation()
         {
             bool isNameValid = NameTextBox.ForeColor == Color.Black && !string.IsNullOrEmpty(NameTextBox.Text);
             bool isSurnameValid = SurnameTextBox.ForeColor == Color.Black && !string.IsNullOrEmpty(SurnameTextBox.Text);
@@ -46,19 +34,49 @@ namespace HireFire
             if (!isNameValid || !isSurnameValid || !isLastnameValid || !isCityValid)
             {
                 MessageBox.Show("Заполните все обязательные поля!");
-                return;
+                return false;
             }
 
-            _account.Name = NameTextBox.Text;
-            _account.Surname = SurnameTextBox.Text;
-            _account.Lastname = LastnameTextBox.Text;
-            _account.City = CityTextBox.Text;
-            _account.BirthDate = DateTime.Parse(BirthDatePicker.Text);
+            return true;
+        }
 
+
+        //Интерфейс
+        private void SetPlaceholderValues()
+        {
+            SurnameTextBox.AddPlaceholder("Фамилию");
+            NameTextBox.AddPlaceholder("Имя");
+            LastnameTextBox.AddPlaceholder("Отчество");
+            CityTextBox.AddPlaceholder("Город");
+        }
+        private void Next_Button_Click(object sender, EventArgs e)
+        {
+            if (!DataValidation())
+                return;
+
+            SetAccountValues();
+            
             Controls.Clear();
             EmployerRegister1_Page login_register_control = new EmployerRegister1_Page(_account);
             login_register_control.Dock = DockStyle.Fill;
             Controls.Add(login_register_control);
+        }
+        private void Previous_Button_Click(object sender, EventArgs e)
+        {
+            Controls.Clear();
+            var login_register_control = new LoginRegister_Page();
+            login_register_control.Dock = DockStyle.Fill;
+            Controls.Add(login_register_control);
+        }
+        private void Btn_SexMale_Press(object sender, EventArgs e)
+        {
+            Btn_SexFemale.AnotherBtnClicked();
+            _account.Gender = "M";
+        }
+        private void Btn_SexFemale_Press(object sender, EventArgs e)
+        {
+            Btn_SexMale.AnotherBtnClicked();
+            _account.Gender = "F";
         }
     }
 }

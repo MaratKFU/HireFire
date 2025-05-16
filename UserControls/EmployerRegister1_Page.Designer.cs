@@ -76,7 +76,7 @@ namespace HireFire
             // 
             MailTextBox.BackColor = Color.FromArgb(229, 229, 229);
             MailTextBox.BorderStyle = BorderStyle.None;
-            MailTextBox.Font = new Font("Microsoft Sans Serif", 7F, FontStyle.Bold);
+            MailTextBox.Font = new Font("Montserrat", 7F, FontStyle.Bold);
             MailTextBox.Location = new Point(370, 235);
             MailTextBox.Name = "MailTextBox";
             MailTextBox.Size = new Size(220, 14);
@@ -100,7 +100,7 @@ namespace HireFire
             // 
             LoginTextBox.BackColor = Color.FromArgb(229, 229, 229);
             LoginTextBox.BorderStyle = BorderStyle.None;
-            LoginTextBox.Font = new Font("Microsoft Sans Serif", 7F, FontStyle.Bold);
+            LoginTextBox.Font = new Font("Montserrat", 7F, FontStyle.Bold);
             LoginTextBox.Location = new Point(370, 279);
             LoginTextBox.Name = "LoginTextBox";
             LoginTextBox.Size = new Size(220, 14);
@@ -124,7 +124,7 @@ namespace HireFire
             // 
             PasswordTextBox.BackColor = Color.FromArgb(229, 229, 229);
             PasswordTextBox.BorderStyle = BorderStyle.None;
-            PasswordTextBox.Font = new Font("Microsoft Sans Serif", 7F, FontStyle.Bold);
+            PasswordTextBox.Font = new Font("Montserrat", 7F, FontStyle.Bold);
             PasswordTextBox.Location = new Point(370, 324);
             PasswordTextBox.Name = "PasswordTextBox";
             PasswordTextBox.Size = new Size(220, 14);
@@ -150,7 +150,7 @@ namespace HireFire
             RepeatPasswordTextBox.AccessibleRole = AccessibleRole.None;
             RepeatPasswordTextBox.BackColor = Color.FromArgb(229, 229, 229);
             RepeatPasswordTextBox.BorderStyle = BorderStyle.None;
-            RepeatPasswordTextBox.Font = new Font("Microsoft Sans Serif", 7F, FontStyle.Bold);
+            RepeatPasswordTextBox.Font = new Font("Montserrat", 7F, FontStyle.Bold);
             RepeatPasswordTextBox.Location = new Point(370, 368);
             RepeatPasswordTextBox.Name = "RepeatPasswordTextBox";
             RepeatPasswordTextBox.Size = new Size(220, 14);
@@ -160,7 +160,7 @@ namespace HireFire
             // 
             Next_Button.BackColor = Color.FromArgb(242, 85, 26);
             Next_Button.CornerColor = Color.White;
-            Next_Button.Font = new Font("Microsoft Sans Serif", 7F, FontStyle.Bold);
+            Next_Button.Font = new Font("Montserrat", 7F, FontStyle.Bold);
             Next_Button.ForeColor = Color.White;
             Next_Button.Location = new Point(544, 421);
             Next_Button.Name = "Next_Button";
@@ -174,7 +174,7 @@ namespace HireFire
             // 
             Previous_Button.BackColor = Color.White;
             Previous_Button.CornerColor = Color.White;
-            Previous_Button.Font = new Font("Microsoft Sans Serif", 7F, FontStyle.Bold);
+            Previous_Button.Font = new Font("Montserrat", 7F, FontStyle.Bold);
             Previous_Button.ForeColor = Color.FromArgb(242, 85, 26);
             Previous_Button.Location = new Point(344, 421);
             Previous_Button.Name = "Previous_Button";
@@ -188,7 +188,7 @@ namespace HireFire
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.White;
-            label1.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold);
+            label1.Font = new Font("Montserrat", 11F, FontStyle.Bold);
             label1.Location = new Point(400, 155);
             label1.Name = "label1";
             label1.Size = new Size(184, 48);
@@ -228,7 +228,6 @@ namespace HireFire
             Controls.Add(Panel);
             Name = "EmployerRegister1_Page";
             Size = new Size(960, 540);
-            Load += EmployerRegister_Page_Load;
             ((System.ComponentModel.ISupportInitialize)Icon).EndInit();
             ResumeLayout(false);
             PerformLayout();

@@ -1,7 +1,6 @@
 ﻿using HireFire.Classes.DataBase;
 using HireFire.Classes.Entities;
 using System.Drawing.Imaging;
-using System.Diagnostics;
 using HireFire.UserControls;
 
 namespace HireFire
@@ -16,6 +15,16 @@ namespace HireFire
             InitializeComponent();
             _account = account;
         }
+
+        //Бизнес логика
+        private bool DataValidation()
+        {
+            MessageBox.Show("Пожалуйста, загрузите фото профиля!");
+            return ProfilePictureBox.Image == null;
+        }
+
+
+        //Интерфейс
         private void BackButton_Click(object sender, EventArgs e)
         {
             Controls.Clear();
@@ -23,29 +32,16 @@ namespace HireFire
             employee_register_control.Dock = DockStyle.Fill;
             Controls.Add(employee_register_control);
         }
-
-        private void Description_Change(object sender, EventArgs e)
-        {
-
-        }
-
         private void FinishButton_Click(object sender, EventArgs e)
         {
+            if (!DataValidation())
+                return;
             try
             {
-                // Проверка наличия изображения
-                if (ProfilePictureBox.Image == null)
-                {
-                    MessageBox.Show("Пожалуйста, загрузите фото профиля!");
-                    return;
-                }
-
-                // Конвертация изображения в byte[]
                 using (var memoryStream = new MemoryStream())
                 {
                     ProfilePictureBox.Image.Save(memoryStream, ImageFormat.Jpeg);
 
-                    // Проверка размера (например, максимум 5 МБ)
                     if (memoryStream.Length > 5 * 1024 * 1024)
                     {
                         MessageBox.Show("Размер изображения не должен превышать 5 МБ");
@@ -55,14 +51,6 @@ namespace HireFire
                     _account.PhotoData = memoryStream.ToArray();
                 }
 
-                // Проверка заполненности полей
-                if (!IsAccountDataValid())
-                {
-                    MessageBox.Show("Заполните все обязательные поля!");
-                    return;
-                }
-
-                // Сохранение в базу данных
                 using (var dataService = new DataService())
                 {
                     dataService.SaveJobSeeker(_account);
@@ -79,18 +67,6 @@ namespace HireFire
                 MessageBox.Show($"Ошибка: {ex.Message}");
             }
         }
-        private bool IsAccountDataValid()
-        {
-            return !string.IsNullOrEmpty(_account.Name) &&
-                   !string.IsNullOrEmpty(_account.Surname) &&
-                   !string.IsNullOrEmpty(_account.Lastname) &&
-                   !string.IsNullOrEmpty(_account.City) &&
-                   !string.IsNullOrEmpty(_account.Gender) &&
-                   !string.IsNullOrEmpty(_account.Email) &&
-                   !string.IsNullOrEmpty(_account.Login) &&
-                   !string.IsNullOrEmpty(_account.PasswordHash);
-        }
-
         private void AddPhotoButton_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())

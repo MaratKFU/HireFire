@@ -78,6 +78,7 @@
             roundedButton11.Size = new Size(100, 35);
             roundedButton11.TabIndex = 57;
             roundedButton11.Text = "Искать";
+            roundedButton11.Click += SearchButton_Click;
             // 
             // CityCriterion
             // 
@@ -206,6 +207,7 @@
             roundedButton14.Size = new Size(137, 35);
             roundedButton14.TabIndex = 68;
             roundedButton14.Text = "Следующий";
+            roundedButton14.Click += NextVacancyButton_Click;
             // 
             // roundedButton13
             // 
@@ -219,6 +221,7 @@
             roundedButton13.Size = new Size(137, 35);
             roundedButton13.TabIndex = 67;
             roundedButton13.Text = "Добавить";
+            roundedButton13.Click += AddButton_Click;
             // 
             // roundedRectangleWithOutline1
             // 

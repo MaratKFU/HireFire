@@ -56,7 +56,7 @@ namespace HireFire
             // 
             AddPhoto_Button.BackColor = Color.White;
             AddPhoto_Button.CornerColor = Color.White;
-            AddPhoto_Button.Font = new Font("Microsoft Sans Serif", 7F, FontStyle.Bold);
+            AddPhoto_Button.Font = new Font("Montserrat", 7F, FontStyle.Bold);
             AddPhoto_Button.ForeColor = Color.FromArgb(242, 85, 26);
             AddPhoto_Button.Location = new Point(433, 238);
             AddPhoto_Button.Name = "AddPhoto_Button";
@@ -70,7 +70,7 @@ namespace HireFire
             // 
             label5.AutoSize = true;
             label5.BackColor = Color.White;
-            label5.Font = new Font("Microsoft Sans Serif", 5F, FontStyle.Bold);
+            label5.Font = new Font("Montserrat", 5F, FontStyle.Bold);
             label5.ForeColor = Color.FromArgb(161, 148, 148);
             label5.Location = new Point(400, 223);
             label5.Name = "label5";
@@ -82,7 +82,7 @@ namespace HireFire
             // 
             label2.AutoSize = true;
             label2.BackColor = Color.White;
-            label2.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold);
+            label2.Font = new Font("Montserrat", 10F, FontStyle.Bold);
             label2.Location = new Point(369, 183);
             label2.Name = "label2";
             label2.Size = new Size(229, 40);
@@ -93,7 +93,7 @@ namespace HireFire
             // 
             label1.AutoSize = true;
             label1.BackColor = SystemColors.Window;
-            label1.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold);
+            label1.Font = new Font("Montserrat", 11F, FontStyle.Bold);
             label1.ForeColor = Color.FromArgb(241, 78, 28);
             label1.Location = new Point(400, 159);
             label1.Name = "label1";
@@ -105,7 +105,7 @@ namespace HireFire
             // 
             Back_Button.BackColor = Color.White;
             Back_Button.CornerColor = Color.White;
-            Back_Button.Font = new Font("Microsoft Sans Serif", 7F, FontStyle.Bold);
+            Back_Button.Font = new Font("Montserrat", 7F, FontStyle.Bold);
             Back_Button.ForeColor = Color.FromArgb(242, 85, 26);
             Back_Button.Location = new Point(345, 421);
             Back_Button.Name = "Back_Button";
@@ -119,7 +119,7 @@ namespace HireFire
             // 
             Finish_Button.BackColor = Color.FromArgb(242, 85, 26);
             Finish_Button.CornerColor = Color.White;
-            Finish_Button.Font = new Font("Microsoft Sans Serif", 7F, FontStyle.Bold);
+            Finish_Button.Font = new Font("Montserrat", 7F, FontStyle.Bold);
             Finish_Button.ForeColor = Color.White;
             Finish_Button.Location = new Point(545, 421);
             Finish_Button.Name = "Finish_Button";
@@ -170,7 +170,6 @@ namespace HireFire
             Controls.Add(roundedRectangle1);
             Name = "EmployerRegister2_Page";
             Size = new Size(960, 540);
-            Load += EmployerRegister2_Page_Load;
             ((System.ComponentModel.ISupportInitialize)ProfilePictureBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);

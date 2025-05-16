@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Vacancies_Page));
             roundedPictureBox4 = new RoundedPictureBox();
             roundedPictureBox3 = new RoundedPictureBox();
             roundedRectangle2 = new HireFire.Classes.CustomInterfaceControls.RoundedRectangle();
@@ -188,7 +187,7 @@
             ProfilePictureBox.BorderColor = Color.White;
             ProfilePictureBox.BorderWidth = 200F;
             ProfilePictureBox.CornerRadius = 40;
-            ProfilePictureBox.Image = (Image)resources.GetObject("ProfilePictureBox.Image");
+            ProfilePictureBox.Image = Properties.Resources.Profile_Icon_Passive;
             ProfilePictureBox.Location = new Point(193, 25);
             ProfilePictureBox.Name = "ProfilePictureBox";
             ProfilePictureBox.Size = new Size(185, 185);

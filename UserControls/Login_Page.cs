@@ -27,6 +27,7 @@ namespace HireFire
             Controls.Add(login_register_control);
         }
 
+        
         private void EnterButton_Click(object sender, EventArgs e)
         {
             string login = LoginTextBox.Text.Trim();

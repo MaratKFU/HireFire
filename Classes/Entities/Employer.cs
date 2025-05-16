@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-
-namespace HireFire.Classes.Entities
+﻿namespace HireFire.Classes.Entities
 {
     public class Employer : User
     {

@@ -57,7 +57,7 @@ namespace HireFire
             // 
             Btn_SexFemale.BackColor = Color.FromArgb(255, 255, 255);
             Btn_SexFemale.CornerColor = Color.White;
-            Btn_SexFemale.Font = new Font("Microsoft Sans Serif", 7F, FontStyle.Bold);
+            Btn_SexFemale.Font = new Font("Montserrat", 7F, FontStyle.Bold);
             Btn_SexFemale.ForeColor = Color.FromArgb(73, 73, 73);
             Btn_SexFemale.Location = new Point(485, 380);
             Btn_SexFemale.Margin = new Padding(5);
@@ -78,7 +78,7 @@ namespace HireFire
             // 
             Btn_SexMale.BackColor = Color.FromArgb(255, 255, 255);
             Btn_SexMale.CornerColor = Color.White;
-            Btn_SexMale.Font = new Font("Microsoft Sans Serif", 7F, FontStyle.Bold);
+            Btn_SexMale.Font = new Font("Montserrat", 7F, FontStyle.Bold);
             Btn_SexMale.ForeColor = Color.FromArgb(73, 73, 73);
             Btn_SexMale.Location = new Point(365, 380);
             Btn_SexMale.Margin = new Padding(5);
@@ -100,7 +100,7 @@ namespace HireFire
             // 
             label3.AutoSize = true;
             label3.BackColor = Color.White;
-            label3.Font = new Font("Microsoft Sans Serif", 7F, FontStyle.Bold);
+            label3.Font = new Font("Montserrat", 7F, FontStyle.Bold);
             label3.ForeColor = Color.Black;
             label3.Location = new Point(463, 361);
             label3.Name = "label3";
@@ -112,7 +112,7 @@ namespace HireFire
             // 
             label2.AutoSize = true;
             label2.BackColor = Color.White;
-            label2.Font = new Font("Microsoft Sans Serif", 7F, FontStyle.Bold);
+            label2.Font = new Font("Montserrat", 7F, FontStyle.Bold);
             label2.ForeColor = Color.FromArgb(242, 85, 26);
             label2.Location = new Point(433, 207);
             label2.Name = "label2";
@@ -124,7 +124,7 @@ namespace HireFire
             // 
             LastnameTextBox.BackColor = Color.FromArgb(229, 229, 229);
             LastnameTextBox.BorderStyle = BorderStyle.None;
-            LastnameTextBox.Font = new Font("Segoe UI", 7F, FontStyle.Bold);
+            LastnameTextBox.Font = new Font("Montserrat", 7F, FontStyle.Bold);
             LastnameTextBox.ForeColor = Color.Black;
             LastnameTextBox.Location = new Point(538, 235);
             LastnameTextBox.Name = "LastnameTextBox";
@@ -149,7 +149,7 @@ namespace HireFire
             // 
             NameTextBox.BackColor = Color.FromArgb(229, 229, 229);
             NameTextBox.BorderStyle = BorderStyle.None;
-            NameTextBox.Font = new Font("Segoe UI", 7F, FontStyle.Bold);
+            NameTextBox.Font = new Font("Montserrat", 7F, FontStyle.Bold);
             NameTextBox.ForeColor = Color.Black;
             NameTextBox.Location = new Point(440, 235);
             NameTextBox.Name = "NameTextBox";
@@ -187,7 +187,7 @@ namespace HireFire
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.White;
-            label1.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold);
+            label1.Font = new Font("Montserrat", 11F, FontStyle.Bold);
             label1.Location = new Point(365, 159);
             label1.Name = "label1";
             label1.Size = new Size(239, 48);
@@ -198,7 +198,7 @@ namespace HireFire
             // 
             Previous_Button.BackColor = Color.White;
             Previous_Button.CornerColor = Color.White;
-            Previous_Button.Font = new Font("Microsoft Sans Serif", 7F, FontStyle.Bold);
+            Previous_Button.Font = new Font("Montserrat", 7F, FontStyle.Bold);
             Previous_Button.ForeColor = Color.FromArgb(242, 85, 26);
             Previous_Button.Location = new Point(346, 421);
             Previous_Button.Name = "Previous_Button";
@@ -212,7 +212,7 @@ namespace HireFire
             // 
             Next_Button.BackColor = Color.FromArgb(242, 85, 26);
             Next_Button.CornerColor = Color.White;
-            Next_Button.Font = new Font("Microsoft Sans Serif", 7F, FontStyle.Bold);
+            Next_Button.Font = new Font("Montserrat", 7F, FontStyle.Bold);
             Next_Button.ForeColor = Color.White;
             Next_Button.Location = new Point(546, 421);
             Next_Button.Name = "Next_Button";
@@ -251,7 +251,7 @@ namespace HireFire
             // 
             SurnameTextBox.BackColor = Color.FromArgb(229, 229, 229);
             SurnameTextBox.BorderStyle = BorderStyle.None;
-            SurnameTextBox.Font = new Font("Segoe UI", 7F, FontStyle.Bold);
+            SurnameTextBox.Font = new Font("Montserrat", 7F, FontStyle.Bold);
             SurnameTextBox.ForeColor = Color.Black;
             SurnameTextBox.Location = new Point(346, 235);
             SurnameTextBox.Name = "SurnameTextBox";
@@ -288,7 +288,7 @@ namespace HireFire
             // 
             DateLabel.AutoSize = true;
             DateLabel.BackColor = Color.White;
-            DateLabel.Font = new Font("Segoe UI", 5F, FontStyle.Bold);
+            DateLabel.Font = new Font("Montserrat", 5F, FontStyle.Bold);
             DateLabel.Location = new Point(372, 305);
             DateLabel.Name = "DateLabel";
             DateLabel.Size = new Size(76, 12);

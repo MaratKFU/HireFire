@@ -50,7 +50,7 @@ namespace HireFire.UserControls
             profile_page_control.Dock = DockStyle.Fill;
             Controls.Add(profile_page_control);
         }
-        private void SaveButton_Click(object sender, EventArgs e)
+        private void SearchButton_Click(object sender, EventArgs e)
         {
             try
             {

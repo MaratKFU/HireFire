@@ -6,12 +6,12 @@ public class RoundedMessage : RoundedRectangle
 {
     // Текст сообщения и время
     private string messageText = "";
-    private string time = DateTime.Now.ToString("HH:mm");
+    private string time = DateTime.UtcNow.ToString("HH:mm");
     private bool leftOrientation = false;
 
     // Настройки шрифтов
-    private Font messageFont = new Font("Segoe UI", 9f);
-    private Font timeFont = new Font("Segoe UI", 7f, FontStyle.Italic);
+    private Font messageFont = new Font("Montserrat", 9f);
+    private Font timeFont = new Font("Montserrat", 7f, FontStyle.Italic);
 
     #region Properties
 
@@ -151,6 +151,7 @@ public class RoundedMessage : RoundedRectangle
     }
     private void DrawTime(Graphics g)
     {
+        
         SizeF timeSize = g.MeasureString(Time, TimeFont);
         PointF timeLocation = new PointF(Width - timeSize.Width - Padding.Right, Height - timeSize.Height - Padding.Bottom);
 
