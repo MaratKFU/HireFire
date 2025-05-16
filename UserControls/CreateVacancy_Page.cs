@@ -77,6 +77,11 @@ namespace HireFire.UserControls
         }
         private void DialogsButton_Click(object sender, EventArgs e)
         {
+            if (employer.DialogsIds == null || employer.DialogsIds.Count == 0)
+            {
+                MessageBox.Show("У вас пока что нету диалогов");
+                return;
+            }
             Controls.Clear();
             var dialogs_page_control = new EmployerDialogs_Page(employer);
             dialogs_page_control.Dock = DockStyle.Fill;

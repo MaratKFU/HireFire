@@ -120,6 +120,8 @@ namespace HireFire.UserControls
             if (currJobSeeker != replaceJobSeeker)
             {
                 currJobSeeker = replaceJobSeeker;
+            
+                ChatPanel.Controls.Clear();
                 LoadValues();
             }
         }

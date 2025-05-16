@@ -63,7 +63,7 @@ namespace HireFire.UserControls
         }
         private void LoadData(ref Resume resume)
         {
-            resume.JobseekerId = jobSeeker.Id;
+            resume.JobSeekerId = jobSeeker.Id;
             resume.Profession = ProfessionsComboBox.Text;
             resume.Education = EducationTextBox.Text;
             resume.Experience = int.Parse(ExperienceTextBox.Text);
@@ -82,6 +82,11 @@ namespace HireFire.UserControls
         }
         private void DialogsButton_Click(object sender, EventArgs e)
         {
+            if (jobSeeker.DialogsIds == null || jobSeeker.DialogsIds.Count == 0)
+            {
+                MessageBox.Show("У вас пока что нету диалогов");
+                return;
+            }
             Controls.Clear();
             var dialog_page_control = new JobSeekerDialogs_Page(jobSeeker);
             dialog_page_control.Dock = DockStyle.Fill;

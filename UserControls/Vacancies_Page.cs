@@ -6,7 +6,7 @@ namespace HireFire.UserControls
 {
     public partial class Vacancies_Page : UserControl
     {
-        public Employer account;
+        public Employer employer;
         private int _currentVacancyIndex = 0;
         public Vacancies_Page(Employer _account)
         {
@@ -14,20 +14,20 @@ namespace HireFire.UserControls
 
             InitializeComponent();
 
-            account = _account;
+            employer = _account;
 
             Load_Values();
             UpdateResumeDisplay();
         }
         void Load_Values()
         {
-            var image = Image.FromStream(new MemoryStream(account.PhotoData));
+            var image = Image.FromStream(new MemoryStream(employer.PhotoData));
             ProfilePictureBox.Image = new Bitmap(image);
-            FullNameLabel.Text = $"{account.Surname} {account.Name} {account.Lastname}";
+            FullNameLabel.Text = $"{employer.Surname} {employer.Name} {employer.Lastname}";
         }
         private void UpdateResumeDisplay()
         {
-            if (account.Vacancies == null || account.Vacancies.Count == 0)
+            if (employer.Vacancies == null || employer.Vacancies.Count == 0)
             {
                 ProfessionLabel.Text = "Профессия: не указана";
                 SalaryLabel.Text = "Зарплата не указана";
@@ -37,7 +37,7 @@ namespace HireFire.UserControls
                 return;
             }
 
-            var currentVacancy = account.Vacancies.ElementAt(_currentVacancyIndex);
+            var currentVacancy = employer.Vacancies.ElementAt(_currentVacancyIndex);
 
             ProfessionLabel.Text = $"Профессия: {currentVacancy.Profession}";
             SalaryLabel.Text = $"Зарплата: {currentVacancy.Salary} рублей";
@@ -48,10 +48,10 @@ namespace HireFire.UserControls
         }
         private void NextVacancyButton_Click(object sender, EventArgs e)
         {
-            if (account.Vacancies.Count != 0)
+            if (employer.Vacancies.Count != 0)
             {
                 _currentVacancyIndex++;
-                _currentVacancyIndex %= account.Vacancies.Count;
+                _currentVacancyIndex %= employer.Vacancies.Count;
                 UpdateResumeDisplay();
             }
         }
@@ -60,7 +60,7 @@ namespace HireFire.UserControls
         private void CreateVacancyButton_Click(object sender, EventArgs e)
         {
             Controls.Clear();
-            var createVacancy_control = new CreateVacancy_Page(account);
+            var createVacancy_control = new CreateVacancy_Page(employer);
             createVacancy_control.Dock = DockStyle.Fill;
             Controls.Add(createVacancy_control);
         }
@@ -72,19 +72,19 @@ namespace HireFire.UserControls
         private void SearchButton_Click(object sender, EventArgs e)
         {
             Controls.Clear();
-            var search_page_control = new SearchResumes_Page(account);
+            var search_page_control = new SearchResumes_Page(employer);
             search_page_control.Dock = DockStyle.Fill;
             Controls.Add(search_page_control);
         }
         private void DialogsButton_Click(object sender, EventArgs e)
         {
-            if (account.DialogsIds == null || account.DialogsIds.Count == 0)
+            if (employer.DialogsIds == null || employer.DialogsIds.Count == 0)
             {
-                MessageBox.Show("Для начала необходимо найти соискателя!");
+                MessageBox.Show("У вас пока что нету диалогов");
                 return;
             }
             Controls.Clear();
-            var dialog_page_control = new EmployerDialogs_Page(account);
+            var dialog_page_control = new EmployerDialogs_Page(employer);
             dialog_page_control.Dock = DockStyle.Fill;
             Controls.Add(dialog_page_control);
         }

@@ -5,26 +5,26 @@ namespace HireFire.UserControls
 {
     public partial class Resumes_Page : UserControl
     {
-        public JobSeeker _account;
+        public JobSeeker jobSeeker;
         private int _currentResumeIndex = 0;
         public Resumes_Page(JobSeeker account)
         {
             DoubleBuffered = true;
 
             InitializeComponent();
-            _account = account;
+            jobSeeker = account;
             Load_Values();
             UpdateResumeDisplay();
         }
         void Load_Values()
         {
-            var image = Image.FromStream(new MemoryStream(_account.PhotoData));
+            var image = Image.FromStream(new MemoryStream(jobSeeker.PhotoData));
             ProfilePictureBox.Image = new Bitmap(image);
-            FullNameLabel.Text = $"{_account.Surname} {_account.Name} {_account.Lastname}";
+            FullNameLabel.Text = $"{jobSeeker.Surname} {jobSeeker.Name} {jobSeeker.Lastname}";
         }
         private void UpdateResumeDisplay()
         {
-            if (_account.Resumes == null || _account.Resumes.Count == 0)
+            if (jobSeeker.Resumes == null || jobSeeker.Resumes.Count == 0)
             {
                 ProfessionLabel.Text = "Профессия: не указана";
                 EducationLabel.Text = "Образование: не указано";
@@ -34,7 +34,7 @@ namespace HireFire.UserControls
                 return;
             }
 
-            var currentResume = _account.Resumes.ElementAt(_currentResumeIndex);
+            var currentResume = jobSeeker.Resumes.ElementAt(_currentResumeIndex);
 
             ProfessionLabel.Text = $"Профессия: {currentResume.Profession}";
             EducationLabel.Text = $"Образование: {currentResume.Education}";
@@ -51,10 +51,10 @@ namespace HireFire.UserControls
 
         private void NextResumeButton_Click(object sender, EventArgs e)
         {
-            if (_account.Resumes.Count != 0)
+            if (jobSeeker.Resumes.Count != 0)
             {
                 _currentResumeIndex++;
-                _currentResumeIndex %= _account.Resumes.Count;
+                _currentResumeIndex %= jobSeeker.Resumes.Count;
                 UpdateResumeDisplay();
             }
         }
@@ -62,7 +62,7 @@ namespace HireFire.UserControls
         private void CreateResumeButton_Click(object sender, EventArgs e)
         {
             Controls.Clear();
-            var createResume_control = new CreateResume_Page(_account);
+            var createResume_control = new CreateResume_Page(jobSeeker);
             createResume_control.Dock = DockStyle.Fill;
             Controls.Add(createResume_control);
         }
@@ -70,15 +70,20 @@ namespace HireFire.UserControls
         private void SearchButton_Click(object sender, EventArgs e)
         {
             Controls.Clear();
-            var search_page_control = new SearchVacancies_Page(_account);
+            var search_page_control = new SearchVacancies_Page(jobSeeker);
             search_page_control.Dock = DockStyle.Fill;
             Controls.Add(search_page_control);
 
         }
         private void DialogsButton_Click(object sender, EventArgs e)
         {
+            if (jobSeeker.DialogsIds == null || jobSeeker.DialogsIds.Count == 0)
+            {
+                MessageBox.Show("У вас пока что нету диалогов");
+                return;
+            }
             Controls.Clear();
-            var dialog_page_control = new JobSeekerDialogs_Page(_account);
+            var dialog_page_control = new JobSeekerDialogs_Page(jobSeeker);
             dialog_page_control.Dock = DockStyle.Fill;
             Controls.Add(dialog_page_control);
         }
