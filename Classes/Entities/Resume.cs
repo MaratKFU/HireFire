@@ -13,7 +13,7 @@ namespace HireFire.Classes.Entities
         [Column("id")]
         [Key]
         public int Id { get; set; }
-        public int JobseekerId { get; set; }
+        public int JobSeekerId { get; set; }
         public string Profession { get; set; }
         public string Education { get; set; }
         public int Experience { get; set; }

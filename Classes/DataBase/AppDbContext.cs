@@ -116,7 +116,7 @@ public class AppDbContext : DbContext
         {
             entity.ToTable("resumes");
 
-            entity.Property(e => e.JobseekerId)
+            entity.Property(e => e.JobSeekerId)
                   .HasColumnName("jobseeker_id")
                   .HasColumnType("integer");
 

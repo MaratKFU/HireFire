@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SearchVacancies_Page));
             roundedButton11 = new HireFire.Classes.CustomInterfaceControls.SimpleRoundedButton();
             CityCriterion = new ComboBox();
             ProfessionCriterion = new ComboBox();
@@ -37,27 +36,32 @@
             roundedPictureBox4 = new RoundedPictureBox();
             roundedPictureBox3 = new RoundedPictureBox();
             roundedRectangle2 = new HireFire.Classes.CustomInterfaceControls.RoundedRectangle();
-            City = new Label();
-            roundedPictureBox1 = new RoundedPictureBox();
+            CityLabel = new Label();
+            ProfilePictureBox = new RoundedPictureBox();
             roundedButton14 = new HireFire.Classes.CustomInterfaceControls.SimpleRoundedButton();
             roundedButton13 = new HireFire.Classes.CustomInterfaceControls.SimpleRoundedButton();
             roundedRectangleWithOutline1 = new HireFire.Classes.CustomInterfaceControls.RoundedRectangleWithOutline();
+            DescriptionLabel = new Label();
             label2 = new Label();
             ExperienceLabel = new Label();
-            SkillsLabel = new Label();
-            EducationLabel = new Label();
+            SalaryLabel = new Label();
             ProfessionLabel = new Label();
-            fullNameTextNox = new TextBox();
             roundedRectangle3 = new HireFire.Classes.CustomInterfaceControls.RoundedRectangle();
+            CompanyNameLabel = new Label();
+            FullNameLabel = new Label();
             roundedRectangle1 = new HireFire.Classes.CustomInterfaceControls.RoundedRectangle();
             roundedRectangle4 = new HireFire.Classes.CustomInterfaceControls.RoundedRectangle();
             roundedPictureBox2 = new RoundedPictureBox();
             roundedRectangleWithOutline3 = new HireFire.Classes.CustomInterfaceControls.RoundedRectangleWithOutline();
             SalaryCriterion = new TextBox();
+            CityCritLabel = new Label();
+            ProfessionCritLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)roundedPictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)roundedPictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)roundedPictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)roundedPictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ProfilePictureBox).BeginInit();
+            roundedRectangleWithOutline1.SuspendLayout();
+            roundedRectangle3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)roundedPictureBox2).BeginInit();
             roundedRectangleWithOutline3.SuspendLayout();
             SuspendLayout();
@@ -73,7 +77,7 @@
             roundedButton11.Rounding = 25;
             roundedButton11.Size = new Size(100, 35);
             roundedButton11.TabIndex = 57;
-            roundedButton11.Text = "Сохранить";
+            roundedButton11.Text = "Искать";
             // 
             // CityCriterion
             // 
@@ -164,31 +168,31 @@
             roundedRectangle2.TabIndex = 46;
             roundedRectangle2.Text = "roundedRectangle2";
             // 
-            // City
+            // CityLabel
             // 
-            City.AutoSize = true;
-            City.BackColor = Color.White;
-            City.Font = new Font("Montserrat", 9F, FontStyle.Bold);
-            City.ForeColor = Color.FromArgb(161, 148, 148);
-            City.Location = new Point(525, 114);
-            City.Name = "City";
-            City.Size = new Size(62, 24);
-            City.TabIndex = 70;
-            City.Text = "Город:";
+            CityLabel.AutoSize = true;
+            CityLabel.BackColor = Color.White;
+            CityLabel.Font = new Font("Montserrat", 9F, FontStyle.Bold);
+            CityLabel.ForeColor = Color.FromArgb(161, 148, 148);
+            CityLabel.Location = new Point(250, 149);
+            CityLabel.Name = "CityLabel";
+            CityLabel.Size = new Size(62, 24);
+            CityLabel.TabIndex = 70;
+            CityLabel.Text = "Город:";
             // 
-            // roundedPictureBox1
+            // ProfilePictureBox
             // 
-            roundedPictureBox1.BackColor = Color.White;
-            roundedPictureBox1.BorderColor = Color.White;
-            roundedPictureBox1.BorderWidth = 200F;
-            roundedPictureBox1.CornerRadius = 40;
-            roundedPictureBox1.Image = (Image)resources.GetObject("roundedPictureBox1.Image");
-            roundedPictureBox1.Location = new Point(312, 20);
-            roundedPictureBox1.Name = "roundedPictureBox1";
-            roundedPictureBox1.Size = new Size(185, 185);
-            roundedPictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            roundedPictureBox1.TabIndex = 69;
-            roundedPictureBox1.TabStop = false;
+            ProfilePictureBox.BackColor = Color.White;
+            ProfilePictureBox.BorderColor = Color.White;
+            ProfilePictureBox.BorderWidth = 200F;
+            ProfilePictureBox.CornerRadius = 40;
+            ProfilePictureBox.Image = Properties.Resources.Profile_Icon_Passive;
+            ProfilePictureBox.Location = new Point(250, 20);
+            ProfilePictureBox.Name = "ProfilePictureBox";
+            ProfilePictureBox.Size = new Size(185, 185);
+            ProfilePictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            ProfilePictureBox.TabIndex = 69;
+            ProfilePictureBox.TabStop = false;
             // 
             // roundedButton14
             // 
@@ -219,16 +223,28 @@
             // roundedRectangleWithOutline1
             // 
             roundedRectangleWithOutline1.BackColor = Color.FromArgb(229, 229, 229);
+            roundedRectangleWithOutline1.Controls.Add(DescriptionLabel);
             roundedRectangleWithOutline1.CornerColor = Color.White;
             roundedRectangleWithOutline1.ForeColor = Color.White;
-            roundedRectangleWithOutline1.Location = new Point(312, 235);
+            roundedRectangleWithOutline1.Location = new Point(250, 235);
             roundedRectangleWithOutline1.Name = "roundedRectangleWithOutline1";
             roundedRectangleWithOutline1.OutlineColor = Color.Black;
             roundedRectangleWithOutline1.OutlineWidth = 1;
             roundedRectangleWithOutline1.Rounding = 20;
-            roundedRectangleWithOutline1.Size = new Size(431, 127);
+            roundedRectangleWithOutline1.Size = new Size(550, 127);
             roundedRectangleWithOutline1.TabIndex = 66;
             roundedRectangleWithOutline1.Text = "roundedRectangleWithOutline1";
+            // 
+            // DescriptionLabel
+            // 
+            DescriptionLabel.AutoSize = true;
+            DescriptionLabel.Font = new Font("Montserrat", 7F);
+            DescriptionLabel.ForeColor = Color.Black;
+            DescriptionLabel.Location = new Point(10, 10);
+            DescriptionLabel.MinimumSize = new Size(510, 110);
+            DescriptionLabel.Name = "DescriptionLabel";
+            DescriptionLabel.Size = new Size(510, 110);
+            DescriptionLabel.TabIndex = 0;
             // 
             // label2
             // 
@@ -236,7 +252,7 @@
             label2.BackColor = Color.White;
             label2.Font = new Font("Montserrat", 9F, FontStyle.Bold);
             label2.ForeColor = Color.FromArgb(161, 148, 148);
-            label2.Location = new Point(312, 208);
+            label2.Location = new Point(67, 241);
             label2.Name = "label2";
             label2.Size = new Size(97, 24);
             label2.TabIndex = 65;
@@ -248,69 +264,77 @@
             ExperienceLabel.BackColor = Color.White;
             ExperienceLabel.Font = new Font("Montserrat", 9F, FontStyle.Bold);
             ExperienceLabel.ForeColor = Color.FromArgb(161, 148, 148);
-            ExperienceLabel.Location = new Point(525, 90);
+            ExperienceLabel.Location = new Point(250, 125);
             ExperienceLabel.Name = "ExperienceLabel";
-            ExperienceLabel.Size = new Size(120, 24);
+            ExperienceLabel.Size = new Size(242, 24);
             ExperienceLabel.TabIndex = 64;
-            ExperienceLabel.Text = "Стаж работы:";
+            ExperienceLabel.Text = "Минимальный стаж работы:";
             // 
-            // SkillsLabel
+            // SalaryLabel
             // 
-            SkillsLabel.AutoSize = true;
-            SkillsLabel.BackColor = Color.White;
-            SkillsLabel.Font = new Font("Montserrat", 9F, FontStyle.Bold);
-            SkillsLabel.ForeColor = Color.FromArgb(161, 148, 148);
-            SkillsLabel.Location = new Point(525, 138);
-            SkillsLabel.Name = "SkillsLabel";
-            SkillsLabel.Size = new Size(78, 24);
-            SkillsLabel.TabIndex = 63;
-            SkillsLabel.Text = "Навыки:";
-            // 
-            // EducationLabel
-            // 
-            EducationLabel.AutoSize = true;
-            EducationLabel.BackColor = Color.White;
-            EducationLabel.Font = new Font("Montserrat", 9F, FontStyle.Bold);
-            EducationLabel.ForeColor = Color.FromArgb(161, 148, 148);
-            EducationLabel.Location = new Point(525, 66);
-            EducationLabel.Name = "EducationLabel";
-            EducationLabel.Size = new Size(123, 24);
-            EducationLabel.TabIndex = 62;
-            EducationLabel.Text = "Образование:";
+            SalaryLabel.AutoSize = true;
+            SalaryLabel.BackColor = Color.White;
+            SalaryLabel.Font = new Font("Montserrat", 9F, FontStyle.Bold);
+            SalaryLabel.ForeColor = Color.FromArgb(161, 148, 148);
+            SalaryLabel.Location = new Point(250, 101);
+            SalaryLabel.Name = "SalaryLabel";
+            SalaryLabel.Size = new Size(89, 24);
+            SalaryLabel.TabIndex = 62;
+            SalaryLabel.Text = "Зарплата:";
             // 
             // ProfessionLabel
             // 
             ProfessionLabel.AutoSize = true;
             ProfessionLabel.BackColor = Color.White;
-            ProfessionLabel.Font = new Font("Montserrat", 9F, FontStyle.Bold);
+            ProfessionLabel.Font = new Font("Montserrat", 11F, FontStyle.Bold);
             ProfessionLabel.ForeColor = Color.FromArgb(161, 148, 148);
-            ProfessionLabel.Location = new Point(525, 44);
+            ProfessionLabel.Location = new Point(241, 47);
             ProfessionLabel.Name = "ProfessionLabel";
-            ProfessionLabel.Size = new Size(107, 24);
+            ProfessionLabel.Size = new Size(133, 30);
             ProfessionLabel.TabIndex = 61;
             ProfessionLabel.Text = "Профессия:";
-            // 
-            // fullNameTextNox
-            // 
-            fullNameTextNox.BorderStyle = BorderStyle.None;
-            fullNameTextNox.Font = new Font("Montserrat", 10F, FontStyle.Bold);
-            fullNameTextNox.Location = new Point(525, 20);
-            fullNameTextNox.Name = "fullNameTextNox";
-            fullNameTextNox.Size = new Size(198, 21);
-            fullNameTextNox.TabIndex = 60;
-            fullNameTextNox.Text = "Имя работодателя";
             // 
             // roundedRectangle3
             // 
             roundedRectangle3.BackColor = Color.White;
+            roundedRectangle3.Controls.Add(CompanyNameLabel);
+            roundedRectangle3.Controls.Add(FullNameLabel);
+            roundedRectangle3.Controls.Add(SalaryLabel);
+            roundedRectangle3.Controls.Add(ExperienceLabel);
+            roundedRectangle3.Controls.Add(CityLabel);
+            roundedRectangle3.Controls.Add(ProfessionLabel);
+            roundedRectangle3.Controls.Add(label2);
             roundedRectangle3.CornerColor = Color.FromArgb(229, 229, 229);
             roundedRectangle3.ForeColor = Color.White;
-            roundedRectangle3.Location = new Point(250, -33);
+            roundedRectangle3.Location = new Point(200, -33);
             roundedRectangle3.Name = "roundedRectangle3";
             roundedRectangle3.Rounding = 100;
-            roundedRectangle3.Size = new Size(550, 470);
+            roundedRectangle3.Size = new Size(650, 470);
             roundedRectangle3.TabIndex = 59;
             roundedRectangle3.Text = "roundedRectangle3";
+            // 
+            // CompanyNameLabel
+            // 
+            CompanyNameLabel.AutoSize = true;
+            CompanyNameLabel.BackColor = Color.White;
+            CompanyNameLabel.Font = new Font("Montserrat", 9F, FontStyle.Bold);
+            CompanyNameLabel.ForeColor = Color.FromArgb(161, 148, 148);
+            CompanyNameLabel.Location = new Point(250, 77);
+            CompanyNameLabel.Name = "CompanyNameLabel";
+            CompanyNameLabel.Size = new Size(179, 24);
+            CompanyNameLabel.TabIndex = 89;
+            CompanyNameLabel.Text = "Название компании:";
+            // 
+            // FullNameLabel
+            // 
+            FullNameLabel.AutoSize = true;
+            FullNameLabel.Font = new Font("Montserrat", 9F, FontStyle.Bold);
+            FullNameLabel.ForeColor = Color.FromArgb(161, 148, 148);
+            FullNameLabel.Location = new Point(250, 173);
+            FullNameLabel.Name = "FullNameLabel";
+            FullNameLabel.Size = new Size(129, 24);
+            FullNameLabel.TabIndex = 88;
+            FullNameLabel.Text = "Работодатель:";
             // 
             // roundedRectangle1
             // 
@@ -354,7 +378,7 @@
             // 
             // roundedRectangleWithOutline3
             // 
-            roundedRectangleWithOutline3.BackColor = Color.FromArgb(229, 229, 229);
+            roundedRectangleWithOutline3.BackColor = Color.White;
             roundedRectangleWithOutline3.Controls.Add(SalaryCriterion);
             roundedRectangleWithOutline3.CornerColor = Color.FromArgb(229, 229, 229);
             roundedRectangleWithOutline3.ForeColor = Color.FromArgb(161, 148, 148);
@@ -369,7 +393,7 @@
             // 
             // SalaryCriterion
             // 
-            SalaryCriterion.BackColor = Color.FromArgb(229, 229, 229);
+            SalaryCriterion.BackColor = Color.White;
             SalaryCriterion.BorderStyle = BorderStyle.None;
             SalaryCriterion.Font = new Font("Segoe UI", 7F, FontStyle.Bold);
             SalaryCriterion.Location = new Point(7, 5);
@@ -377,24 +401,41 @@
             SalaryCriterion.Size = new Size(104, 16);
             SalaryCriterion.TabIndex = 82;
             // 
+            // CityCritLabel
+            // 
+            CityCritLabel.AutoSize = true;
+            CityCritLabel.Font = new Font("Montserrat", 7F, FontStyle.Bold);
+            CityCritLabel.Location = new Point(406, 452);
+            CityCritLabel.MaximumSize = new Size(1000, 1000);
+            CityCritLabel.Name = "CityCritLabel";
+            CityCritLabel.Size = new Size(49, 18);
+            CityCritLabel.TabIndex = 90;
+            CityCritLabel.Text = "Город:";
+            // 
+            // ProfessionCritLabel
+            // 
+            ProfessionCritLabel.AutoSize = true;
+            ProfessionCritLabel.Font = new Font("Montserrat", 7F, FontStyle.Bold);
+            ProfessionCritLabel.Location = new Point(278, 452);
+            ProfessionCritLabel.MaximumSize = new Size(1000, 1000);
+            ProfessionCritLabel.Name = "ProfessionCritLabel";
+            ProfessionCritLabel.Size = new Size(86, 18);
+            ProfessionCritLabel.TabIndex = 89;
+            ProfessionCritLabel.Text = "Профессия:";
+            // 
             // SearchVacancies_Page
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(229, 229, 229);
+            Controls.Add(CityCritLabel);
+            Controls.Add(ProfessionCritLabel);
             Controls.Add(roundedRectangleWithOutline3);
             Controls.Add(roundedPictureBox2);
-            Controls.Add(City);
-            Controls.Add(roundedPictureBox1);
+            Controls.Add(ProfilePictureBox);
             Controls.Add(roundedButton14);
             Controls.Add(roundedButton13);
             Controls.Add(roundedRectangleWithOutline1);
-            Controls.Add(label2);
-            Controls.Add(ExperienceLabel);
-            Controls.Add(SkillsLabel);
-            Controls.Add(EducationLabel);
-            Controls.Add(ProfessionLabel);
-            Controls.Add(fullNameTextNox);
             Controls.Add(roundedRectangle3);
             Controls.Add(roundedButton11);
             Controls.Add(CityCriterion);
@@ -411,7 +452,11 @@
             ((System.ComponentModel.ISupportInitialize)roundedPictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)roundedPictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)roundedPictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)roundedPictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ProfilePictureBox).EndInit();
+            roundedRectangleWithOutline1.ResumeLayout(false);
+            roundedRectangleWithOutline1.PerformLayout();
+            roundedRectangle3.ResumeLayout(false);
+            roundedRectangle3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)roundedPictureBox2).EndInit();
             roundedRectangleWithOutline3.ResumeLayout(false);
             roundedRectangleWithOutline3.PerformLayout();
@@ -428,22 +473,25 @@
         private RoundedPictureBox roundedPictureBox4;
         private RoundedPictureBox roundedPictureBox3;
         private Classes.CustomInterfaceControls.RoundedRectangle roundedRectangle2;
-        private Label City;
-        private RoundedPictureBox roundedPictureBox1;
+        private Label CityLabel;
+        private RoundedPictureBox ProfilePictureBox;
         private Classes.CustomInterfaceControls.SimpleRoundedButton roundedButton14;
         private Classes.CustomInterfaceControls.SimpleRoundedButton roundedButton13;
         private Classes.CustomInterfaceControls.RoundedRectangleWithOutline roundedRectangleWithOutline1;
         private Label label2;
         private Label ExperienceLabel;
-        private Label SkillsLabel;
-        private Label EducationLabel;
+        private Label SalaryLabel;
         private Label ProfessionLabel;
-        private TextBox fullNameTextNox;
         private Classes.CustomInterfaceControls.RoundedRectangle roundedRectangle3;
         private Classes.CustomInterfaceControls.RoundedRectangle roundedRectangle1;
         private Classes.CustomInterfaceControls.RoundedRectangle roundedRectangle4;
         private RoundedPictureBox roundedPictureBox2;
         private Classes.CustomInterfaceControls.RoundedRectangleWithOutline roundedRectangleWithOutline3;
         private TextBox SalaryCriterion;
+        private Label FullNameLabel;
+        private Label CompanyNameLabel;
+        private Label CityCritLabel;
+        private Label ProfessionCritLabel;
+        private Label DescriptionLabel;
     }
 }

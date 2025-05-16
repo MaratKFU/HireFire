@@ -28,11 +28,16 @@ namespace HireFire.UserControls
             employer = _employer;
             ProfessionCriterion.DataSource = Resourses.Lists.Professions;
             CityCriterion.DataSource = Resourses.Lists.Cities;
-            ExpCriterion.AddPlaceholder("Стаж работы");
+            ExpCriterion.AddPlaceholder("Стаж:");
             UpdateResumeDisplay();
         }
         private void DialogsButton_Click(object sender, EventArgs e)
         {
+            if (employer.DialogsIds == null || employer.DialogsIds.Count == 0)
+            {
+                MessageBox.Show("У вас пока что нету диалогов");
+                return;
+            }
             Controls.Clear();
             var dialog_page_control = new EmployerDialogs_Page(employer);
             dialog_page_control.Dock = DockStyle.Fill;
@@ -86,12 +91,12 @@ namespace HireFire.UserControls
             }
 
             var currentResume = results[currentResumeIndex];
-            var currentJobSeeker = dataService.GetJobSeeker(currentResume.JobseekerId);
+            var currentJobSeeker = dataService.GetJobSeeker(currentResume.JobSeekerId);
 
             var image = Image.FromStream(new MemoryStream(currentJobSeeker.PhotoData));
             ProfilePictureBox.Image = new Bitmap(image);
+            
             FullNameLabel.Text = $"{currentJobSeeker.Surname} {currentJobSeeker.Name} {currentJobSeeker.Lastname}";
-
             ProfessionLabel.Text = $"Профессия: {currentResume.Profession}";
             EducationLabel.Text = $"Образование: {currentResume.Education}";
             ExperienceLabel.Text = $"Опыт работы (в годах): {currentResume.Experience}";
@@ -107,7 +112,7 @@ namespace HireFire.UserControls
         {
             if (results == null || results.Count == 0)
             {
-                MessageBox.Show("Для начала найдите пользователя");
+                MessageBox.Show("У вас пока что нету диалогов");
                 return;
             }
 
@@ -115,18 +120,18 @@ namespace HireFire.UserControls
 
             var newDialog = new MyDialog
             {
-                JobSeekerId = results[currentResumeIndex].JobseekerId,
+                JobSeekerId = results[currentResumeIndex].JobSeekerId,
                 EmployerId = employer.Id,
                 MessagesIds = [],
                 EmployerInit = employer.ToString(),
-                JobSeekerInit = dataService.GetJobSeeker(results[currentResumeIndex].JobseekerId).ToString()
+                JobSeekerInit = dataService.GetJobSeeker(results[currentResumeIndex].JobSeekerId).ToString()
             };
 
 
             int dialogId = dataService.SaveDialog(newDialog);
 
             employer.DialogsIds.Add(dialogId);
-            dataService.GetJobSeeker(results[currentResumeIndex].JobseekerId).DialogsIds.Add(dialogId);
+            dataService.GetJobSeeker(results[currentResumeIndex].JobSeekerId).DialogsIds.Add(dialogId);
 
             dataService.SaveEmployer(employer);
             Controls.Clear();

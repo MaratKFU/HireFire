@@ -55,6 +55,8 @@
             CityCriterion = new ComboBox();
             ProfessionCriterion = new ComboBox();
             label1 = new Label();
+            ProfessionCritLabel = new Label();
+            CityCritLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)roundedPictureBox5).BeginInit();
             roundedRectangle3.SuspendLayout();
             roundedRectangleWithOutline1.SuspendLayout();
@@ -412,11 +414,35 @@
             label1.TabIndex = 82;
             label1.Text = "Критерии поиска:";
             // 
+            // ProfessionCritLabel
+            // 
+            ProfessionCritLabel.AutoSize = true;
+            ProfessionCritLabel.Font = new Font("Montserrat", 7F, FontStyle.Bold);
+            ProfessionCritLabel.Location = new Point(270, 448);
+            ProfessionCritLabel.MaximumSize = new Size(1000, 1000);
+            ProfessionCritLabel.Name = "ProfessionCritLabel";
+            ProfessionCritLabel.Size = new Size(86, 18);
+            ProfessionCritLabel.TabIndex = 87;
+            ProfessionCritLabel.Text = "Профессия:";
+            // 
+            // CityCritLabel
+            // 
+            CityCritLabel.AutoSize = true;
+            CityCritLabel.Font = new Font("Montserrat", 7F, FontStyle.Bold);
+            CityCritLabel.Location = new Point(398, 448);
+            CityCritLabel.MaximumSize = new Size(1000, 1000);
+            CityCritLabel.Name = "CityCritLabel";
+            CityCritLabel.Size = new Size(49, 18);
+            CityCritLabel.TabIndex = 88;
+            CityCritLabel.Text = "Город:";
+            // 
             // SearchResumes_Page
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(229, 229, 229);
+            Controls.Add(CityCritLabel);
+            Controls.Add(ProfessionCritLabel);
             Controls.Add(roundedRectangleWithOutline3);
             Controls.Add(SearchButton);
             Controls.Add(CityCriterion);
@@ -485,5 +511,7 @@
         private Label SalaryLabel;
         private Label DescriptionLabel;
         private Label FullNameLabel;
+        private Label ProfessionCritLabel;
+        private Label CityCritLabel;
     }
 }
