@@ -38,6 +38,7 @@
             ExperienceTextBox = new TextBox();
             roundedRectangleWithOutline5 = new HireFire.Classes.CustomInterfaceControls.RoundedRectangleWithOutline();
             roundedRectangleWithOutline6 = new HireFire.Classes.CustomInterfaceControls.RoundedRectangleWithOutline();
+            CitiesComboBox = new ComboBox();
             DescriptionTextBox = new TextBox();
             roundedRectangleWithOutline7 = new HireFire.Classes.CustomInterfaceControls.RoundedRectangleWithOutline();
             CreateButton = new HireFire.Classes.CustomInterfaceControls.SimpleRoundedButton();
@@ -50,7 +51,6 @@
             BackButton = new HireFire.Classes.CustomInterfaceControls.SimpleRoundedButton();
             ProfessionsComboBox = new ComboBox();
             roundedRectangleWithOutline2 = new HireFire.Classes.CustomInterfaceControls.RoundedRectangleWithOutline();
-            CitiesComboBox = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)roundedPictureBox5).BeginInit();
             roundedRectangleWithOutline6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)SearchPictureBox).BeginInit();
@@ -181,6 +181,17 @@
             roundedRectangleWithOutline6.Size = new Size(126, 30);
             roundedRectangleWithOutline6.TabIndex = 70;
             roundedRectangleWithOutline6.Text = "roundedRectangleWithOutline6";
+            // 
+            // CitiesComboBox
+            // 
+            CitiesComboBox.BackColor = Color.FromArgb(229, 229, 229);
+            CitiesComboBox.FlatStyle = FlatStyle.Flat;
+            CitiesComboBox.Font = new Font("Montserrat", 6F, FontStyle.Bold);
+            CitiesComboBox.FormattingEnabled = true;
+            CitiesComboBox.Location = new Point(4, 3);
+            CitiesComboBox.Name = "CitiesComboBox";
+            CitiesComboBox.Size = new Size(118, 24);
+            CitiesComboBox.TabIndex = 1;
             // 
             // DescriptionTextBox
             // 
@@ -320,10 +331,10 @@
             // ProfessionsComboBox
             // 
             ProfessionsComboBox.BackColor = Color.FromArgb(229, 229, 229);
-            ProfessionsComboBox.DrawMode = DrawMode.OwnerDrawVariable;
             ProfessionsComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             ProfessionsComboBox.FlatStyle = FlatStyle.Flat;
-            ProfessionsComboBox.Font = new Font("Segoe UI", 9F);
+            ProfessionsComboBox.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            ProfessionsComboBox.ForeColor = Color.Black;
             ProfessionsComboBox.FormattingEnabled = true;
             ProfessionsComboBox.Location = new Point(332, 145);
             ProfessionsComboBox.Name = "ProfessionsComboBox";
@@ -343,17 +354,6 @@
             roundedRectangleWithOutline2.Size = new Size(390, 35);
             roundedRectangleWithOutline2.TabIndex = 60;
             roundedRectangleWithOutline2.Text = "roundedRectangleWithOutline2";
-            // 
-            // CitiesComboBox
-            // 
-            CitiesComboBox.BackColor = Color.FromArgb(229, 229, 229);
-            CitiesComboBox.FlatStyle = FlatStyle.Flat;
-            CitiesComboBox.Font = new Font("Montserrat", 6F, FontStyle.Bold);
-            CitiesComboBox.FormattingEnabled = true;
-            CitiesComboBox.Location = new Point(4, 3);
-            CitiesComboBox.Name = "CitiesComboBox";
-            CitiesComboBox.Size = new Size(118, 24);
-            CitiesComboBox.TabIndex = 1;
             // 
             // CreateVacancy_Page
             // 
