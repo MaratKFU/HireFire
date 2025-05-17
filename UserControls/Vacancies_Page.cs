@@ -56,7 +56,6 @@ namespace HireFire.UserControls
             }
         }
 
-
         private void CreateVacancyButton_Click(object sender, EventArgs e)
         {
             Controls.Clear();
@@ -65,10 +64,6 @@ namespace HireFire.UserControls
             Controls.Add(createVacancy_control);
         }
 
-        private void EditButton_Click(object sender, EventArgs e)
-        {
-
-        }
         private void SearchButton_Click(object sender, EventArgs e)
         {
             Controls.Clear();
@@ -83,6 +78,7 @@ namespace HireFire.UserControls
                 MessageBox.Show("У вас пока что нету диалогов");
                 return;
             }
+
             Controls.Clear();
             var dialog_page_control = new EmployerDialogs_Page(employer);
             dialog_page_control.Dock = DockStyle.Fill;

@@ -34,7 +34,7 @@ namespace HireFire
             EnterLabel = new Label();
             Logo = new PictureBox();
             Btn_Enter = new SimpleRoundedButton();
-            Btn_employee = new OutlinedRoundedButton();
+            Btn_jobSeeker = new OutlinedRoundedButton();
             Btn_employer = new OutlinedRoundedButton();
             Btn_register = new SimpleRoundedButton();
             ((System.ComponentModel.ISupportInitialize)Logo).BeginInit();
@@ -92,27 +92,27 @@ namespace HireFire
             Btn_Enter.Text = "Войти";
             Btn_Enter.Click += Btn_Enter_Click;
             // 
-            // Btn_employee
+            // Btn_jobSeeker
             // 
-            Btn_employee.BackColor = Color.FromArgb(255, 255, 255);
-            Btn_employee.CornerColor = Color.White;
-            Btn_employee.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold);
-            Btn_employee.ForeColor = Color.FromArgb(73, 73, 73);
-            Btn_employee.Location = new Point(360, 185);
-            Btn_employee.Margin = new Padding(5);
-            Btn_employee.MousePressed = true;
-            Btn_employee.Name = "Btn_employee";
-            Btn_employee.OutlineColor = Color.FromArgb(242, 85, 26);
-            Btn_employee.OutlineColorActive = Color.FromArgb(242, 85, 26);
-            Btn_employee.OutlineColorPassive = Color.FromArgb(229, 229, 229);
-            Btn_employee.OutlineWidth = 2;
-            Btn_employee.Rounding = 40;
-            Btn_employee.Size = new Size(244, 63);
-            Btn_employee.TabIndex = 4;
-            Btn_employee.Text = "Я ищу работу";
-            Btn_employee.X = 20F;
-            Btn_employee.Y = 20F;
-            Btn_employee.MouseDown += Btn_employee_Press;
+            Btn_jobSeeker.BackColor = Color.FromArgb(255, 255, 255);
+            Btn_jobSeeker.CornerColor = Color.White;
+            Btn_jobSeeker.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold);
+            Btn_jobSeeker.ForeColor = Color.FromArgb(73, 73, 73);
+            Btn_jobSeeker.Location = new Point(360, 185);
+            Btn_jobSeeker.Margin = new Padding(5);
+            Btn_jobSeeker.MousePressed = true;
+            Btn_jobSeeker.Name = "Btn_jobSeeker";
+            Btn_jobSeeker.OutlineColor = Color.FromArgb(242, 85, 26);
+            Btn_jobSeeker.OutlineColorActive = Color.FromArgb(242, 85, 26);
+            Btn_jobSeeker.OutlineColorPassive = Color.FromArgb(229, 229, 229);
+            Btn_jobSeeker.OutlineWidth = 2;
+            Btn_jobSeeker.Rounding = 40;
+            Btn_jobSeeker.Size = new Size(244, 63);
+            Btn_jobSeeker.TabIndex = 4;
+            Btn_jobSeeker.Text = "Я ищу работу";
+            Btn_jobSeeker.X = 20F;
+            Btn_jobSeeker.Y = 20F;
+            Btn_jobSeeker.MouseDown += Btn_jobSeeker_Press;
             // 
             // Btn_employer
             // 
@@ -157,7 +157,7 @@ namespace HireFire
             BackColor = Color.FromArgb(229, 229, 229);
             Controls.Add(Btn_register);
             Controls.Add(Btn_employer);
-            Controls.Add(Btn_employee);
+            Controls.Add(Btn_jobSeeker);
             Controls.Add(Btn_Enter);
             Controls.Add(Logo);
             Controls.Add(EnterLabel);
@@ -178,7 +178,7 @@ namespace HireFire
         private Label EnterLabel;
         private PictureBox Logo;
         private SimpleRoundedButton Btn_Enter;
-        private OutlinedRoundedButton Btn_employee;
+        private OutlinedRoundedButton Btn_jobSeeker;
         private OutlinedRoundedButton Btn_employer;
         private SimpleRoundedButton Btn_register;
     }

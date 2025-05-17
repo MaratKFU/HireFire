@@ -1,7 +1,6 @@
 ﻿using HireFire.Classes.DataBase;
 using HireFire.Classes.Entities;
 using System.Drawing.Imaging;
-using System.Diagnostics;
 using HireFire.UserControls;
 
 namespace HireFire
@@ -16,6 +15,41 @@ namespace HireFire
             InitializeComponent();
             _account = account;
         }
+
+        //Бизнес логика
+        private bool DataValidation()
+        {
+            if (ProfilePictureBox.Image == null)
+            {
+                MessageBox.Show("Пожалуйста, загрузите фото профиля!");
+                return false;
+            }
+            return true;
+        }
+        private void SaveAccountData()
+        {
+            using var dataService = new DataService();
+            dataService.SaveJobSeeker(_account);
+            MessageBox.Show("Регистрация прошла успешно!");
+        }
+        private void SaveProfileImage()
+        {
+            using var memoryStream = new MemoryStream();
+            ProfilePictureBox.Image.Save(memoryStream, ImageFormat.Jpeg);
+
+            if (memoryStream.Length > 5 * 1024 * 1024)
+            {
+                MessageBox.Show("Размер изображения не должен превышать 5 МБ");
+                throw new InvalidOperationException("Image size exceeded");
+            }
+
+            _account.PhotoData = memoryStream.ToArray();
+        }
+
+
+
+
+        //Интерфейс
         private void BackButton_Click(object sender, EventArgs e)
         {
             Controls.Clear();
@@ -23,100 +57,49 @@ namespace HireFire
             employee_register_control.Dock = DockStyle.Fill;
             Controls.Add(employee_register_control);
         }
-
-        private void Description_Change(object sender, EventArgs e)
-        {
-
-        }
-
         private void FinishButton_Click(object sender, EventArgs e)
         {
+            if (!DataValidation()) return;
+
             try
             {
-                // Проверка наличия изображения
-                if (ProfilePictureBox.Image == null)
-                {
-                    MessageBox.Show("Пожалуйста, загрузите фото профиля!");
-                    return;
-                }
-
-                // Конвертация изображения в byte[]
-                using (var memoryStream = new MemoryStream())
-                {
-                    ProfilePictureBox.Image.Save(memoryStream, ImageFormat.Jpeg);
-
-                    // Проверка размера (например, максимум 5 МБ)
-                    if (memoryStream.Length > 5 * 1024 * 1024)
-                    {
-                        MessageBox.Show("Размер изображения не должен превышать 5 МБ");
-                        return;
-                    }
-
-                    _account.PhotoData = memoryStream.ToArray();
-                }
-
-                // Проверка заполненности полей
-                if (!IsAccountDataValid())
-                {
-                    MessageBox.Show("Заполните все обязательные поля!");
-                    return;
-                }
-
-                // Сохранение в базу данных
-                using (var dataService = new DataService())
-                {
-                    dataService.SaveJobSeeker(_account);
-                    MessageBox.Show("Регистрация прошла успешно!");
-                }
-
-                Controls.Clear();
-                var jobSeeker_register_control = new Resumes_Page(_account);
-                jobSeeker_register_control.Dock = DockStyle.Fill;
-                Controls.Add(jobSeeker_register_control);
+                SaveProfileImage();
+                SaveAccountData();
+                NavigateToResumesPage();
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Ошибка: {ex.Message}");
             }
         }
-        private bool IsAccountDataValid()
-        {
-            return !string.IsNullOrEmpty(_account.Name) &&
-                   !string.IsNullOrEmpty(_account.Surname) &&
-                   !string.IsNullOrEmpty(_account.Lastname) &&
-                   !string.IsNullOrEmpty(_account.City) &&
-                   !string.IsNullOrEmpty(_account.Gender) &&
-                   !string.IsNullOrEmpty(_account.Email) &&
-                   !string.IsNullOrEmpty(_account.Login) &&
-                   !string.IsNullOrEmpty(_account.PasswordHash);
-        }
 
+        private void NavigateToResumesPage()
+        {
+            Controls.Clear();
+            var resumesPage = new Resumes_Page(_account) { Dock = DockStyle.Fill };
+            Controls.Add(resumesPage);
+        }
         private void AddPhotoButton_Click(object sender, EventArgs e)
         {
-            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            using var openFileDialog = new OpenFileDialog
             {
-                openFileDialog.Title = "Выберите фото профиля";
-                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp";
-                openFileDialog.FilterIndex = 1;
-                openFileDialog.RestoreDirectory = true;
+                Title = "Выберите фото профиля",
+                Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp",
+                FilterIndex = 1,
+                RestoreDirectory = true
+            };
 
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    try
-                    {
-                        Image uploadedImage = Image.FromFile(openFileDialog.FileName);
+            if (openFileDialog.ShowDialog() != DialogResult.OK) return;
 
-                        ProfilePictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-                        ProfilePictureBox.Image = uploadedImage;
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Ошибка загрузки изображения: {ex.Message}",
-                                      "Ошибка",
-                                      MessageBoxButtons.OK,
-                                      MessageBoxIcon.Error);
-                    }
-                }
+            try
+            {
+                var image = Image.FromFile(openFileDialog.FileName);
+                ProfilePictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                ProfilePictureBox.Image = image;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка загрузки изображения: {ex.Message}", "Ошибка");
             }
         }
     }

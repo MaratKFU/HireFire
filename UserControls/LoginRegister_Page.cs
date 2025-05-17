@@ -14,12 +14,12 @@ namespace HireFire
 
         private void LoginRegiser_Page_Load(object sender, EventArgs e) { }
 
-        private void Btn_employer_Press(object sender, EventArgs e)
+        private void Btn_employer_Press(object sender, MouseEventArgs e)
         {
-            Btn_employee.AnotherBtnClicked();
+            Btn_jobSeeker.AnotherBtnClicked();
         }
 
-        private void Btn_employee_Press(object sender, EventArgs e)
+        private void Btn_jobSeeker_Press(object sender, MouseEventArgs e)
         {
             Btn_employer.AnotherBtnClicked();
         }
@@ -29,14 +29,12 @@ namespace HireFire
 
             Controls.Clear();
             Login_Page enter_control;
+
             if (Btn_employer.MousePressed)
-            {
                 enter_control = new Login_Page(true);
-            }
             else
-            {
                 enter_control = new Login_Page(false);
-            }
+
             enter_control.Dock = DockStyle.Fill;
             Controls.Add(enter_control);
 
@@ -54,7 +52,7 @@ namespace HireFire
             }
             else
             {
-                JobSeekerRegister0_Page employee_register_control = new JobSeekerRegister0_Page(new JobSeeker());
+                var employee_register_control = new JobSeekerRegister0_Page(new JobSeeker());
                 employee_register_control.Dock = DockStyle.Fill;
                 Controls.Add(employee_register_control);
             }

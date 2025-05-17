@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JobSeekerDialogs_Page));
             roundedPictureBox5 = new RoundedPictureBox();
             roundedPictureBox2 = new RoundedPictureBox();
             roundedPictureBox4 = new RoundedPictureBox();
@@ -153,7 +152,7 @@
             // 
             SendButton.BackColor = Color.FromArgb(242, 85, 26);
             SendButton.CornerColor = Color.FromArgb(229, 229, 229);
-            SendButton.Font = new Font("Segoe UI", 7F);
+            SendButton.Font = new Font("Montserrat", 7F);
             SendButton.ForeColor = Color.White;
             SendButton.Location = new Point(601, 454);
             SendButton.Name = "SendButton";
@@ -167,7 +166,7 @@
             // 
             DialogsList.BorderStyle = BorderStyle.None;
             DialogsList.DisplayMember = "EmployerInit";
-            DialogsList.Font = new Font("Segoe UI", 7F);
+            DialogsList.Font = new Font("Montserrat", 7F);
             DialogsList.FormattingEnabled = true;
             DialogsList.Location = new Point(783, 111);
             DialogsList.Name = "DialogsList";
@@ -181,7 +180,7 @@
             EmployerAvatar.BorderColor = Color.White;
             EmployerAvatar.BorderWidth = 200F;
             EmployerAvatar.CornerRadius = 100;
-            EmployerAvatar.Image = (Image)resources.GetObject("EmployerAvatar.Image");
+            EmployerAvatar.Image = Properties.Resources.Profile_Icon_Passive;
             EmployerAvatar.Location = new Point(168, 16);
             EmployerAvatar.Name = "EmployerAvatar";
             EmployerAvatar.Size = new Size(70, 70);
@@ -219,11 +218,11 @@
             // 
             TextToSend.BackColor = Color.FromArgb(244, 241, 241);
             TextToSend.BorderStyle = BorderStyle.None;
-            TextToSend.Font = new Font("Segoe UI", 15F);
+            TextToSend.Font = new Font("Montserrat", 15F);
             TextToSend.ForeColor = Color.Black;
             TextToSend.Location = new Point(176, 398);
             TextToSend.Name = "TextToSend";
-            TextToSend.Size = new Size(550, 34);
+            TextToSend.Size = new Size(550, 31);
             TextToSend.TabIndex = 101;
             // 
             // roundedRectangleWithOutline2

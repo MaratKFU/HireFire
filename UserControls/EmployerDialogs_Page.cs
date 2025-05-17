@@ -1,8 +1,6 @@
 ﻿using HireFire.Classes.Entities;
 using HireFire.Classes.CustomInterfaceControls;
 using HireFire.Classes.DataBase;
-using System.Security.Principal;
-using System.Windows.Forms;
 
 
 
@@ -26,18 +24,73 @@ namespace HireFire.UserControls
 
             DialogsList.DataSource = dialogs;
             DialogsList.SelectedIndex = 0;
+
             currJobSeeker = dataService.GetJobSeeker(((MyDialog)DialogsList.SelectedItem).JobSeekerId);
 
             ChatPanel.GetType().GetMethod("SetStyle", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).Invoke(ChatPanel, new object[] { ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint, true });
             ChatPanel.AutoScrollPosition = new Point(0, ChatPanel.VerticalScroll.Maximum);
-            TextToSend.AddPlaceholder("Напишите текст...");
+            
+            SetPlaceholderValues();
         }
+
+        //Бизнес логика
         private void LoadDialogs()
         {
             foreach(int i in employer.DialogsIds)
             {
                 dialogs.Add(dataService.GetDialog(i));
             }
+        }
+        private void LoadValues()
+        {
+            using var stream = new MemoryStream(currJobSeeker.PhotoData);
+            JobSeekerAvatar.Image = new Bitmap(stream);
+
+            FullNameLabel.Text = string.Join(" ", new[]
+            {
+        currJobSeeker.Surname,
+        currJobSeeker.Name,
+        currJobSeeker.Lastname
+    }.Where(s => !string.IsNullOrEmpty(s)));
+
+            var selectedDialog = (MyDialog)DialogsList.SelectedItem;
+            var lastMessageId = selectedDialog.MessagesIds.LastOrDefault();
+
+            ChatPanel.SuspendLayout();
+
+            foreach (var messageId in selectedDialog.MessagesIds)
+            {
+                var message = dataService.GetMessage(messageId);
+                var isOutgoing = message.Sender != "J";
+
+                var prefix = isOutgoing ? "Вы: " : $"{currJobSeeker.Name}: ";
+                var messageText = prefix + message.MessageText;
+
+                var messageControl = new RoundedMessage(
+                    messageText,
+                    isOutgoing,
+                    ChatPanel.ClientSize,
+                    message.DispatchTime)
+                {
+                };
+
+                ChatPanel.Controls.Add(messageControl);
+
+                if (messageId == lastMessageId)
+                {
+                    ChatPanel.ScrollControlIntoView(messageControl);
+                }
+            }
+
+            ChatPanel.ResumeLayout();
+        }
+
+
+
+        //Интерфейс
+        private void SetPlaceholderValues()
+        {
+            TextToSend.AddPlaceholder("Напишите текст...");
         }
         private void SearchButton_Click(object sender, EventArgs e)
         {
@@ -80,38 +133,8 @@ namespace HireFire.UserControls
                     selectedDialog.MessagesIds.Add(messageId);
                     dataService.SaveDialog(selectedDialog);
                 }
-            }
-            TextToSend.Text = "";
-        }
-        private void LoadValues()
-        {
-            var image = Image.FromStream(new MemoryStream(currJobSeeker.PhotoData));
-            JobSeekerAvatar.Image = new Bitmap(image);
-            FullNameLabel.Text = $"{currJobSeeker.Surname} {currJobSeeker.Name} {currJobSeeker.Lastname}";
-            foreach (int i in ((MyDialog)DialogsList.SelectedItem).MessagesIds)
-            {
-                UserMessage currMessage = dataService.GetMessage(i);
-                bool IOGMessage;
-                string messageText = currMessage.MessageText;
-                if (currMessage.Sender == "J")
-                {
-                    IOGMessage = false;
-                    messageText = $"{currJobSeeker.Name}: " + messageText;
-                }
-                else
-                {
-                    IOGMessage = true;
-                    messageText = "Вы: " + messageText;
-                }
-
-                var messageControl = new RoundedMessage(
-                    messageText,
-                    isOutgoing: IOGMessage,
-                    containerSize: ChatPanel.ClientSize,
-                    time: currMessage.DispatchTime,
-                    alignment: HorizontalAlignment.Center
-                );
-                ChatPanel.Controls.Add(messageControl);
+                ChatPanel.ScrollControlIntoView(messageControl);
+                TextToSend.Text = "";
             }
         }
         private void DialogsList_SelectedIndexChanged(object sender, EventArgs e)

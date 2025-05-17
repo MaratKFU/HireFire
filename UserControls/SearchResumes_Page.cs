@@ -50,13 +50,19 @@ namespace HireFire.UserControls
             profile_page_control.Dock = DockStyle.Fill;
             Controls.Add(profile_page_control);
         }
-        private void SaveButton_Click(object sender, EventArgs e)
+        private void SearchButton_Click(object sender, EventArgs e)
         {
             try
             {
                 var profession = ProfessionCriterion.Text.Trim();
                 var city = CityLabel.Text.Trim();
-                var expirience = ExpCriterion.Text.Trim();
+                var experience = ExpCriterion.Text.Trim();
+
+                if (!decimal.TryParse(experience, out var s))
+                {
+                    MessageBox.Show("Введите числовое значение для опыта работы");
+                    return;
+                }
 
                 using (var db = new AppDbContext())
                 {
@@ -65,7 +71,8 @@ namespace HireFire.UserControls
                         .OrderBy(r => r.City == city ? 0 : 1)
                         .ThenByDescending(r => r.Experience)
                         .ToList();
-                };
+                }
+                ;
                 UpdateResumeDisplay();
             }
             catch (Exception ex)
@@ -98,11 +105,11 @@ namespace HireFire.UserControls
             
             FullNameLabel.Text = $"{currentJobSeeker.Surname} {currentJobSeeker.Name} {currentJobSeeker.Lastname}";
             ProfessionLabel.Text = $"Профессия: {currentResume.Profession}";
-            EducationLabel.Text = $"Образование: {currentResume.Education}";
+            EducationLabel.Text = $"Образование: {currentResume.Education}".WrapText(new Font("Montserrat", 9F, FontStyle.Bold), 400);
             ExperienceLabel.Text = $"Опыт работы (в годах): {currentResume.Experience}";
             CityLabel.Text = $"Город проживания: {currentResume.City}";
             SalaryLabel.Text = $"Зарплата: {currentResume.Salary} рублей";
-            SkillsLabel.Text = $"Навыки: {string.Join(", ", currentResume.SoftSkills)}";
+            SkillsLabel.Text = $"Навыки: {string.Join(", ", currentResume.SoftSkills)}".WrapText(new Font("Montserrat", 9F, FontStyle.Bold), 100);
             DescriptionLabel.SetWrappedText(currentResume.Description);
             
             currentResumeIndex++;
@@ -112,7 +119,7 @@ namespace HireFire.UserControls
         {
             if (results == null || results.Count == 0)
             {
-                MessageBox.Show("У вас пока что нету диалогов");
+                MessageBox.Show("Сначала найдите резюме");
                 return;
             }
 

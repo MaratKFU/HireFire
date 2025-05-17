@@ -44,11 +44,6 @@ namespace HireFire.UserControls
             SkillsLabel.Text = $"Навыки: {string.Join(", ", currentResume.SoftSkills)}";
             DescriptionLabel.SetWrappedText(currentResume.Description);
         }
-        private void EditButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void NextResumeButton_Click(object sender, EventArgs e)
         {
             if (jobSeeker.Resumes.Count != 0)

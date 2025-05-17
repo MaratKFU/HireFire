@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployerDialogs_Page));
             roundedRectangle1 = new HireFire.Classes.CustomInterfaceControls.RoundedRectangle();
             TextToSend = new TextBox();
             roundedRectangleWithOutline1 = new HireFire.Classes.CustomInterfaceControls.RoundedRectangleWithOutline();
@@ -69,11 +68,11 @@
             // 
             TextToSend.BackColor = Color.FromArgb(244, 241, 241);
             TextToSend.BorderStyle = BorderStyle.None;
-            TextToSend.Font = new Font("Segoe UI", 15F);
+            TextToSend.Font = new Font("Montserrat", 15F);
             TextToSend.ForeColor = Color.Black;
             TextToSend.Location = new Point(168, 400);
             TextToSend.Name = "TextToSend";
-            TextToSend.Size = new Size(550, 34);
+            TextToSend.Size = new Size(550, 31);
             TextToSend.TabIndex = 3;
             // 
             // roundedRectangleWithOutline1
@@ -108,7 +107,7 @@
             JobSeekerAvatar.BorderColor = Color.White;
             JobSeekerAvatar.BorderWidth = 200F;
             JobSeekerAvatar.CornerRadius = 100;
-            JobSeekerAvatar.Image = (Image)resources.GetObject("JobSeekerAvatar.Image");
+            JobSeekerAvatar.Image = Properties.Resources.Profile_Icon_Passive;
             JobSeekerAvatar.Location = new Point(160, 18);
             JobSeekerAvatar.Name = "JobSeekerAvatar";
             JobSeekerAvatar.Size = new Size(70, 70);
@@ -216,7 +215,7 @@
             // 
             DialogsList.BorderStyle = BorderStyle.None;
             DialogsList.DisplayMember = "JobseekerInit";
-            DialogsList.Font = new Font("Segoe UI", 7F);
+            DialogsList.Font = new Font("Montserrat", 7F);
             DialogsList.FormattingEnabled = true;
             DialogsList.Location = new Point(775, 113);
             DialogsList.Name = "DialogsList";
@@ -254,7 +253,7 @@
             // 
             SendButton.BackColor = Color.FromArgb(242, 85, 26);
             SendButton.CornerColor = Color.FromArgb(229, 229, 229);
-            SendButton.Font = new Font("Segoe UI", 7F);
+            SendButton.Font = new Font("Montserrat", 7F);
             SendButton.ForeColor = Color.White;
             SendButton.Location = new Point(593, 456);
             SendButton.Name = "SendButton";

@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Data;
 using HireFire.Classes.Entities;
 using HireFire.Classes.CustomInterfaceControls;
 using HireFire.Classes.DataBase;
@@ -36,6 +28,7 @@ namespace HireFire.UserControls
                 MessageBox.Show("У вас пока что нету диалогов");
                 return;
             }
+
             Controls.Clear();
             var dialog_page_control = new JobSeekerDialogs_Page(jobSeeker);
             dialog_page_control.Dock = DockStyle.Fill;
@@ -48,13 +41,18 @@ namespace HireFire.UserControls
             profile_page_control.Dock = DockStyle.Fill;
             Controls.Add(profile_page_control);
         }
-        private void SaveButton_Click(object sender, EventArgs e)
+        private void SearchButton_Click(object sender, EventArgs e)
         {
             try
             {
                 var profession = ProfessionCriterion.Text.Trim();
                 var city = CityLabel.Text.Trim();
-                var expirience = SalaryCriterion.Text.Trim();
+                var salary = SalaryCriterion.Text.Trim();
+                
+                if (!decimal.TryParse(salary, out var s)){
+                    MessageBox.Show("Введите числовое значение для зарплаты");
+                    return;
+                }
 
                 using (var db = new AppDbContext())
                 {
@@ -109,7 +107,7 @@ namespace HireFire.UserControls
         {
             if (results == null || results.Count == 0)
             {
-                MessageBox.Show("У вас пока что нету диалогов");
+                MessageBox.Show("Сначала найдите вакансию");
                 return;
             }
 

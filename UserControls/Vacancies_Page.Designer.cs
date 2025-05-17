@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Vacancies_Page));
             roundedPictureBox4 = new RoundedPictureBox();
             roundedPictureBox3 = new RoundedPictureBox();
             roundedRectangle2 = new HireFire.Classes.CustomInterfaceControls.RoundedRectangle();
@@ -37,22 +36,23 @@
             DescriptionLabel = new Label();
             SalaryLabel = new Label();
             CreateVacancyButton = new HireFire.Classes.CustomInterfaceControls.SimpleRoundedButton();
-            FullNameLabel = new Label();
             CityLabel = new Label();
             ProfilePictureBox = new RoundedPictureBox();
             NextVacancyButton = new HireFire.Classes.CustomInterfaceControls.SimpleRoundedButton();
-            EditButton = new HireFire.Classes.CustomInterfaceControls.SimpleRoundedButton();
             roundedRectangleWithOutline1 = new HireFire.Classes.CustomInterfaceControls.RoundedRectangleWithOutline();
             label2 = new Label();
             ExperienceLabel = new Label();
             CompanyNameLabel = new Label();
             ProfessionLabel = new Label();
             roundedRectangle3 = new HireFire.Classes.CustomInterfaceControls.RoundedRectangle();
+            FullNameLabel = new Label();
+            label1 = new Label();
             roundedPictureBox5 = new RoundedPictureBox();
             roundedPictureBox2 = new RoundedPictureBox();
             ((System.ComponentModel.ISupportInitialize)roundedPictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)roundedPictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ProfilePictureBox).BeginInit();
+            roundedRectangle3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)roundedPictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)roundedPictureBox2).BeginInit();
             SuspendLayout();
@@ -159,17 +159,6 @@
             CreateVacancyButton.Text = "Новая вакансия";
             CreateVacancyButton.Click += CreateVacancyButton_Click;
             // 
-            // FullNameLabel
-            // 
-            FullNameLabel.AutoSize = true;
-            FullNameLabel.BackColor = Color.White;
-            FullNameLabel.Font = new Font("Montserrat", 12F, FontStyle.Bold);
-            FullNameLabel.ForeColor = Color.Black;
-            FullNameLabel.Location = new Point(406, 18);
-            FullNameLabel.Name = "FullNameLabel";
-            FullNameLabel.Size = new Size(0, 31);
-            FullNameLabel.TabIndex = 92;
-            // 
             // CityLabel
             // 
             CityLabel.AutoSize = true;
@@ -188,7 +177,7 @@
             ProfilePictureBox.BorderColor = Color.White;
             ProfilePictureBox.BorderWidth = 200F;
             ProfilePictureBox.CornerRadius = 40;
-            ProfilePictureBox.Image = (Image)resources.GetObject("ProfilePictureBox.Image");
+            ProfilePictureBox.Image = Properties.Resources.Profile_Icon_Passive;
             ProfilePictureBox.Location = new Point(193, 25);
             ProfilePictureBox.Name = "ProfilePictureBox";
             ProfilePictureBox.Size = new Size(185, 185);
@@ -202,27 +191,13 @@
             NextVacancyButton.CornerColor = Color.White;
             NextVacancyButton.Font = new Font("Montserrat", 8F, FontStyle.Bold);
             NextVacancyButton.ForeColor = Color.FromArgb(242, 85, 26);
-            NextVacancyButton.Location = new Point(347, 373);
+            NextVacancyButton.Location = new Point(31, 402);
             NextVacancyButton.Name = "NextVacancyButton";
             NextVacancyButton.Rounding = 20;
             NextVacancyButton.Size = new Size(137, 35);
             NextVacancyButton.TabIndex = 89;
             NextVacancyButton.Text = "Далее";
             NextVacancyButton.Click += NextVacancyButton_Click;
-            // 
-            // EditButton
-            // 
-            EditButton.BackColor = Color.FromArgb(242, 85, 26);
-            EditButton.CornerColor = Color.White;
-            EditButton.Font = new Font("Montserrat", 8F, FontStyle.Bold);
-            EditButton.ForeColor = Color.White;
-            EditButton.Location = new Point(193, 373);
-            EditButton.Name = "EditButton";
-            EditButton.Rounding = 20;
-            EditButton.Size = new Size(137, 35);
-            EditButton.TabIndex = 88;
-            EditButton.Text = "Редактировать";
-            EditButton.Click += EditButton_Click;
             // 
             // roundedRectangleWithOutline1
             // 
@@ -278,17 +253,21 @@
             // 
             ProfessionLabel.AutoSize = true;
             ProfessionLabel.BackColor = Color.White;
-            ProfessionLabel.Font = new Font("Montserrat", 9F, FontStyle.Bold);
-            ProfessionLabel.ForeColor = Color.FromArgb(161, 148, 148);
-            ProfessionLabel.Location = new Point(406, 49);
+            ProfessionLabel.Font = new Font("Montserrat", 13F, FontStyle.Bold);
+            ProfessionLabel.ForeColor = Color.Black;
+            ProfessionLabel.Location = new Point(222, 49);
             ProfessionLabel.Name = "ProfessionLabel";
-            ProfessionLabel.Size = new Size(107, 24);
+            ProfessionLabel.Size = new Size(157, 34);
             ProfessionLabel.TabIndex = 82;
             ProfessionLabel.Text = "Профессия:";
             // 
             // roundedRectangle3
             // 
             roundedRectangle3.BackColor = Color.White;
+            roundedRectangle3.Controls.Add(FullNameLabel);
+            roundedRectangle3.Controls.Add(label1);
+            roundedRectangle3.Controls.Add(ProfessionLabel);
+            roundedRectangle3.Controls.Add(NextVacancyButton);
             roundedRectangle3.CornerColor = Color.FromArgb(229, 229, 229);
             roundedRectangle3.ForeColor = Color.White;
             roundedRectangle3.Location = new Point(162, -28);
@@ -297,6 +276,27 @@
             roundedRectangle3.Size = new Size(722, 458);
             roundedRectangle3.TabIndex = 81;
             roundedRectangle3.Text = "roundedRectangle3";
+            // 
+            // FullNameLabel
+            // 
+            FullNameLabel.AutoSize = true;
+            FullNameLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            FullNameLabel.ForeColor = Color.FromArgb(161, 148, 148);
+            FullNameLabel.Location = new Point(244, 83);
+            FullNameLabel.Name = "FullNameLabel";
+            FullNameLabel.Size = new Size(150, 20);
+            FullNameLabel.TabIndex = 102;
+            FullNameLabel.Text = "ФИО работодателя";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(244, 83);
+            label1.MaximumSize = new Size(10, 10);
+            label1.MinimumSize = new Size(10, 10);
+            label1.Name = "label1";
+            label1.Size = new Size(10, 10);
+            label1.TabIndex = 83;
             // 
             // roundedPictureBox5
             // 
@@ -341,16 +341,12 @@
             Controls.Add(DescriptionLabel);
             Controls.Add(SalaryLabel);
             Controls.Add(CreateVacancyButton);
-            Controls.Add(FullNameLabel);
             Controls.Add(CityLabel);
             Controls.Add(ProfilePictureBox);
-            Controls.Add(NextVacancyButton);
-            Controls.Add(EditButton);
             Controls.Add(roundedRectangleWithOutline1);
             Controls.Add(label2);
             Controls.Add(ExperienceLabel);
             Controls.Add(CompanyNameLabel);
-            Controls.Add(ProfessionLabel);
             Controls.Add(roundedRectangle3);
             Controls.Add(roundedPictureBox5);
             Name = "Vacancies_Page";
@@ -358,6 +354,8 @@
             ((System.ComponentModel.ISupportInitialize)roundedPictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)roundedPictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)ProfilePictureBox).EndInit();
+            roundedRectangle3.ResumeLayout(false);
+            roundedRectangle3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)roundedPictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)roundedPictureBox2).EndInit();
             ResumeLayout(false);
@@ -373,11 +371,9 @@
         private Label DescriptionLabel;
         private Label SalaryLabel;
         private Classes.CustomInterfaceControls.SimpleRoundedButton CreateVacancyButton;
-        private Label FullNameLabel;
         private Label CityLabel;
         private RoundedPictureBox ProfilePictureBox;
         private Classes.CustomInterfaceControls.SimpleRoundedButton NextVacancyButton;
-        private Classes.CustomInterfaceControls.SimpleRoundedButton EditButton;
         private Classes.CustomInterfaceControls.RoundedRectangleWithOutline roundedRectangleWithOutline1;
         private Label label2;
         private Label ExperienceLabel;
@@ -386,5 +382,7 @@
         private Classes.CustomInterfaceControls.RoundedRectangle roundedRectangle3;
         private RoundedPictureBox roundedPictureBox5;
         private RoundedPictureBox roundedPictureBox2;
+        private Label label1;
+        private Label FullNameLabel;
     }
 }

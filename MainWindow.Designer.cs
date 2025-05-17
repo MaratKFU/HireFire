@@ -174,7 +174,6 @@ namespace HireFire
             MinimumSize = new Size(960, 560);
             Name = "MainWindow";
             Text = "HireFire";
-            Load += MainWindow_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
