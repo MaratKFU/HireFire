@@ -1,8 +1,3 @@
-using System.Data;
-using System.Windows.Forms;
-using Npgsql;
-using static System.ComponentModel.Design.ObjectSelectorEditor;
-
 namespace HireFire
 {
     public partial class MainWindow : Form

@@ -32,7 +32,6 @@
             CityLabel = new Label();
             ProfilePictureBox = new RoundedPictureBox();
             NextResumeButton = new HireFire.Classes.CustomInterfaceControls.SimpleRoundedButton();
-            EditButton = new HireFire.Classes.CustomInterfaceControls.SimpleRoundedButton();
             roundedRectangleWithOutline1 = new HireFire.Classes.CustomInterfaceControls.RoundedRectangleWithOutline();
             label2 = new Label();
             ExperienceLabel = new Label();
@@ -52,6 +51,7 @@
             roundedPictureBox2 = new RoundedPictureBox();
             ((System.ComponentModel.ISupportInitialize)roundedPictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ProfilePictureBox).BeginInit();
+            roundedRectangle3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)roundedPictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)roundedPictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)roundedPictureBox2).BeginInit();
@@ -103,27 +103,13 @@
             NextResumeButton.CornerColor = Color.White;
             NextResumeButton.Font = new Font("Montserrat", 8F, FontStyle.Bold);
             NextResumeButton.ForeColor = Color.FromArgb(242, 85, 26);
-            NextResumeButton.Location = new Point(347, 373);
+            NextResumeButton.Location = new Point(31, 402);
             NextResumeButton.Name = "NextResumeButton";
             NextResumeButton.Rounding = 20;
             NextResumeButton.Size = new Size(137, 35);
             NextResumeButton.TabIndex = 57;
             NextResumeButton.Text = "Далее";
             NextResumeButton.Click += NextResumeButton_Click;
-            // 
-            // EditButton
-            // 
-            EditButton.BackColor = Color.FromArgb(242, 85, 26);
-            EditButton.CornerColor = Color.White;
-            EditButton.Font = new Font("Montserrat", 8F, FontStyle.Bold);
-            EditButton.ForeColor = Color.White;
-            EditButton.Location = new Point(193, 373);
-            EditButton.Name = "EditButton";
-            EditButton.Rounding = 20;
-            EditButton.Size = new Size(137, 35);
-            EditButton.TabIndex = 56;
-            EditButton.Text = "Редактировать";
-            EditButton.Click += EditButton_Click;
             // 
             // roundedRectangleWithOutline1
             // 
@@ -202,6 +188,7 @@
             // roundedRectangle3
             // 
             roundedRectangle3.BackColor = Color.White;
+            roundedRectangle3.Controls.Add(NextResumeButton);
             roundedRectangle3.CornerColor = Color.FromArgb(229, 229, 229);
             roundedRectangle3.ForeColor = Color.White;
             roundedRectangle3.Location = new Point(162, -28);
@@ -356,8 +343,6 @@
             Controls.Add(FullNameLabel);
             Controls.Add(CityLabel);
             Controls.Add(ProfilePictureBox);
-            Controls.Add(NextResumeButton);
-            Controls.Add(EditButton);
             Controls.Add(roundedRectangleWithOutline1);
             Controls.Add(label2);
             Controls.Add(ExperienceLabel);
@@ -370,6 +355,7 @@
             Size = new Size(960, 540);
             ((System.ComponentModel.ISupportInitialize)roundedPictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)ProfilePictureBox).EndInit();
+            roundedRectangle3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)roundedPictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)roundedPictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)roundedPictureBox2).EndInit();
@@ -382,7 +368,6 @@
         private Label CityLabel;
         private RoundedPictureBox ProfilePictureBox;
         private Classes.CustomInterfaceControls.SimpleRoundedButton NextResumeButton;
-        private Classes.CustomInterfaceControls.SimpleRoundedButton EditButton;
         private Classes.CustomInterfaceControls.RoundedRectangleWithOutline roundedRectangleWithOutline1;
         private Label label2;
         private Label ExperienceLabel;

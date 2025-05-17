@@ -50,7 +50,6 @@ namespace HireFire.UserControls
 
 
 
-
         //Интерфейс
         private void SetPlaceholderValues()
         {

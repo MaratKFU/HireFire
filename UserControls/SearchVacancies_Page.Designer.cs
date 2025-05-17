@@ -201,7 +201,7 @@
             roundedButton14.CornerColor = Color.White;
             roundedButton14.Font = new Font("Montserrat", 8F, FontStyle.Bold);
             roundedButton14.ForeColor = Color.FromArgb(242, 85, 26);
-            roundedButton14.Location = new Point(606, 368);
+            roundedButton14.Location = new Point(606, 380);
             roundedButton14.Name = "roundedButton14";
             roundedButton14.Rounding = 20;
             roundedButton14.Size = new Size(137, 35);
@@ -215,7 +215,7 @@
             roundedButton13.CornerColor = Color.White;
             roundedButton13.Font = new Font("Montserrat", 8F, FontStyle.Bold);
             roundedButton13.ForeColor = Color.White;
-            roundedButton13.Location = new Point(312, 368);
+            roundedButton13.Location = new Point(312, 380);
             roundedButton13.Name = "roundedButton13";
             roundedButton13.Rounding = 20;
             roundedButton13.Size = new Size(137, 35);
@@ -229,7 +229,7 @@
             roundedRectangleWithOutline1.Controls.Add(DescriptionLabel);
             roundedRectangleWithOutline1.CornerColor = Color.White;
             roundedRectangleWithOutline1.ForeColor = Color.White;
-            roundedRectangleWithOutline1.Location = new Point(250, 235);
+            roundedRectangleWithOutline1.Location = new Point(250, 250);
             roundedRectangleWithOutline1.Name = "roundedRectangleWithOutline1";
             roundedRectangleWithOutline1.OutlineColor = Color.Black;
             roundedRectangleWithOutline1.OutlineWidth = 1;
@@ -255,7 +255,7 @@
             label2.BackColor = Color.White;
             label2.Font = new Font("Montserrat", 9F, FontStyle.Bold);
             label2.ForeColor = Color.FromArgb(161, 148, 148);
-            label2.Location = new Point(67, 241);
+            label2.Location = new Point(67, 250);
             label2.Name = "label2";
             label2.Size = new Size(97, 24);
             label2.TabIndex = 65;

@@ -55,11 +55,6 @@ namespace HireFire.UserControls
                 UpdateResumeDisplay();
             }
         }
-        private void EditButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
 
         private void CreateVacancyButton_Click(object sender, EventArgs e)
         {

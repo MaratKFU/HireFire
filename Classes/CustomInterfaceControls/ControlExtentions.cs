@@ -1,6 +1,4 @@
-﻿using HireFire.Classes.DataBase;
-using System.Text;
-using System.Windows.Forms;
+﻿using System.Text;
 namespace HireFire.Classes.CustomInterfaceControls;
 public static class ControlExtentions
 {

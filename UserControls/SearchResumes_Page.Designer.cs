@@ -33,16 +33,16 @@
             FullNameLabel = new Label();
             SalaryLabel = new Label();
             SkillsLabel = new Label();
+            CityLabel = new Label();
+            ExperienceLabel = new Label();
             ProfessionLabel = new Label();
             EducationLabel = new Label();
-            ExperienceLabel = new Label();
             label2 = new Label();
             roundedRectangleWithOutline1 = new HireFire.Classes.CustomInterfaceControls.RoundedRectangleWithOutline();
             DescriptionLabel = new Label();
             roundedButton13 = new HireFire.Classes.CustomInterfaceControls.SimpleRoundedButton();
             NextResume_Button = new HireFire.Classes.CustomInterfaceControls.SimpleRoundedButton();
             ProfilePictureBox = new RoundedPictureBox();
-            CityLabel = new Label();
             roundedPictureBox4 = new RoundedPictureBox();
             roundedPictureBox3 = new RoundedPictureBox();
             roundedRectangle2 = new HireFire.Classes.CustomInterfaceControls.RoundedRectangle();
@@ -87,6 +87,8 @@
             roundedRectangle3.Controls.Add(FullNameLabel);
             roundedRectangle3.Controls.Add(SalaryLabel);
             roundedRectangle3.Controls.Add(SkillsLabel);
+            roundedRectangle3.Controls.Add(CityLabel);
+            roundedRectangle3.Controls.Add(ExperienceLabel);
             roundedRectangle3.CornerColor = Color.FromArgb(229, 229, 229);
             roundedRectangle3.ForeColor = Color.White;
             roundedRectangle3.Location = new Point(200, -34);
@@ -113,7 +115,7 @@
             SalaryLabel.BackColor = Color.White;
             SalaryLabel.Font = new Font("Montserrat", 9F, FontStyle.Bold);
             SalaryLabel.ForeColor = Color.FromArgb(161, 148, 148);
-            SalaryLabel.Location = new Point(250, 171);
+            SalaryLabel.Location = new Point(250, 190);
             SalaryLabel.Name = "SalaryLabel";
             SalaryLabel.Size = new Size(89, 24);
             SalaryLabel.TabIndex = 87;
@@ -125,11 +127,35 @@
             SkillsLabel.BackColor = Color.White;
             SkillsLabel.Font = new Font("Montserrat", 9F, FontStyle.Bold);
             SkillsLabel.ForeColor = Color.FromArgb(161, 148, 148);
-            SkillsLabel.Location = new Point(250, 193);
+            SkillsLabel.Location = new Point(250, 214);
             SkillsLabel.Name = "SkillsLabel";
             SkillsLabel.Size = new Size(78, 24);
             SkillsLabel.TabIndex = 37;
             SkillsLabel.Text = "Навыки:";
+            // 
+            // CityLabel
+            // 
+            CityLabel.AutoSize = true;
+            CityLabel.BackColor = Color.White;
+            CityLabel.Font = new Font("Montserrat", 9F, FontStyle.Bold);
+            CityLabel.ForeColor = Color.FromArgb(161, 148, 148);
+            CityLabel.Location = new Point(250, 166);
+            CityLabel.Name = "CityLabel";
+            CityLabel.Size = new Size(62, 24);
+            CityLabel.TabIndex = 47;
+            CityLabel.Text = "Город:";
+            // 
+            // ExperienceLabel
+            // 
+            ExperienceLabel.AutoSize = true;
+            ExperienceLabel.BackColor = Color.White;
+            ExperienceLabel.Font = new Font("Montserrat", 9F, FontStyle.Bold);
+            ExperienceLabel.ForeColor = Color.FromArgb(161, 148, 148);
+            ExperienceLabel.Location = new Point(250, 142);
+            ExperienceLabel.Name = "ExperienceLabel";
+            ExperienceLabel.Size = new Size(120, 24);
+            ExperienceLabel.TabIndex = 38;
+            ExperienceLabel.Text = "Стаж работы:";
             // 
             // ProfessionLabel
             // 
@@ -155,25 +181,13 @@
             EducationLabel.TabIndex = 36;
             EducationLabel.Text = "Образование:";
             // 
-            // ExperienceLabel
-            // 
-            ExperienceLabel.AutoSize = true;
-            ExperienceLabel.BackColor = Color.White;
-            ExperienceLabel.Font = new Font("Montserrat", 9F, FontStyle.Bold);
-            ExperienceLabel.ForeColor = Color.FromArgb(161, 148, 148);
-            ExperienceLabel.Location = new Point(450, 89);
-            ExperienceLabel.Name = "ExperienceLabel";
-            ExperienceLabel.Size = new Size(120, 24);
-            ExperienceLabel.TabIndex = 38;
-            ExperienceLabel.Text = "Стаж работы:";
-            // 
             // label2
             // 
             label2.AutoSize = true;
             label2.BackColor = Color.White;
             label2.Font = new Font("Montserrat", 9F, FontStyle.Bold);
             label2.ForeColor = Color.FromArgb(161, 148, 148);
-            label2.Location = new Point(270, 207);
+            label2.Location = new Point(270, 230);
             label2.Name = "label2";
             label2.Size = new Size(97, 24);
             label2.TabIndex = 39;
@@ -185,7 +199,7 @@
             roundedRectangleWithOutline1.Controls.Add(DescriptionLabel);
             roundedRectangleWithOutline1.CornerColor = Color.White;
             roundedRectangleWithOutline1.ForeColor = Color.White;
-            roundedRectangleWithOutline1.Location = new Point(250, 234);
+            roundedRectangleWithOutline1.Location = new Point(250, 260);
             roundedRectangleWithOutline1.Name = "roundedRectangleWithOutline1";
             roundedRectangleWithOutline1.OutlineColor = Color.Black;
             roundedRectangleWithOutline1.OutlineWidth = 1;
@@ -212,7 +226,7 @@
             roundedButton13.CornerColor = Color.White;
             roundedButton13.Font = new Font("Montserrat", 8F, FontStyle.Bold);
             roundedButton13.ForeColor = Color.White;
-            roundedButton13.Location = new Point(313, 367);
+            roundedButton13.Location = new Point(313, 390);
             roundedButton13.Name = "roundedButton13";
             roundedButton13.Rounding = 20;
             roundedButton13.Size = new Size(137, 35);
@@ -226,7 +240,7 @@
             NextResume_Button.CornerColor = Color.White;
             NextResume_Button.Font = new Font("Montserrat", 8F, FontStyle.Bold);
             NextResume_Button.ForeColor = Color.FromArgb(242, 85, 26);
-            NextResume_Button.Location = new Point(607, 367);
+            NextResume_Button.Location = new Point(607, 390);
             NextResume_Button.Name = "NextResume_Button";
             NextResume_Button.Rounding = 20;
             NextResume_Button.Size = new Size(137, 35);
@@ -247,18 +261,6 @@
             ProfilePictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             ProfilePictureBox.TabIndex = 46;
             ProfilePictureBox.TabStop = false;
-            // 
-            // CityLabel
-            // 
-            CityLabel.AutoSize = true;
-            CityLabel.BackColor = Color.White;
-            CityLabel.Font = new Font("Montserrat", 9F, FontStyle.Bold);
-            CityLabel.ForeColor = Color.FromArgb(161, 148, 148);
-            CityLabel.Location = new Point(450, 113);
-            CityLabel.Name = "CityLabel";
-            CityLabel.Size = new Size(62, 24);
-            CityLabel.TabIndex = 47;
-            CityLabel.Text = "Город:";
             // 
             // roundedPictureBox4
             // 
@@ -454,13 +456,11 @@
             Controls.Add(roundedRectangle2);
             Controls.Add(roundedRectangle1);
             Controls.Add(roundedRectangle4);
-            Controls.Add(CityLabel);
             Controls.Add(ProfilePictureBox);
             Controls.Add(NextResume_Button);
             Controls.Add(roundedButton13);
             Controls.Add(roundedRectangleWithOutline1);
             Controls.Add(label2);
-            Controls.Add(ExperienceLabel);
             Controls.Add(EducationLabel);
             Controls.Add(ProfessionLabel);
             Controls.Add(roundedPictureBox5);

@@ -13,6 +13,7 @@ namespace HireFire
             InitializeComponent();
             _account = account;
 
+            CityComboBox.DataSource = HireFire.Resourses.Lists.Cities;
             SetPlaceholderValues();
         }
         //Бизнес логика
@@ -21,7 +22,7 @@ namespace HireFire
             _account.Name = NameTextBox.Text;
             _account.Surname = SurnameTextBox.Text;
             _account.Lastname = LastnameTextBox.Text;
-            _account.City = CityTextBox.Text;
+            _account.City = CityComboBox.Text;
             _account.BirthDate = DateTime.Parse(BirthDatePicker.Text);
         }
         private bool DataValidation()
@@ -29,7 +30,7 @@ namespace HireFire
             bool isNameValid = NameTextBox.ForeColor == Color.Black && !string.IsNullOrEmpty(NameTextBox.Text);
             bool isSurnameValid = SurnameTextBox.ForeColor == Color.Black && !string.IsNullOrEmpty(SurnameTextBox.Text);
             bool isLastnameValid = LastnameTextBox.ForeColor == Color.Black && !string.IsNullOrEmpty(LastnameTextBox.Text);
-            bool isCityValid = CityTextBox.ForeColor == Color.Black && !string.IsNullOrEmpty(CityTextBox.Text);
+            bool isCityValid = !string.IsNullOrEmpty(CityComboBox.Text);
 
             if (!isNameValid || !isSurnameValid || !isLastnameValid || !isCityValid)
             {
@@ -47,7 +48,6 @@ namespace HireFire
             SurnameTextBox.AddPlaceholder("Фамилию");
             NameTextBox.AddPlaceholder("Имя");
             LastnameTextBox.AddPlaceholder("Отчество");
-            CityTextBox.AddPlaceholder("Город");
         }
         private void Next_Button_Click(object sender, EventArgs e)
         {

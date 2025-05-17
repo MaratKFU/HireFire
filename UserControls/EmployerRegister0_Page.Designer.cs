@@ -43,14 +43,16 @@ namespace HireFire
             label1 = new Label();
             Previous_Button = new SimpleRoundedButton();
             Next_Button = new SimpleRoundedButton();
-            CityTextBox = new TextBox();
             roundedRectangleWithOutline3 = new RoundedRectangleWithOutline();
+            CityComboBox = new ComboBox();
             SurnameTextBox = new TextBox();
             roundedRectangleWithOutline2 = new RoundedRectangleWithOutline();
             roundedRectangle1 = new RoundedRectangle();
             DateLabel = new Label();
             BirthDatePicker = new DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            roundedRectangleWithOutline3.SuspendLayout();
+            roundedRectangle1.SuspendLayout();
             SuspendLayout();
             // 
             // Btn_SexFemale
@@ -104,7 +106,7 @@ namespace HireFire
             label3.ForeColor = Color.Black;
             label3.Location = new Point(463, 361);
             label3.Name = "label3";
-            label3.Size = new Size(33, 15);
+            label3.Size = new Size(34, 18);
             label3.TabIndex = 64;
             label3.Text = "Пол";
             // 
@@ -116,7 +118,7 @@ namespace HireFire
             label2.ForeColor = Color.FromArgb(242, 85, 26);
             label2.Location = new Point(433, 207);
             label2.Name = "label2";
-            label2.Size = new Size(102, 15);
+            label2.Size = new Size(101, 18);
             label2.TabIndex = 63;
             label2.Text = "Введите ваши";
             // 
@@ -128,7 +130,7 @@ namespace HireFire
             LastnameTextBox.ForeColor = Color.Black;
             LastnameTextBox.Location = new Point(538, 235);
             LastnameTextBox.Name = "LastnameTextBox";
-            LastnameTextBox.Size = new Size(66, 16);
+            LastnameTextBox.Size = new Size(66, 15);
             LastnameTextBox.TabIndex = 62;
             // 
             // roundedRectangleWithOutline6
@@ -153,7 +155,7 @@ namespace HireFire
             NameTextBox.ForeColor = Color.Black;
             NameTextBox.Location = new Point(440, 235);
             NameTextBox.Name = "NameTextBox";
-            NameTextBox.Size = new Size(66, 16);
+            NameTextBox.Size = new Size(66, 15);
             NameTextBox.TabIndex = 60;
             // 
             // roundedRectangleWithOutline1
@@ -188,9 +190,10 @@ namespace HireFire
             label1.AutoSize = true;
             label1.BackColor = Color.White;
             label1.Font = new Font("Montserrat", 11F, FontStyle.Bold);
-            label1.Location = new Point(365, 159);
+            label1.ForeColor = Color.Black;
+            label1.Location = new Point(48, 67);
             label1.Name = "label1";
-            label1.Size = new Size(239, 48);
+            label1.Size = new Size(256, 60);
             label1.TabIndex = 57;
             label1.Text = "          Заполните\nосновную информацию";
             // 
@@ -222,20 +225,10 @@ namespace HireFire
             Next_Button.Text = "Далее";
             Next_Button.Click += Next_Button_Click;
             // 
-            // CityTextBox
-            // 
-            CityTextBox.BackColor = Color.FromArgb(229, 229, 229);
-            CityTextBox.BorderStyle = BorderStyle.None;
-            CityTextBox.Font = new Font("Segoe UI", 7F, FontStyle.Bold);
-            CityTextBox.ForeColor = Color.Black;
-            CityTextBox.Location = new Point(372, 279);
-            CityTextBox.Name = "CityTextBox";
-            CityTextBox.Size = new Size(220, 16);
-            CityTextBox.TabIndex = 52;
-            // 
             // roundedRectangleWithOutline3
             // 
             roundedRectangleWithOutline3.BackColor = Color.FromArgb(229, 229, 229);
+            roundedRectangleWithOutline3.Controls.Add(CityComboBox);
             roundedRectangleWithOutline3.CornerColor = Color.White;
             roundedRectangleWithOutline3.ForeColor = Color.FromArgb(161, 148, 148);
             roundedRectangleWithOutline3.Location = new Point(365, 272);
@@ -247,6 +240,17 @@ namespace HireFire
             roundedRectangleWithOutline3.TabIndex = 51;
             roundedRectangleWithOutline3.Text = "roundedRectangleWithOutline3";
             // 
+            // CityComboBox
+            // 
+            CityComboBox.BackColor = Color.FromArgb(229, 229, 229);
+            CityComboBox.FlatStyle = FlatStyle.Flat;
+            CityComboBox.Font = new Font("Segoe UI", 8F);
+            CityComboBox.FormattingEnabled = true;
+            CityComboBox.Location = new Point(4, 2);
+            CityComboBox.Name = "CityComboBox";
+            CityComboBox.Size = new Size(226, 25);
+            CityComboBox.TabIndex = 70;
+            // 
             // SurnameTextBox
             // 
             SurnameTextBox.BackColor = Color.FromArgb(229, 229, 229);
@@ -255,7 +259,7 @@ namespace HireFire
             SurnameTextBox.ForeColor = Color.Black;
             SurnameTextBox.Location = new Point(346, 235);
             SurnameTextBox.Name = "SurnameTextBox";
-            SurnameTextBox.Size = new Size(66, 16);
+            SurnameTextBox.Size = new Size(66, 15);
             SurnameTextBox.TabIndex = 50;
             // 
             // roundedRectangleWithOutline2
@@ -275,6 +279,7 @@ namespace HireFire
             // roundedRectangle1
             // 
             roundedRectangle1.BackColor = Color.White;
+            roundedRectangle1.Controls.Add(label1);
             roundedRectangle1.CornerColor = Color.FromArgb(229, 229, 229);
             roundedRectangle1.ForeColor = Color.White;
             roundedRectangle1.Location = new Point(317, 80);
@@ -291,7 +296,7 @@ namespace HireFire
             DateLabel.Font = new Font("Montserrat", 5F, FontStyle.Bold);
             DateLabel.Location = new Point(372, 305);
             DateLabel.Name = "DateLabel";
-            DateLabel.Size = new Size(76, 12);
+            DateLabel.Size = new Size(83, 14);
             DateLabel.TabIndex = 68;
             DateLabel.Text = "Дату рождения";
             // 
@@ -320,10 +325,8 @@ namespace HireFire
             Controls.Add(NameTextBox);
             Controls.Add(roundedRectangleWithOutline1);
             Controls.Add(pictureBox1);
-            Controls.Add(label1);
             Controls.Add(Previous_Button);
             Controls.Add(Next_Button);
-            Controls.Add(CityTextBox);
             Controls.Add(roundedRectangleWithOutline3);
             Controls.Add(SurnameTextBox);
             Controls.Add(roundedRectangleWithOutline2);
@@ -331,6 +334,9 @@ namespace HireFire
             Name = "EmployerRegister0_Page";
             Size = new Size(960, 540);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            roundedRectangleWithOutline3.ResumeLayout(false);
+            roundedRectangle1.ResumeLayout(false);
+            roundedRectangle1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -354,12 +360,12 @@ namespace HireFire
         private Label label1;
         private SimpleRoundedButton Previous_Button;
         private SimpleRoundedButton Next_Button;
-        private TextBox CityTextBox;
         private RoundedRectangleWithOutline roundedRectangleWithOutline3;
         private TextBox SurnameTextBox;
         private RoundedRectangleWithOutline roundedRectangleWithOutline2;
         private RoundedRectangle roundedRectangle1;
         private Label DateLabel;
         private DateTimePicker BirthDatePicker;
+        private ComboBox CityComboBox;
     }
 }

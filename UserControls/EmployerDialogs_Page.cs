@@ -43,40 +43,47 @@ namespace HireFire.UserControls
         }
         private void LoadValues()
         {
-            var image = Image.FromStream(new MemoryStream(currJobSeeker.PhotoData));
-            JobSeekerAvatar.Image = new Bitmap(image);
-            FullNameLabel.Text = $"{currJobSeeker.Surname} {currJobSeeker.Name} {currJobSeeker.Lastname}";
-            foreach (int i in ((MyDialog)DialogsList.SelectedItem).MessagesIds)
+            using var stream = new MemoryStream(currJobSeeker.PhotoData);
+            JobSeekerAvatar.Image = new Bitmap(stream);
+
+            FullNameLabel.Text = string.Join(" ", new[]
             {
-                UserMessage currMessage = dataService.GetMessage(i);
-                bool IOGMessage;
-                string messageText = currMessage.MessageText;
-                if (currMessage.Sender == "J")
-                {
-                    IOGMessage = false;
-                    messageText = $"{currJobSeeker.Name}: " + messageText;
-                }
-                else
-                {
-                    IOGMessage = true;
-                    messageText = "Вы: " + messageText;
-                }
+        currJobSeeker.Surname,
+        currJobSeeker.Name,
+        currJobSeeker.Lastname
+    }.Where(s => !string.IsNullOrEmpty(s)));
+
+            var selectedDialog = (MyDialog)DialogsList.SelectedItem;
+            var lastMessageId = selectedDialog.MessagesIds.LastOrDefault();
+
+            ChatPanel.SuspendLayout();
+
+            foreach (var messageId in selectedDialog.MessagesIds)
+            {
+                var message = dataService.GetMessage(messageId);
+                var isOutgoing = message.Sender != "J";
+
+                var prefix = isOutgoing ? "Вы: " : $"{currJobSeeker.Name}: ";
+                var messageText = prefix + message.MessageText;
 
                 var messageControl = new RoundedMessage(
                     messageText,
-                    isOutgoing: IOGMessage,
-                    containerSize: ChatPanel.ClientSize,
-                    time: currMessage.DispatchTime,
-                    alignment: HorizontalAlignment.Center
-                );
+                    isOutgoing,
+                    ChatPanel.ClientSize,
+                    message.DispatchTime)
+                {
+                };
+
                 ChatPanel.Controls.Add(messageControl);
-                if (i == ((MyDialog)DialogsList.SelectedItem).MessagesIds.Count - 1)
+
+                if (messageId == lastMessageId)
                 {
                     ChatPanel.ScrollControlIntoView(messageControl);
                 }
             }
-        }
 
+            ChatPanel.ResumeLayout();
+        }
 
 
 

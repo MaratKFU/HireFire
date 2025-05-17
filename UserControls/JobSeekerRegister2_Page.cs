@@ -19,9 +19,34 @@ namespace HireFire
         //Бизнес логика
         private bool DataValidation()
         {
-            MessageBox.Show("Пожалуйста, загрузите фото профиля!");
-            return ProfilePictureBox.Image == null;
+            if (ProfilePictureBox.Image == null)
+            {
+                MessageBox.Show("Пожалуйста, загрузите фото профиля!");
+                return false;
+            }
+            return true;
         }
+        private void SaveAccountData()
+        {
+            using var dataService = new DataService();
+            dataService.SaveJobSeeker(_account);
+            MessageBox.Show("Регистрация прошла успешно!");
+        }
+        private void SaveProfileImage()
+        {
+            using var memoryStream = new MemoryStream();
+            ProfilePictureBox.Image.Save(memoryStream, ImageFormat.Jpeg);
+
+            if (memoryStream.Length > 5 * 1024 * 1024)
+            {
+                MessageBox.Show("Размер изображения не должен превышать 5 МБ");
+                throw new InvalidOperationException("Image size exceeded");
+            }
+
+            _account.PhotoData = memoryStream.ToArray();
+        }
+
+
 
 
         //Интерфейс
@@ -34,65 +59,47 @@ namespace HireFire
         }
         private void FinishButton_Click(object sender, EventArgs e)
         {
-            if (!DataValidation())
-                return;
+            if (!DataValidation()) return;
+
             try
             {
-                using (var memoryStream = new MemoryStream())
-                {
-                    ProfilePictureBox.Image.Save(memoryStream, ImageFormat.Jpeg);
-
-                    if (memoryStream.Length > 5 * 1024 * 1024)
-                    {
-                        MessageBox.Show("Размер изображения не должен превышать 5 МБ");
-                        return;
-                    }
-
-                    _account.PhotoData = memoryStream.ToArray();
-                }
-
-                using (var dataService = new DataService())
-                {
-                    dataService.SaveJobSeeker(_account);
-                    MessageBox.Show("Регистрация прошла успешно!");
-                }
-
-                Controls.Clear();
-                var jobSeeker_register_control = new Resumes_Page(_account);
-                jobSeeker_register_control.Dock = DockStyle.Fill;
-                Controls.Add(jobSeeker_register_control);
+                SaveProfileImage();
+                SaveAccountData();
+                NavigateToResumesPage();
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Ошибка: {ex.Message}");
             }
         }
+
+        private void NavigateToResumesPage()
+        {
+            Controls.Clear();
+            var resumesPage = new Resumes_Page(_account) { Dock = DockStyle.Fill };
+            Controls.Add(resumesPage);
+        }
         private void AddPhotoButton_Click(object sender, EventArgs e)
         {
-            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            using var openFileDialog = new OpenFileDialog
             {
-                openFileDialog.Title = "Выберите фото профиля";
-                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp";
-                openFileDialog.FilterIndex = 1;
-                openFileDialog.RestoreDirectory = true;
+                Title = "Выберите фото профиля",
+                Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp",
+                FilterIndex = 1,
+                RestoreDirectory = true
+            };
 
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    try
-                    {
-                        Image uploadedImage = Image.FromFile(openFileDialog.FileName);
+            if (openFileDialog.ShowDialog() != DialogResult.OK) return;
 
-                        ProfilePictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-                        ProfilePictureBox.Image = uploadedImage;
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Ошибка загрузки изображения: {ex.Message}",
-                                      "Ошибка",
-                                      MessageBoxButtons.OK,
-                                      MessageBoxIcon.Error);
-                    }
-                }
+            try
+            {
+                var image = Image.FromFile(openFileDialog.FileName);
+                ProfilePictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                ProfilePictureBox.Image = image;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка загрузки изображения: {ex.Message}", "Ошибка");
             }
         }
     }

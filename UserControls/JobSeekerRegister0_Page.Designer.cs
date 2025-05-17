@@ -34,7 +34,6 @@ namespace HireFire
             label1 = new Label();
             Previous_Button = new SimpleRoundedButton();
             Next_Button = new SimpleRoundedButton();
-            CityTextBox = new TextBox();
             roundedRectangleWithOutline3 = new RoundedRectangleWithOutline();
             SurnameTextBox = new TextBox();
             roundedRectangleWithOutline2 = new RoundedRectangleWithOutline();
@@ -49,7 +48,9 @@ namespace HireFire
             Btn_SexFemale = new OutlinedRoundedButton();
             BirthDatePicker = new DateTimePicker();
             DateLabel = new Label();
+            CityComboBox = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            roundedRectangleWithOutline3.SuspendLayout();
             SuspendLayout();
             // 
             // pictureBox1
@@ -104,20 +105,10 @@ namespace HireFire
             Next_Button.Text = "Далее";
             Next_Button.Click += Next_Button_Click;
             // 
-            // CityTextBox
-            // 
-            CityTextBox.BackColor = Color.FromArgb(229, 229, 229);
-            CityTextBox.BorderStyle = BorderStyle.None;
-            CityTextBox.Font = new Font("Segoe UI", 7F, FontStyle.Bold);
-            CityTextBox.ForeColor = Color.Black;
-            CityTextBox.Location = new Point(371, 279);
-            CityTextBox.Name = "CityTextBox";
-            CityTextBox.Size = new Size(220, 16);
-            CityTextBox.TabIndex = 31;
-            // 
             // roundedRectangleWithOutline3
             // 
             roundedRectangleWithOutline3.BackColor = Color.FromArgb(229, 229, 229);
+            roundedRectangleWithOutline3.Controls.Add(CityComboBox);
             roundedRectangleWithOutline3.CornerColor = Color.White;
             roundedRectangleWithOutline3.ForeColor = Color.FromArgb(161, 148, 148);
             roundedRectangleWithOutline3.Location = new Point(364, 272);
@@ -303,6 +294,17 @@ namespace HireFire
             DateLabel.TabIndex = 70;
             DateLabel.Text = "Дату рождения";
             // 
+            // CityComboBox
+            // 
+            CityComboBox.BackColor = Color.FromArgb(229, 229, 229);
+            CityComboBox.FlatStyle = FlatStyle.Flat;
+            CityComboBox.Font = new Font("Segoe UI", 8F);
+            CityComboBox.FormattingEnabled = true;
+            CityComboBox.Location = new Point(4, 3);
+            CityComboBox.Name = "CityComboBox";
+            CityComboBox.Size = new Size(226, 25);
+            CityComboBox.TabIndex = 71;
+            // 
             // JobSeekerRegister0_Page
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -322,7 +324,6 @@ namespace HireFire
             Controls.Add(label1);
             Controls.Add(Previous_Button);
             Controls.Add(Next_Button);
-            Controls.Add(CityTextBox);
             Controls.Add(roundedRectangleWithOutline3);
             Controls.Add(SurnameTextBox);
             Controls.Add(roundedRectangleWithOutline2);
@@ -330,6 +331,7 @@ namespace HireFire
             Name = "JobSeekerRegister0_Page";
             Size = new Size(960, 540);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            roundedRectangleWithOutline3.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -340,7 +342,6 @@ namespace HireFire
         private Label label1;
         private SimpleRoundedButton Previous_Button;
         private SimpleRoundedButton Next_Button;
-        private TextBox CityTextBox;
         private RoundedRectangleWithOutline roundedRectangleWithOutline3;
         private TextBox SurnameTextBox;
         private RoundedRectangleWithOutline roundedRectangleWithOutline2;
@@ -355,5 +356,6 @@ namespace HireFire
         private OutlinedRoundedButton Btn_SexFemale;
         private DateTimePicker BirthDatePicker;
         private Label DateLabel;
+        private ComboBox CityComboBox;
     }
 }
